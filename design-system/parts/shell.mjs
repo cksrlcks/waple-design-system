@@ -21,7 +21,7 @@ export const css = `
   .menubar__sub{position:relative} .menubar__sub>.menu{position:absolute;top:calc(-1 * var(--dim-x1_5));left:calc(100% + var(--dim-x1_5));z-index:3;width:200px}
   /* ── Auth layout ── 로그인 전 화면 전용 틀. 한 단 낮은 바탕 가운데에 420 패널 하나 — 머리(제품 이름·안내) · 본문(Callout·Field·Button) · 발(다른 입구) */
   .auth{min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:var(--dim-x6);background:var(--bg-layer-basement)}
-  .auth__panel{display:flex;flex-direction:column;gap:var(--dim-x5);width:100%;max-width:420px;margin:0;padding:var(--dim-x8);border:1px solid var(--stroke-neutral-strong);border-radius:var(--radius-xl);background:var(--bg-layer-default);text-align:left}
+  .auth__panel{display:flex;flex-direction:column;gap:var(--dim-x5);width:100%;max-width:420px;padding:var(--dim-x8);border:1px solid var(--stroke-neutral-strong);border-radius:var(--radius-xl);background:var(--bg-layer-default);text-align:left}
   .auth__panel .field{min-width:0} .auth__panel .callout__body{word-break:keep-all}
   .auth__head{display:flex;flex-direction:column;gap:var(--dim-x1_5)}
   .auth__title{margin:0;font-size:var(--font-size-t6);line-height:var(--line-height-t6);font-weight:var(--font-weight-semibold);color:var(--fg-neutral)}
@@ -35,8 +35,9 @@ const A_INFO = '<div class="callout info">' + icon('info-circle-filled') + '<div
 const A_DOWN = '<div class="callout danger" role="alert">' + icon('alert-circle-filled') + '<div class="callout__body"><span class="callout__text">서버에 연결할 수 없습니다. 잠시 뒤 다시 시도해 주세요.</span></div></div>';
 const A_FOOT = '<div class="auth__foot"><span>에이전트를 발급·관리하시나요?</span><a class="btn sm neutral-outline" href="#">관리자 콘솔</a></div>';
 const aField = (id, err) => '<div class="field lg"><label for="' + id + '">진입 코드</label><div class="ctrl"><input id="' + id + '" placeholder="K7M2-9QXP-3T" autocomplete="off" spellcheck="false"' + (err ? ' aria-invalid="true" aria-describedby="' + id + '-err"' : ' aria-describedby="auth-help"') + '></div>' + (err ? '<div class="field__err" id="' + id + '-err">' + icon('alert-circle-filled') + '<span>' + err + '</span></div>' : '') + '</div>';
-const authPage = (o = {}) => '<main class="auth" style="min-height:' + (o.h || 'auto') + '"><form class="auth__panel"><div class="auth__head"><h1 class="auth__title">' + (o.title || 'Waple Agent') + '</h1><p class="auth__desc">' + (o.desc || '관리자에게 받은 진입 코드를 입력해 주세요.') + '</p></div>' +
-  (o.body || A_INFO + aField(o.id || 'auth-code')) + '<button class="btn lg brand-solid fill" type="submit">' + (o.submit || '접속') + '</button>' + (o.foot === false ? '' : A_FOOT) + '</form></main>';
+// 틀은 폼을 갖지 않는다 — 화면이 <form>(CSS 없음)으로 틀 전체를 감싸고, 본문은 패널의 직계 자식이라 패널 간격을 받는다
+const authPage = (o = {}) => '<form><main class="auth" style="min-height:' + (o.h || 'auto') + '"><div class="auth__panel"><div class="auth__head"><h1 class="auth__title">' + (o.title || 'Waple Agent') + '</h1><p class="auth__desc">' + (o.desc || '관리자에게 받은 진입 코드를 입력해 주세요.') + '</p></div>' +
+  (o.body || A_INFO + aField(o.id || 'auth-code')) + '<button class="btn lg brand-solid fill" type="submit">' + (o.submit || '접속') + '</button>' + (o.foot === false ? '' : A_FOOT) + '</div></main></form>';
 const A_ADMIN = '<div class="field lg"><label for="auth-pw">관리자 비밀번호</label><div class="ctrl"><input id="auth-pw" type="password" autocomplete="current-password"></div></div>';
 
 const PLUS = icon('message-plus'), CHEV = icon('chevron-down'), SEP = '<hr class="menu__sep">';
@@ -163,7 +164,7 @@ export const pages = `
   <h2>Anatomy</h2>
   <div class="anatomy">
     <div class="demo" style="flex:1 1 100%;padding:0">${authPage({ h: '600px' })}</div>
-    <ol><li><b>Page</b> — <code>&lt;main class="auth"&gt;</code> 화면 전체(100dvh) · <code>--bg-layer-basement</code> · 가운데 정렬</li><li><b>Panel</b> — <code>&lt;form class="auth__panel"&gt;</code> 최대 420px · 흰 면 · 선 strong · <code>--radius-xl</code> · 부위 사이 20</li><li><b>Head</b> — 제품 이름 t6 600(<code>h1</code>) + 안내 한 줄 t2 subtle</li><li><b>Body</b> — Callout 하나(선택) · Field lg 한두 칸 · 주요 버튼 lg fill 하나</li><li><b>Foot</b> (선택) — 위 선 뒤 한 줄 문구 t1 muted + sm outline 버튼 · 다른 입구(관리자 · 도움말)</li></ol>
+    <ol><li><b>Page</b> — <code>&lt;main class="auth"&gt;</code> 화면 전체(100dvh) · <code>--bg-layer-basement</code> · 가운데 정렬</li><li><b>Panel</b> — <code>.auth__panel</code> 최대 420px · 흰 면 · 선 strong · <code>--radius-xl</code> · 부위 사이 20. 폼을 갖지 않습니다 — 화면이 <code>&lt;form&gt;</code>(CSS 없음)으로 틀 전체를 감쌉니다</li><li><b>Head</b> — 제품 이름 t6 600(<code>h1</code>) + 안내 한 줄 t2 subtle</li><li><b>Body</b> — 패널의 직계 자식: Callout 하나(선택) · Field lg 한두 칸 · 주요 버튼 lg fill 하나</li><li><b>Foot</b> (선택) — 위 선 뒤 한 줄 문구 t1 muted + sm outline 버튼 · 다른 입구(관리자 · 도움말)</li></ol>
   </div>
   <h2>Properties</h2>
   <h3>Foot</h3>
@@ -189,7 +190,7 @@ export const pages = `
   <h2>Auth layout vs. Dialog vs. Card</h2>
   <table>${C1}<tr><th></th><th>Auth layout</th><th>Dialog</th><th>Card</th></tr><tr><td>뜻</td><td>로그인 전 화면 전체</td><td>하던 일 위에 잠깐 뜨는 확인 · 입력</td><td>화면 안 한 대상의 정보 상자</td></tr><tr><td>바탕</td><td>basement 화면 전체, 다른 UI 없음</td><td>어두운 막 뒤에 원래 화면</td><td>앱 셸 안</td></tr><tr><td>제목</td><td><code>h1</code> t6 — 페이지 제목</td><td>t3 600 · <code>aria-labelledby</code></td><td><code>h3</code> t3</td></tr><tr><td>쓰는 곳</td><td>직원 앱 로그인 · 콘솔 로그인</td><td>상신 · 삭제 확인</td><td>목록 · 대시보드</td></tr></table>
   <h2>Specification</h2>
-  <table>${C1}<tr><th>부위</th><th>토큰</th></tr><tr><td>Page</td><td>min-height 100dvh · 가운데 정렬 · 여백 <code>--dim-x6</code> · <code>--bg-layer-basement</code></td></tr><tr><td>Panel</td><td>최대 420px · 여백 <code>--dim-x8</code> · 사이 <code>--dim-x5</code> · <code>--bg-layer-default</code> · 1px <code>--stroke-neutral-strong</code> · <code>--radius-xl</code></td></tr><tr><td>Head</td><td>사이 <code>--dim-x1_5</code> · 제목 t6 600 <code>--fg-neutral</code> · 안내 t2 <code>--fg-neutral-subtle</code></td></tr><tr><td>Foot</td><td>위 여백 <code>--dim-x4</code> + 1px <code>--stroke-neutral</code> · 사이 <code>--dim-x3</code> · t1 <code>--fg-neutral-muted</code> · 좁으면 줄바꿈</td></tr><tr><td>&lt; 768</td><td>Page 여백 <code>--dim-x4</code> · Panel 여백 <code>--dim-x6</code></td></tr><tr><td>접근성</td><td>화면에 <code>&lt;main&gt;</code> · <code>h1</code> 하나 · <code>&lt;form&gt;</code> 이라 Enter 로 제출 · 첫 칸에 autofocus · 안내 Callout 은 칸의 <code>aria-describedby</code> · 서버 오류는 <code>role="alert"</code></td></tr></table>
+  <table>${C1}<tr><th>부위</th><th>토큰</th></tr><tr><td>Page</td><td>min-height 100dvh · 가운데 정렬 · 여백 <code>--dim-x6</code> · <code>--bg-layer-basement</code></td></tr><tr><td>Panel</td><td>최대 420px · 여백 <code>--dim-x8</code> · 사이 <code>--dim-x5</code> · <code>--bg-layer-default</code> · 1px <code>--stroke-neutral-strong</code> · <code>--radius-xl</code></td></tr><tr><td>Head</td><td>사이 <code>--dim-x1_5</code> · 제목 t6 600 <code>--fg-neutral</code> · 안내 t2 <code>--fg-neutral-subtle</code></td></tr><tr><td>Body</td><td>패널의 직계 자식 — 사이 <code>--dim-x5</code>(패널 gap) · 패널 폭을 채움. 바깥 <code>&lt;form&gt;</code> 에는 클래스·CSS 를 두지 않습니다</td></tr><tr><td>Foot</td><td>위 여백 <code>--dim-x4</code> + 1px <code>--stroke-neutral</code> · 사이 <code>--dim-x3</code> · t1 <code>--fg-neutral-muted</code> · 좁으면 줄바꿈</td></tr><tr><td>&lt; 768</td><td>Page 여백 <code>--dim-x4</code> · Panel 여백 <code>--dim-x6</code></td></tr><tr><td>접근성</td><td>화면에 <code>&lt;main&gt;</code> · <code>h1</code> 하나 · 틀 전체를 <code>&lt;form&gt;</code> 으로 감싸 Enter 로 제출 · 첫 칸에 autofocus · 안내 Callout 은 칸의 <code>aria-describedby</code> · 서버 오류는 <code>role="alert"</code></td></tr></table>
 </section>
 
 
