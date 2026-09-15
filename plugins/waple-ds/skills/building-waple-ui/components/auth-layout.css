@@ -1,0 +1,10 @@
+/* Auth layout — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Auth layout ── 로그인 전 화면 전용 틀. 한 단 낮은 바탕 가운데에 420 패널 하나 — 머리(제품 이름·안내) · 본문(Callout·Field·Button) · 발(다른 입구) */
+  .auth{min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:var(--dim-x6);background:var(--bg-layer-basement)}
+  .auth__panel{display:flex;flex-direction:column;gap:var(--dim-x5);width:100%;max-width:420px;margin:0;padding:var(--dim-x8);border:1px solid var(--stroke-neutral-strong);border-radius:var(--radius-xl);background:var(--bg-layer-default);text-align:left}
+  .auth__panel .field{min-width:0} .auth__panel .callout__body{word-break:keep-all}
+  .auth__head{display:flex;flex-direction:column;gap:var(--dim-x1_5)}
+  .auth__title{margin:0;font-size:var(--font-size-t6);line-height:var(--line-height-t6);font-weight:var(--font-weight-semibold);color:var(--fg-neutral)}
+  .auth__desc{margin:0;font-size:var(--font-size-t2);line-height:var(--line-height-t2);color:var(--fg-neutral-subtle)}
+  .auth__foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--dim-x3);padding-top:var(--dim-x4);border-top:1px solid var(--stroke-neutral);font-size:var(--font-size-t1);line-height:var(--line-height-t1);color:var(--fg-neutral-muted)}
+  @media (max-width:767px){.auth{padding:var(--dim-x4)} .auth__panel{padding:var(--dim-x6)}}

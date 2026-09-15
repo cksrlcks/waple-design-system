@@ -1,6 +1,6 @@
 # Waple DS 컴포넌트 목록 — 스냅숏(자동 생성, 고치지 않는다)
 
-컴포넌트 57개. `slug` 로 `components/<slug>.html`(규격 · 예시 마크업) 과 `components/<slug>.css`(구현) 를 연다.
+컴포넌트 58개. `slug` 로 `components/<slug>.html`(규격 · 예시 마크업) 과 `components/<slug>.css`(구현) 를 연다.
 - 「함께 싣기」 — 그 컴포넌트의 기본 구조(Anatomy 예시) 안에 들어 있는 다른 컴포넌트. **항상** 그 CSS 도 옮긴다.
 - 「그 모양을 쓸 때만」 — 페이지의 다른 예시(변형 · 지침 · 비교)에만 나오는 컴포넌트. 그 예시 모양을 화면에 **실제로 쓸 때만** 옮긴다.
 
@@ -9,6 +9,7 @@
 | 컴포넌트 | slug | 무엇 | 함께 싣기 | 그 모양을 쓸 때만 |
 |---|---|---|---|---|
 | Accordion | `accordion` | 제목만 보이고 눌러야 본문이 펼쳐지는 묶음. | — | — |
+| Auth layout | `auth-layout` | 로그인 전 화면 전용 틀입니다. | `callout` `text-input` `button` | — |
 | Avatar | `avatar` | 사람을 나타내는 원. | — | — |
 | Badge | `badge` | 상태 한 단어(승인 대기 · 반려 · 연결됨)나 건수(6)를 붙이는 작은 표식. | — | — |
 | Breadcrumb | `breadcrumb` | 지금 화면이 어디에 있는지 상위 단계부터 보여 주고, 한 번에 위로 올라가게 합니다. | — | `menu` |
