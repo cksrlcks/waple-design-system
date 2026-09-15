@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title><!-- {{NAME}} -->SERVICE<!-- {{/NAME}} --> Design System</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+<link rel="stylesheet" href="tokens.css">
+<style>
+  /* ── 문서 사이트 뼈대 — 시스템 토큰을 그대로 입는다(사이트 자체가 첫 번째 소비자). 레이아웃·간격·타이포는 docs.mobbin.com 을 참고 ── */
+  *{box-sizing:border-box} html{scroll-behavior:smooth}
+  body{margin:0;font-family:var(--font-family);color:var(--fg-neutral);background:var(--bg-layer-default);font-size:var(--font-size-t3);line-height:var(--line-height-t4)}
+  a{color:inherit;text-decoration:none}
+  code{font-family:var(--font-mono);font-size:var(--font-size-t1);background:var(--bg-neutral-weak);padding:2px 6px;border-radius:var(--radius-xs)}
+  svg.i{width:18px;height:18px;flex:none;stroke:currentColor;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round} svg.i.filled{fill:currentColor;stroke:none}
+  /* 상단: 로고 · 검색 · 링크, 아래 줄에 그룹 탭 */
+  .top{position:sticky;top:0;z-index:5;background:var(--bg-layer-default);border-bottom:1px solid var(--stroke-neutral)}
+  .top__row{display:flex;justify-content:space-between;align-items:center;height:64px;padding:0 var(--dim-x8);gap:var(--dim-x6)} /* 헤더는 전체 폭 — 검색은 항상 오른쪽 끝. 본문 정렬 전환은 .tabs · .wrap 의 margin 0(왼쪽) ↔ 0 auto(가운데) */
+  .logo{font-weight:var(--font-weight-bold);font-size:var(--font-size-t4);letter-spacing:-.01em;white-space:nowrap}
+  .search{display:flex;align-items:center;gap:var(--dim-x2);width:360px;height:40px;padding:0 var(--dim-x3);border:1px solid var(--stroke-neutral-strong);border-radius:var(--radius-md);background:var(--bg-layer-default);color:var(--fg-neutral-muted);transition:border-color var(--duration-fast),box-shadow var(--duration-fast)}
+  .search:focus-within{border-color:var(--stroke-accent);box-shadow:0 0 0 3px var(--bg-accent-weak)}
+  .search input{flex:1;border:0;outline:none;background:transparent;font:inherit;font-size:var(--font-size-t2);color:var(--fg-neutral);min-width:0} .search input::placeholder{color:var(--fg-neutral-placeholder)}
+  .search kbd{font:var(--font-size-t1)/1 var(--font-family);color:var(--fg-neutral-muted);border:1px solid var(--stroke-neutral-strong);border-radius:var(--radius-xs);padding:3px 6px}
+  .tabs{display:flex;gap:var(--dim-x6);max-width:1440px;margin:0;padding:0 var(--dim-x8);height:44px}
+  .tabs a{display:inline-flex;align-items:center;height:100%;border-bottom:2px solid transparent;color:var(--fg-neutral-subtle);font-size:var(--font-size-t2);font-weight:var(--font-weight-medium);margin-bottom:-1px}
+  .tabs a:hover{color:var(--fg-neutral)} .tabs a.on{color:var(--fg-neutral);border-color:var(--stroke-brand)}
+  /* 3단: 목차 260 · 본문 · 페이지 목차 220 */
+  .wrap{display:grid;grid-template-columns:260px minmax(0,1fr) 220px;gap:var(--dim-x12);max-width:1440px;margin:0;padding:0 var(--dim-x8)}
+  aside{position:sticky;top:109px;height:calc(100vh - 109px);overflow:auto;padding:var(--dim-x8) 0 var(--dim-x12);scrollbar-width:thin}
+  aside h4{margin:var(--dim-x6) var(--dim-x3) var(--dim-x2);font-size:var(--font-size-t2);font-weight:var(--font-weight-semibold);color:var(--fg-neutral)} aside h4:first-child{margin-top:0}
+  aside a{display:flex;align-items:center;height:36px;padding:0 var(--dim-x3);border-radius:var(--radius-sm);color:var(--fg-neutral-subtle);font-size:var(--font-size-t2);transition:background var(--duration-fast),color var(--duration-fast)}
+  aside a:hover{color:var(--fg-neutral);background:var(--bg-neutral-hover)} aside a.on{background:var(--bg-accent-weak);color:var(--fg-accent);font-weight:var(--font-weight-medium)} aside a[hidden]{display:none}
+  main{padding:var(--dim-x10) 0 var(--dim-x16);max-width:760px;min-width:0}
+  .toc{position:sticky;top:109px;align-self:start;padding:var(--dim-x10) 0;font-size:var(--font-size-t2)}
+  .toc__t{display:flex;align-items:center;gap:var(--dim-x1_5);font-weight:var(--font-weight-semibold);margin-bottom:var(--dim-x3)} .toc__t svg{width:16px;height:16px}
+  .toc a{display:block;padding:5px 0;color:var(--fg-neutral-subtle)} .toc a:hover{color:var(--fg-neutral)} .toc a.on{color:var(--fg-accent);font-weight:var(--font-weight-medium)}
+  .toc:empty{display:none}
+  /* 페이지 */
+  .page{display:none;scroll-margin-top:120px} .page.on{display:block}
+  .crumb{display:block;font-size:var(--font-size-t2);font-weight:var(--font-weight-medium);color:var(--fg-accent);margin-bottom:var(--dim-x2)}
+  .page>h1{font-size:var(--font-size-t10);line-height:var(--line-height-t10);font-weight:var(--font-weight-bold);letter-spacing:-.02em;margin:0 0 var(--dim-x3)}
+  .page>.desc{font-size:var(--font-size-t4);line-height:var(--line-height-t5);color:var(--fg-neutral-subtle);margin:0 0 var(--dim-x10)}
+  h2{font-size:var(--font-size-t8);line-height:var(--line-height-t8);font-weight:var(--font-weight-semibold);letter-spacing:-.01em;margin:var(--dim-x12) 0 var(--dim-x4);scroll-margin-top:120px} h2:first-of-type{margin-top:0}
+  h3{font-size:var(--font-size-t5);line-height:var(--line-height-t5);font-weight:var(--font-weight-semibold);margin:var(--dim-x8) 0 var(--dim-x3)}
+  p{margin:0 0 var(--dim-x4)} ol,ul{margin:0 0 var(--dim-x4);padding-left:var(--dim-x6)} li{margin-bottom:var(--dim-x1_5)} li::marker{color:var(--fg-neutral-muted)}
+  table{width:100%;border-collapse:collapse;font-size:var(--font-size-t2);line-height:var(--line-height-t2);margin:var(--dim-x2) 0 var(--dim-x6)}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--stroke-neutral);vertical-align:top} th{font-size:var(--font-size-t1);font-weight:var(--font-weight-medium);color:var(--fg-neutral-muted);border-bottom-color:var(--stroke-neutral-strong)}
+  .demo{display:flex;flex-wrap:wrap;gap:var(--dim-x3);align-items:center;padding:var(--dim-x6);border:1px solid var(--stroke-neutral-strong);border-radius:var(--radius-lg);background:var(--bg-layer-default);margin:var(--dim-x2) 0 var(--dim-x4)} .demo:has(.field){align-items:flex-start} .demo.tinted{background:var(--bg-layer-basement)}
+  .demo.col{flex-direction:column;align-items:stretch}
+  .ex{display:flex;flex-direction:column;gap:var(--dim-x2);align-items:flex-start;margin:0;min-width:0} .ex>figcaption{font-size:var(--font-size-t1);color:var(--fg-neutral-muted)} .demo.col .ex{width:100%} .ex>*:first-child{max-width:100%}
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:var(--dim-x4);margin-bottom:var(--dim-x4)} .cards.two{grid-template-columns:1fr 1fr}
+  .card{display:block;border:1px solid var(--stroke-neutral-strong);border-radius:var(--radius-lg);padding:var(--dim-x5);background:var(--bg-layer-default);color:inherit;transition:border-color var(--duration-fast),box-shadow var(--duration-fast)}
+  a.card:hover{border-color:var(--stroke-neutral-stronger);box-shadow:var(--shadow-1)}
+  .card b{display:flex;align-items:center;gap:var(--dim-x2);font-size:var(--font-size-t4);font-weight:var(--font-weight-semibold);margin-bottom:var(--dim-x1_5)} .card b svg{color:var(--fg-neutral-muted);margin-left:auto}
+  .card small{display:block;font-size:var(--font-size-t2);line-height:var(--line-height-t2);color:var(--fg-neutral-subtle)}
+  .sw{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:var(--dim-x3);margin-bottom:var(--dim-x6)} .sw div{border:1px solid var(--stroke-neutral-strong);border-radius:var(--radius-md);overflow:hidden;font-size:var(--font-size-t1);line-height:var(--line-height-t1)} .sw i{display:block;height:56px} .sw span{display:block;padding:8px 10px} .sw code{background:none;padding:0;color:var(--fg-neutral-muted);font-size:inherit}
+  .ramp{display:flex;border-radius:var(--radius-md);overflow:hidden;margin-bottom:var(--dim-x2)} .ramp i{flex:1;height:40px}
+  .dd{display:grid;grid-template-columns:1fr 1fr;gap:var(--dim-x8);margin:var(--dim-x2) 0 var(--dim-x8);color:var(--fg-neutral-subtle);font-size:var(--font-size-t2);line-height:var(--line-height-t2)} .dd>div{min-width:0} .dd b{font-weight:var(--font-weight-semibold);color:var(--fg-neutral)} .dd>div>b:first-child{display:block;margin-bottom:var(--dim-x2);font-size:var(--font-size-t3)} .dd .do>b:first-child{color:var(--fg-positive)} .dd .dont>b:first-child{color:var(--fg-critical)} .dd .demo{margin:0 0 var(--dim-x3)}
+  .anatomy{display:flex;gap:var(--dim-x8);align-items:center;flex-wrap:wrap} .anatomy .demo{min-width:360px;flex:0 0 auto;margin:0} .anatomy ol{margin:0;padding-left:20px;flex:1;min-width:280px} .anatomy li{margin-bottom:var(--dim-x2)}
+  .snippet{position:relative;margin-bottom:var(--dim-x6)} .snippet pre{margin:0;padding:var(--dim-x5) var(--dim-x6);background:var(--bg-layer-default);border:1px solid var(--stroke-neutral-strong);border-radius:var(--radius-lg);font:var(--font-size-t1)/1.7 var(--font-mono);color:var(--fg-neutral);overflow:auto;max-height:480px;white-space:pre} .snippet pre code{background:none;padding:0;font-size:inherit} .snippet .copy{position:absolute;top:var(--dim-x2_5);right:var(--dim-x2_5)}
+  .ref{display:grid;grid-template-columns:1fr 1fr;gap:0 var(--dim-x8);margin-bottom:var(--dim-x4)} .ref a{display:flex;align-items:center;gap:var(--dim-x2);padding:var(--dim-x2_5) 0;border-bottom:1px solid var(--stroke-neutral);font-size:var(--font-size-t2);color:var(--fg-neutral)} .ref a::after{content:"";width:14px;height:14px;margin-left:auto;flex:none;background:var(--fg-neutral-muted);-webkit-mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6"/><path d="M11 13l9 -9"/><path d="M15 4h5v5"/></svg>') center/contain no-repeat;mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6"/><path d="M11 13l9 -9"/><path d="M15 4h5v5"/></svg>') center/contain no-repeat}
+  .icons{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:var(--dim-x2);margin-bottom:var(--dim-x6)} .icons figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:var(--dim-x2);padding:var(--dim-x3) var(--dim-x1);border:1px solid var(--stroke-neutral);border-radius:var(--radius-md)} .icons figure svg{width:22px;height:22px} .icons figcaption{font:var(--font-size-t1)/1.2 var(--font-mono);color:var(--fg-neutral-muted);text-align:center;word-break:break-all}
+  #get-started>h2{margin-top:var(--dim-x16);padding-top:var(--dim-x2)} #get-started .cards,#get-started .ref,#get-started ol{margin-bottom:var(--dim-x8)} #get-started h3{margin-top:var(--dim-x10)}
+  @media (max-width:1180px){.wrap{grid-template-columns:240px minmax(0,1fr)} .toc{display:none}}
+
+  /* ── 컴포넌트 CSS: 시스템의 실제 구현. semantic 토큰만 쓴다. {{COMPONENT_CSS}} — 컴포넌트마다 블록을 더한다 ── */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--dim-x1_5);border:1px solid transparent;border-radius:var(--radius-md);font-weight:var(--font-weight-medium);font-family:inherit;cursor:pointer;line-height:normal;transition:background var(--duration-fast) var(--easing),box-shadow var(--duration-fast)}
+  .btn.md{height:40px;padding:0 var(--dim-x4);font-size:var(--font-size-t2)} .btn.sm{height:32px;padding:0 var(--dim-x3);font-size:var(--font-size-t1)} .btn.lg{height:48px;padding:0 var(--dim-x5);font-size:var(--font-size-t3)} .btn.xs{height:26px;padding:0 var(--dim-x2);font-size:var(--font-size-t1)}
+  .btn.brand-solid{background:var(--bg-brand-solid);color:var(--fg-on-brand)} .btn.brand-solid:hover{filter:brightness(.94)}
+  .btn.brand-weak{background:var(--bg-brand-weak);color:var(--fg-brand)}
+  .btn.neutral-solid{background:var(--bg-neutral-solid);color:var(--fg-on-neutral)} .btn.neutral-weak{background:var(--bg-neutral-weak);color:var(--fg-neutral)}
+  .btn.neutral-outline{background:var(--bg-layer-default);border-color:var(--stroke-neutral-strong);color:var(--fg-neutral)} .btn.neutral-outline:hover{background:var(--bg-neutral-hover)}
+  .btn.critical-solid{background:var(--bg-critical-solid);color:var(--fg-on-critical)}
+  .btn.critical-outline{background:var(--bg-layer-default);border-color:var(--stroke-critical);color:var(--fg-critical)} .btn.critical-outline:hover{background:var(--bg-critical-weak)}
+  .btn:focus-visible{outline:none;box-shadow:0 0 0 3px var(--bg-brand-weak),0 0 0 4px var(--stroke-focus)}
+  .btn:disabled,.btn.disabled{background:var(--bg-neutral-weak);color:var(--fg-disabled);border-color:transparent;cursor:not-allowed}
+  .btn.loading .spin{width:14px;height:14px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:spin .8s linear infinite} @keyframes spin{to{transform:rotate(360deg)}}
+  .btn.fill{width:100%}
+  .btn svg{width:18px;height:18px} .btn.xs svg{width:14px;height:14px} .btn.sm svg{width:16px;height:16px} .btn.lg svg{width:20px;height:20px}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top__row">
+    <a class="logo" href="#get-started"><!-- {{NAME}} -->SERVICE<!-- {{/NAME}} --> Design System</a>
+    <label class="search">{{ICON:search}}<input id="q" type="search" placeholder="컴포넌트·토큰 검색" autocomplete="off"><kbd>Ctrl K</kbd></label>
+  </div>
+  <nav class="tabs" id="topnav"></nav>
+</header>
+<div class="wrap">
+<aside id="side"></aside>
+<main id="main">
+
+<!-- ═══════════════ GET STARTED ═══════════════ -->
+<section class="page" id="get-started">
+  <h1><!-- {{NAME}} -->SERVICE<!-- {{/NAME}} --> Design System</h1>
+  <p class="desc"><!-- {{INTRO}} -->이 디자인 시스템은 서비스의 화면·컴포넌트·상호작용을 하나의 정의로 묶어, 더 빠르고 일관된 사용자 경험을 만들기 위한 언어입니다.<!-- {{/INTRO}} --></p>
+  <div class="cards two">
+    <a class="card" href="#foundations/design-token"><b>Foundations {{ICON:arrow-right}}</b><small>색·타이포·간격·라운드·아이콘 — 바탕이 되는 토큰과 원칙</small></a>
+    <a class="card" href="#components/button"><b>Components {{ICON:arrow-right}}</b><small>버튼·입력·목록·표 — 실제 CSS 로 렌더링된 조각과 규격, 복사할 수 있는 HTML</small></a>
+  </div>
+  <h2>디자인 원칙</h2>
+  <!-- {{PRINCIPLES}} — 1단계 스타일 선택에서 도출한 원칙 3개. 각 원칙은 한 줄 이름 + 두 줄 설명 -->
+  <div class="cards">
+    <div class="card"><b>1. 명확하게</b><small>한 화면에 강조는 하나. 브랜드색은 꼭 필요한 곳에만 쓴다.</small></div>
+    <div class="card"><b>2. 일관되게</b><small>같은 뜻은 같은 모양. 상태 색·간격·라운드는 토큰에서만 온다.</small></div>
+    <div class="card"><b>3. 접근 가능하게</b><small>글자 대비 AA 이상, 포커스 링, 키보드 조작을 기본으로 한다.</small></div>
+  </div>
+  <h2>레퍼런스</h2>
+  <p>이 시스템의 스타일·구성은 아래 화면을 참고해 정했습니다.</p>
+  <!-- {{REFERENCES}} — Mobbin 탐색 결과: 앱 이름 + mobbin_url 링크. 스크린샷·URL 입력이면 그 출처도 적는다 -->
+  <div class="ref"><a href="https://mobbin.com" target="_blank">예시 앱 — 홈 화면</a></div>
+  <h2>사용법</h2>
+  <ol>
+    <li><code>tokens.css</code> 를 프로젝트에 넣습니다. 값은 여기서만 바꾸고 이름은 유지합니다.</li>
+    <li>컴포넌트 CSS 는 <b>semantic 토큰만</b> 씁니다(<code>--bg-brand-solid</code> 처럼). <code>--palette-*</code> 는 semantic 이 없는 예외 상황에서만.</li>
+    <li>각 컴포넌트 페이지 맨 아래 <b>HTML</b> 을 복사해 시작합니다. 마크업과 클래스가 그대로 규격입니다.</li>
+    <li>아이콘은 <b>Tabler Icons</b> 만 씁니다 — <a href="#foundations/iconography">Iconography</a>.</li>
+  </ol>
+</section>
+
+<!-- ═══════════════ FOUNDATIONS ═══════════════ -->
+<section class="page" id="foundations/design-token">
+  <h1>Design Token</h1>
+  <p class="desc">디자인 결정(색·크기·간격)에 이름을 붙인 것. 두 층으로 나뉩니다.</p>
+  <h2>두 층</h2>
+  <table><tr><th>층</th><th>역할</th><th>예</th></tr>
+    <tr><td>Scale Token</td><td>원시 값에 이름을 붙여 쓸 수 있는 값의 집합을 유한하게 유지</td><td><code>--palette-brand-600</code> <code>--dim-x4</code> <code>--font-size-t3</code></td></tr>
+    <tr><td>Semantic Token</td><td>Scale 을 조합해 <b>의도</b>를 표현. 디자인·개발이 실제로 쓰는 단위</td><td><code>--bg-brand-solid</code> <code>--fg-neutral-subtle</code> <code>--spacing-global-gutter</code></td></tr></table>
+  <h2>명명 규칙</h2>
+  <p><code>[속성]-[역할]-[강도]</code> — 속성은 <code>bg</code>(배경) · <code>fg</code>(글자·아이콘) · <code>stroke</code>(선), 역할은 <code>neutral</code> <code>brand</code> <code>critical</code> <code>positive</code> <code>warning</code> <code>info</code>, 강도는 <code>solid</code>(칠) · <code>weak</code>(옅은 칠) · <code>subtle/muted</code>(글자 단계).</p>
+</section>
+
+<section class="page" id="foundations/color">
+  <h1>Color</h1>
+  <p class="desc">색은 역할(semantic)로 씁니다. 팔레트를 직접 쓰는 것은 예외이며, 모든 글자색은 배경과 4.5:1 이상을 만족하도록 골랐습니다.</p>
+  <h2>Brand ramp</h2>
+  <div class="ramp" id="brand-ramp"></div>
+  <h2>Semantic — background</h2><div class="sw" data-tokens="bg-layer-default,bg-layer-basement,bg-neutral-weak,bg-neutral-solid,bg-brand-weak,bg-brand-solid,bg-critical-weak,bg-critical-solid,bg-positive-weak,bg-positive-solid,bg-warning-weak,bg-warning-solid,bg-info-weak,bg-info-solid"></div>
+  <h2>Semantic — foreground</h2><div class="sw" data-tokens="fg-neutral,fg-neutral-subtle,fg-neutral-muted,fg-neutral-placeholder,fg-disabled,fg-brand,fg-critical,fg-positive,fg-warning,fg-info"></div>
+  <h2>Semantic — stroke</h2><div class="sw" data-tokens="stroke-neutral,stroke-neutral-strong,stroke-brand,stroke-critical,stroke-focus"></div>
+  <h2>규칙</h2>
+  <div class="dd"><div class="do"><b>Do</b>브랜드색은 화면당 주요 액션 하나에만. 나머지는 neutral.</div><div class="dont"><b>Don't</b><code>--palette-*</code> 를 컴포넌트에서 직접 쓰지 않는다 — 다크 모드·리브랜딩이 끊긴다.</div></div>
+</section>
+
+<section class="page" id="foundations/typography">
+  <h1>Typography</h1>
+  <p class="desc">글꼴은 <code>Pretendard</code>, 크기는 t1(작음)부터 t10(큼)까지 열 단계. 굵기는 Regular 400 · Medium 500 · Bold 700 셋만 씁니다.</p>
+  <h2>Scale</h2>
+  <table id="type-table"><tr><th>토큰</th><th>크기 / 행간</th><th>견본</th><th>쓰임</th></tr></table>
+  <h2>Semantic style</h2>
+  <table><tr><th>이름</th><th>조합</th><th>쓰임</th></tr>
+    <tr><td>screenTitle</td><td>t8 Bold</td><td>화면 제목</td></tr><tr><td>sectionTitle</td><td>t6 Bold</td><td>섹션 제목</td></tr>
+    <tr><td>body</td><td>t4 Regular</td><td>본문</td></tr><tr><td>caption</td><td>t2 Regular · fg-neutral-muted</td><td>보조 설명·메타</td></tr><tr><td>label</td><td>t1 Medium</td><td>버튼·칩·필드 라벨</td></tr></table>
+</section>
+
+<section class="page" id="foundations/spacing">
+  <h1>Spacing</h1>
+  <p class="desc">모든 간격은 4px 격자(<code>--dim-x1</code> = 4px)의 배수입니다. 컴포넌트 사이는 semantic spacing 을 씁니다.</p>
+  <h2>Dimension scale</h2><table id="dim-table"><tr><th>토큰</th><th>값</th><th>견본</th></tr></table>
+  <h2>Semantic spacing</h2>
+  <table><tr><th>토큰</th><th>값</th><th>쓰임</th></tr>
+    <tr><td><code>--spacing-global-gutter</code></td><td>x4 · 16px</td><td>화면 좌우 여백</td></tr><tr><td><code>--spacing-between-chips</code></td><td>x2 · 8px</td><td>칩·태그 사이</td></tr>
+    <tr><td><code>--spacing-between-text</code></td><td>x1_5 · 6px</td><td>제목과 설명 사이</td></tr><tr><td><code>--spacing-component-default</code></td><td>x3 · 12px</td><td>컴포넌트 사이 기본</td></tr>
+    <tr><td><code>--spacing-section</code></td><td>x8 · 32px</td><td>섹션 사이</td></tr><tr><td><code>--spacing-screen-bottom</code></td><td>x12 · 48px</td><td>화면 하단 여백</td></tr></table>
+</section>
+
+<section class="page" id="foundations/radius">
+  <h1>Radius</h1>
+  <p class="desc">작은 요소일수록 작은 라운드. 알약(<code>full</code>)은 칩·토글·아바타에만 씁니다.</p>
+  <h2>Scale</h2>
+  <div class="demo" id="radius-demo"></div>
+  <table><tr><th>토큰</th><th>쓰임</th></tr><tr><td><code>--radius-xs</code></td><td>체크박스·코드·작은 태그</td></tr><tr><td><code>--radius-sm</code></td><td>메뉴 항목·인풋(고밀도)</td></tr><tr><td><code>--radius-md</code></td><td>버튼·인풋</td></tr><tr><td><code>--radius-lg</code></td><td>카드·리스트 아이템</td></tr><tr><td><code>--radius-xl</code></td><td>바텀시트·다이얼로그</td></tr><tr><td><code>--radius-full</code></td><td>칩·토글·아바타</td></tr></table>
+</section>
+
+<section class="page" id="foundations/elevation">
+  <h1>Elevation</h1>
+  <p class="desc">구분은 여백·배경 톤·얇은 선이 먼저이고, 그림자는 <b>떠 있는 것</b>(메뉴·시트·토스트)에만 씁니다.</p>
+  <h2>Scale</h2>
+  <div class="demo tinted" id="shadow-demo"></div>
+  <table><tr><th>단계</th><th>토큰</th><th>쓰임</th></tr><tr><td>0</td><td>없음 + <code>--stroke-neutral</code></td><td>카드·리스트</td></tr><tr><td>1</td><td><code>--shadow-1</code></td><td>드롭다운·팝오버</td></tr><tr><td>2</td><td><code>--shadow-2</code></td><td>바텀시트·다이얼로그</td></tr><tr><td>3</td><td><code>--shadow-3</code></td><td>토스트·플로팅 버튼</td></tr></table>
+</section>
+
+<section class="page" id="foundations/iconography">
+  <h1>Iconography</h1>
+  <p class="desc"><!-- {{ICON_RULE}} -->아이콘은 <b>Tabler Icons</b>(MIT) outline 세트만 씁니다 — 손으로 그리지 않습니다. 24px 격자, 굵기 1.75, <code>currentColor</code>. 유니코드 글리프·이모지는 OS 마다 모양이 달라 UI 에 쓰지 않습니다.<!-- {{/ICON_RULE}} --></p>
+  <h2>크기</h2>
+  <div class="demo" style="gap:var(--dim-x8)">
+    <figure class="ex"><span style="display:inline-flex">{{ICON:calendar|s14}}</span><figcaption>14 — xs 버튼</figcaption></figure>
+    <figure class="ex"><span style="display:inline-flex">{{ICON:calendar|s16}}</span><figcaption>16 — sm 버튼·칩·입력 prefix</figcaption></figure>
+    <figure class="ex"><span style="display:inline-flex">{{ICON:calendar}}</span><figcaption>18 — md 버튼·아이콘 버튼·사이드바(기본)</figcaption></figure>
+    <figure class="ex"><span style="display:inline-flex">{{ICON:calendar|s20}}</span><figcaption>20 — lg 버튼</figcaption></figure>
+    <figure class="ex"><span style="display:inline-flex">{{ICON:calendar|s24}}</span><figcaption>24 — 빈 상태·독립 아이콘</figcaption></figure>
+  </div>
+  <h2>Outline / Filled</h2>
+  <p>기본은 outline 입니다. <b>16px 이하</b>로 작아지면 선이 뭉개지므로 <b>filled</b>(<code>name-filled</code>)를 씁니다 — 토스트·배지 옆 아이콘 칩(14px), 안내 말풍선(16px), 상태 점 대신 쓰는 아이콘.</p>
+  <div class="demo" style="gap:var(--dim-x8)">
+    <figure class="ex"><span style="display:inline-flex;gap:8px;align-items:center">{{ICON:alert-circle|s14}}{{ICON:alert-circle-filled|s14}}</span><figcaption>14px — outline / filled</figcaption></figure>
+    <figure class="ex"><span style="display:inline-flex;gap:8px;align-items:center">{{ICON:circle-check|s16}}{{ICON:circle-check-filled|s16}}</span><figcaption>16px — outline / filled</figcaption></figure>
+    <figure class="ex"><span style="display:inline-flex;gap:8px;align-items:center">{{ICON:info-circle}}{{ICON:info-circle-filled}}</span><figcaption>18px — outline 이 기본</figcaption></figure>
+    <figure class="ex"><span style="display:inline-flex;gap:8px;align-items:center">{{ICON:bell|s24}}{{ICON:bell-filled|s24}}</span><figcaption>24px — outline 이 기본</figcaption></figure>
+  </div>
+  <h2>규칙</h2>
+  <table><tr><th>규칙</th><th>내용</th></tr>
+    <tr><td>outline / filled</td><td>18px 이상 outline · 16px 이하 filled. 같은 화면에서 같은 뜻의 아이콘은 한 가지 스타일로</td></tr>
+    <tr><td>출처</td><td><a href="https://tabler.io/icons" target="_blank">tabler.io/icons</a> outline. 다른 세트·직접 그린 path 금지. 필요한 이름을 <code>parts/fetch-icons.mjs</code> 에 더하고 다시 생성합니다</td></tr>
+    <tr><td>마크업</td><td><code>&lt;svg class="i" viewBox="0 0 24 24"&gt;…&lt;/svg&gt;</code> — 코드에서는 <code>icon('calendar')</code>, filled 는 <code>icon('calendar-filled')</code>(<code>class="i filled"</code>)</td></tr>
+    <tr><td>굵기·색</td><td><code>svg.i</code> 가 stroke 1.75 · <code>currentColor</code> 를 정합니다. 컴포넌트는 크기만 바꿉니다</td></tr>
+    <tr><td>의미</td><td>아이콘만으로 뜻을 전하지 않습니다 — 라벨이 없으면 <code>aria-label</code> + 툴팁</td></tr></table>
+  <h2>이 시스템이 쓰는 아이콘</h2>
+  <!-- {{ICON_GALLERY}} -->
+</section>
+
+<section class="page" id="foundations/state">
+  <h1>State</h1>
+  <p class="desc">모든 인터랙티브 요소는 같은 규칙으로 상태를 표현합니다.</p>
+  <h2>상태 표</h2>
+  <table><tr><th>상태</th><th>표현</th></tr>
+    <tr><td>Hover</td><td>배경을 6% 어둡게(<code>filter:brightness(.94)</code>) — 색 토큰을 새로 만들지 않는다</td></tr>
+    <tr><td>Pressed</td><td>배경을 12% 어둡게, 스케일 변화 없음</td></tr>
+    <tr><td>Focus</td><td><code>--stroke-focus</code> 2px 링 + 안쪽 흰 1px. 마우스 클릭엔 안 보이고(<code>:focus-visible</code>) 키보드에만</td></tr>
+    <tr><td>Disabled</td><td><code>--bg-neutral-weak</code> + <code>--fg-disabled</code>. 투명도(opacity)로 흐리지 않는다</td></tr>
+    <tr><td>Loading</td><td>라벨을 스피너로 바꾸되 <b>폭은 유지</b>(레이아웃 점프 방지)</td></tr>
+    <tr><td>Selected</td><td><code>--bg-brand-weak</code> + <code>--fg-brand</code></td></tr></table>
+</section>
+
+<!-- ═══════════════ COMPONENTS ═══════════════ -->
+<!-- 컴포넌트 페이지의 고정 구조(seed 방식) — 아래 Button 이 완성본. 다른 컴포넌트도 같은 순서로 쓴다:
+     Anatomy → Properties(Size · Variant · State · 그 외) → Guidelines(Do/Don't) → 비교(비슷한 컴포넌트가 있으면) → Specification -->
+<section class="page" id="components/button">
+  <h1>Button</h1>
+  <p class="desc">사용자가 행동을 실행하게 하는 가장 기본적인 요소. 화면의 주요 행동은 <code>brand-solid</code> 하나만 씁니다.</p>
+
+  <h2>Anatomy</h2>
+  <div class="anatomy">
+    <div class="demo"><button class="btn lg brand-solid">{{ICON:plus}}예약하기{{ICON:chevron-right}}</button></div>
+    <ol><li><b>Container</b> — 크기·라운드·배경을 가진 상자(버튼 전체)</li><li><b>Prefix icon</b> (선택) — 라벨 앞 아이콘. xs 14 · sm 16 · md 18 · lg 20px</li><li><b>Label</b> — 동사로 끝나는 짧은 문구</li><li><b>Suffix icon</b> (선택) — 방향·펼침을 뜻할 때만</li></ol>
+  </div>
+
+  <h2>Properties</h2>
+  <h3>Size</h3>
+  <div class="demo"><button class="btn xs brand-solid">XSmall</button><button class="btn sm brand-solid">Small</button><button class="btn md brand-solid">Medium</button><button class="btn lg brand-solid">Large</button></div>
+  <table><tr><th>크기</th><th>높이</th><th>쓰임</th></tr><tr><td>xs</td><td>26px</td><td>표 안·칩 옆</td></tr><tr><td>sm</td><td>32px</td><td>카드·리스트 안 보조 행동</td></tr><tr><td>md</td><td>40px</td><td>기본</td></tr><tr><td>lg</td><td>48px</td><td>화면 하단 고정 CTA</td></tr></table>
+  <h3>Variant</h3>
+  <div class="demo"><button class="btn md brand-solid">Brand solid</button><button class="btn md brand-weak">Brand weak</button><button class="btn md neutral-solid">Neutral solid</button><button class="btn md neutral-weak">Neutral weak</button><button class="btn md neutral-outline">Neutral outline</button><button class="btn md critical-solid">Critical solid</button><button class="btn md critical-outline">Critical outline</button></div>
+  <table><tr><th>강조</th><th>Variant</th><th>쓰임</th></tr><tr><td>High</td><td>brand-solid · neutral-solid</td><td>화면당 하나, 주요 행동</td></tr><tr><td>Medium</td><td>brand-weak · neutral-outline</td><td>주요 행동 옆의 대안</td></tr><tr><td>Low</td><td>neutral-weak</td><td>취소·닫기·더보기</td></tr><tr><td>Critical</td><td>critical-solid · critical-outline</td><td>삭제처럼 되돌릴 수 없는 행동 — solid 는 확인 Dialog 의 주요 버튼, outline 은 설정 행의 「접속 끊기」처럼 확인 앞 단계</td></tr></table>
+  <h3>With icon</h3>
+  <div class="demo"><button class="btn sm neutral-outline">{{ICON:plus}}새 대화</button><button class="btn md brand-solid">{{ICON:send}}상신</button><button class="btn md neutral-outline">필터{{ICON:chevron-down}}</button><button class="btn lg brand-solid">{{ICON:calendar}}연차 신청</button></div>
+  <h3>State</h3>
+  <div class="demo"><button class="btn md brand-solid">Enabled</button><button class="btn md brand-solid" style="filter:brightness(.88)">Pressed</button><button class="btn md brand-solid loading"><span class="spin"></span> 저장 중</button><button class="btn md brand-solid" disabled>Disabled</button></div>
+  <h3>Width</h3>
+  <div class="demo col"><button class="btn md brand-solid" style="align-self:flex-start">Hug — 내용 폭</button><button class="btn md brand-solid fill">Fill — 부모 폭 (모바일 하단 CTA)</button></div>
+
+  <h2>Guidelines</h2>
+  <div class="dd">
+    <div class="do"><b>Do</b><div class="demo"><button class="btn md neutral-outline">취소</button><button class="btn md brand-solid">예약하기</button></div>주요 행동은 오른쪽(또는 아래), 취소는 낮은 강조로.</div>
+    <div class="dont"><b>Don't</b><div class="demo"><button class="btn md brand-solid">취소</button><button class="btn md brand-solid">예약하기</button></div>solid 두 개를 나란히 두지 않는다 — 무엇이 주요 행동인지 알 수 없다.</div>
+  </div>
+  <div class="dd">
+    <div class="do"><b>Do</b>라벨은 동사로 끝낸다: <b>예약하기 · 저장 · 삭제</b>.</div>
+    <div class="dont"><b>Don't</b>「확인」「OK」「예」처럼 무엇이 일어나는지 모르는 라벨.</div>
+  </div>
+
+  <h2>Button vs. Chip</h2>
+  <table><tr><th></th><th>Button</th><th>Chip</th></tr><tr><td>목적</td><td>행동 실행</td><td>필터·선택 상태 토글</td></tr><tr><td>모양</td><td>radius-md, 높이 고정</td><td>radius-full, 작음</td></tr><tr><td>선택 상태</td><td>없음</td><td>있음(selected)</td></tr></table>
+
+  <h2>Specification</h2>
+  <table><tr><th>Variant</th><th>배경</th><th>글자</th><th>선</th></tr>
+    <tr><td>brand-solid</td><td><code>--bg-brand-solid</code></td><td><code>--fg-on-brand</code></td><td>—</td></tr>
+    <tr><td>brand-weak</td><td><code>--bg-brand-weak</code></td><td><code>--fg-brand</code></td><td>—</td></tr>
+    <tr><td>neutral-solid</td><td><code>--bg-neutral-solid</code></td><td><code>--fg-on-neutral</code></td><td>—</td></tr>
+    <tr><td>neutral-weak</td><td><code>--bg-neutral-weak</code></td><td><code>--fg-neutral</code></td><td>—</td></tr>
+    <tr><td>neutral-outline</td><td><code>--bg-layer-default</code></td><td><code>--fg-neutral</code></td><td><code>--stroke-neutral-strong</code></td></tr>
+    <tr><td>critical-solid</td><td><code>--bg-critical-solid</code></td><td><code>--fg-on-critical</code></td><td>—</td></tr>
+    <tr><td>critical-outline</td><td><code>--bg-layer-default</code></td><td><code>--fg-critical</code></td><td><code>--stroke-critical</code></td></tr>
+    <tr><td>disabled</td><td><code>--bg-neutral-weak</code></td><td><code>--fg-disabled</code></td><td>—</td></tr></table>
+  <table><tr><th>Size</th><th>높이</th><th>좌우 패딩</th><th>글자</th><th>아이콘</th><th>라운드</th></tr>
+    <tr><td>xs</td><td>26px</td><td><code>--dim-x2</code></td><td>t1 Medium</td><td>14px</td><td rowspan="4"><code>--radius-md</code></td></tr><tr><td>sm</td><td>32px</td><td><code>--dim-x3</code></td><td>t1 Medium</td><td>16px</td></tr>
+    <tr><td>md</td><td>40px</td><td><code>--dim-x4</code></td><td>t2 Medium</td><td>18px</td></tr><tr><td>lg</td><td>48px</td><td><code>--dim-x5</code></td><td>t3 Medium</td><td>20px</td></tr></table>
+</section>
+
+<!-- {{COMPONENT_PAGES}} — 3단계에서 확정한 컴포넌트마다 위 Button 과 같은 <section class="page" id="components/<slug>"> 를 더한다.
+     각 페이지는 실제 CSS(위 COMPONENT_CSS 블록)로 렌더링된 데모를 가진다 — 이미지·설명만 있는 페이지는 만들지 않는다. -->
+
+
+</main>
+<nav class="toc" id="toc"></nav>
+</div>
+<script>
+// {{NAV}} — 3단계에서 확정한 컴포넌트·패턴을 여기에 등록한다(section id 와 일치해야 한다)
+const NAV={
+  'Get Started':[['get-started','소개']],
+  'Foundations':[['foundations/design-token','Design Token'],['foundations/color','Color'],['foundations/typography','Typography'],['foundations/spacing','Spacing'],['foundations/radius','Radius'],['foundations/elevation','Elevation'],['foundations/iconography','Iconography'],['foundations/state','State']],
+  'Components':[['components/button','Button']],
+};
+const side=document.getElementById('side'),topnav=document.getElementById('topnav'),toc=document.getElementById('toc');
+for(const [g,items] of Object.entries(NAV)){
+  topnav.insertAdjacentHTML('beforeend',`<a href="#${items[0][0]}" data-g="${g}">${g}</a>`);
+  side.insertAdjacentHTML('beforeend',`<h4>${g}</h4>`+items.map(([id,t])=>`<a href="#${id}" data-id="${id}">${t}</a>`).join(''));
+}
+// 페이지 위 「그룹」 표시 + 오른쪽 「이 페이지에서」 목차
+document.querySelectorAll('.page').forEach(p=>{
+  const g=Object.entries(NAV).find(([,items])=>items.some(([i])=>i===p.id))?.[0];
+  if(g&&p.id!=='get-started')p.insertAdjacentHTML('afterbegin',`<span class="crumb">${g}</span>`);
+});
+let spy;
+function route(){
+  const id=decodeURIComponent(location.hash.slice(1))||'get-started';
+  document.querySelectorAll('.page').forEach(p=>p.classList.toggle('on',p.id===id));
+  document.querySelectorAll('#side a').forEach(a=>a.classList.toggle('on',a.dataset.id===id));
+  const g=Object.entries(NAV).find(([,items])=>items.some(([i])=>i===id))?.[0];
+  document.querySelectorAll('#topnav a').forEach(a=>a.classList.toggle('on',a.dataset.g===g));
+  const page=document.getElementById(id);
+  const hs=page?[...page.querySelectorAll('h2')]:[];
+  hs.forEach((h,i)=>{if(!h.id)h.id=id.replace(/\W/g,'-')+'-h'+i});
+  toc.innerHTML=hs.length?'<div class="toc__t">{{ICON:list}}이 페이지에서</div>'+hs.map(h=>`<a href="#${id}" data-h="${h.id}">${h.textContent}</a>`).join(''):'';
+  toc.querySelectorAll('a').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();document.getElementById(a.dataset.h).scrollIntoView({behavior:'smooth'})}));
+  spy?.disconnect();
+  spy=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting){toc.querySelectorAll('a').forEach(a=>a.classList.toggle('on',a.dataset.h===en.target.id))}})},{rootMargin:'-120px 0px -70% 0px'});
+  hs.forEach(h=>spy.observe(h));
+  requestAnimationFrame(()=>window.scrollTo(0,0)); // 브라우저의 fragment 스크롤 뒤에 실행
+}
+addEventListener('hashchange',route);route();
+// 검색: 왼쪽 목차를 글자로 거른다. Ctrl/⌘+K 로 포커스
+const q=document.getElementById('q');
+q.addEventListener('input',()=>{const s=q.value.trim().toLowerCase();document.querySelectorAll('#side a').forEach(a=>{a.hidden=!!s&&!a.textContent.toLowerCase().includes(s)&&!a.dataset.id.includes(s)});document.querySelectorAll('#side h4').forEach(h=>{let n=h.nextElementSibling,any=false;while(n&&n.tagName==='A'){if(!n.hidden)any=true;n=n.nextElementSibling}h.hidden=!any})});
+addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();q.focus();q.select()}if(e.key==='Escape'&&document.activeElement===q){q.value='';q.dispatchEvent(new Event('input'));q.blur()}});
+
+// ── HTML 스니펫: 컴포넌트 페이지의 Anatomy 데모(대표 예시)를 들여쓰기해 페이지 끝에 붙인다 ──
+const VOID=new Set(['br','hr','img','input','path','circle','rect','line','polyline','polygon','use']);
+function pretty(html){
+  const tokens=html.replace(/>\s+</g,'><').trim().match(/<[^>]+>|[^<]+/g)||[];let depth=0,out=[];
+  for(const t of tokens){
+    if(t.startsWith('</')){depth=Math.max(0,depth-1);out.push('  '.repeat(depth)+t);continue}
+    if(t.startsWith('<')){const name=(t.match(/^<([a-z0-9-]+)/i)||[])[1];out.push('  '.repeat(depth)+t);if(!t.endsWith('/>')&&!VOID.has((name||'').toLowerCase()))depth++;continue}
+    if(t.trim())out.push('  '.repeat(depth)+t.trim());
+  }
+  return out.join('\n').replace(/=""/g,'').replace(/ aria-hidden="true"/g,'').replace(/^(\s*)(<([a-z0-9-]+)[^>]*>)\n\s*<\/\3>/gm,'$1$2</$3>'); // checked="" → checked, 빈 태그는 한 줄
+}
+document.querySelectorAll('section.page[id^="components/"]').forEach(sec=>{
+  const demo=sec.querySelector('.anatomy .demo');if(!demo)return;
+  const code=pretty(demo.innerHTML);
+  sec.insertAdjacentHTML('beforeend','<h2>HTML</h2><p>Anatomy 의 예시를 그대로 복사해 쓸 수 있습니다. 클래스는 <code>tokens.css</code> 와 이 문서의 컴포넌트 CSS 를 전제로 하고, 아이콘 <code>&lt;svg class="i"&gt;</code> 는 Tabler 입니다.</p><div class="snippet"><button class="iconbtn sm ghost copy" aria-label="복사">{{ICON:copy}}</button><pre><code></code></pre></div>');
+  sec.querySelector('.snippet code').textContent=code;
+  const btn=sec.querySelector('.snippet .copy'),orig=btn.innerHTML;
+  btn.addEventListener('click',()=>{navigator.clipboard.writeText(code).then(()=>{btn.innerHTML='{{ICON:check}}';setTimeout(()=>btn.innerHTML=orig,1500)})});
+});
+
+// ── 토큰 표·스와치를 tokens.css 에서 자동 생성 — 문서와 값이 어긋나지 않게 ──
+const cs=getComputedStyle(document.documentElement),v=n=>cs.getPropertyValue('--'+n).trim();
+document.querySelectorAll('.sw[data-tokens]').forEach(el=>{el.innerHTML=el.dataset.tokens.split(',').map(t=>`<div><i style="background:var(--${t})"></i><span>${t}<br><code>${v(t)}</code></span></div>`).join('')});
+document.getElementById('brand-ramp').innerHTML=[50,100,200,300,400,500,600,700,800,900].map(s=>`<i style="background:var(--palette-brand-${s})" title="brand-${s} ${v('palette-brand-'+s)}"></i>`).join('');
+const tt=document.getElementById('type-table');for(let i=10;i>=1;i--)tt.insertAdjacentHTML('beforeend',`<tr><td><code>t${i}</code></td><td>${v('font-size-t'+i)} / ${v('line-height-t'+i)}</td><td style="font-size:var(--font-size-t${i});line-height:var(--line-height-t${i});font-weight:${i>=4?600:400}">가나다 Aa 123</td><td>${i>=9?'화면 제목':i>=6?'섹션·패널 제목':i>=4?'카드 제목·다이얼로그':i>=2?'본문':'캡션·라벨(최소)'}</td></tr>`);
+const dt=document.getElementById('dim-table');['x0_5','x1','x1_5','x2','x2_5','x3','x3_5','x4','x5','x6','x7','x8','x10','x12','x16'].forEach(d=>dt.insertAdjacentHTML('beforeend',`<tr><td><code>--dim-${d}</code></td><td>${v('dim-'+d)}</td><td><i style="display:block;height:12px;width:var(--dim-${d});background:var(--bg-brand-solid);border-radius:2px"></i></td></tr>`));
+document.getElementById('radius-demo').innerHTML=['xs','sm','md','lg','xl','full'].map(r=>`<figure class="ex" style="align-items:center"><div style="width:64px;height:64px;background:var(--bg-brand-weak);border:2px solid var(--stroke-brand);border-radius:var(--radius-${r})"></div><figcaption>${r} · ${v('radius-'+r)}</figcaption></figure>`).join('');
+document.getElementById('shadow-demo').innerHTML=[1,2,3].map(s=>`<figure class="ex" style="align-items:center"><div style="width:120px;height:80px;background:var(--bg-layer-floating);border-radius:var(--radius-lg);box-shadow:var(--shadow-${s})"></div><figcaption>shadow-${s}</figcaption></figure>`).join('');
+</script>
+</body>
+</html>

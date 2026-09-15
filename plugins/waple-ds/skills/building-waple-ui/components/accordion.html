@@ -1,0 +1,40 @@
+<section class="page" id="components/accordion">
+  <h1>Accordion</h1>
+  <p class="desc">제목만 보이고 눌러야 본문이 펼쳐지는 묶음. 사내 규정·자주 묻는 질문·설정 그룹처럼 <b>한 번에 다 읽지 않아도 되는</b> 내용에 씁니다. 브라우저 기본 <code>&lt;details&gt;</code> 로 만들어 스크립트 없이 열리고 닫힙니다.</p>
+  <h2>Anatomy</h2>
+  <div class="anatomy">
+    <div class="demo" style="flex:1"><div class="acc"><details class="acc__item" open><summary>연차는 언제까지 신청해야 하나요?<svg class="i chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6l6 -6"/></svg></summary><div class="acc__panel">사용일 3일 전까지 상신하면 됩니다. 당일·전일 신청은 팀장 승인이 필요하고, 에이전트가 상신할 때 이를 요약 카드에 표시합니다.</div></details></div></div>
+    <ol><li><b>Header (summary)</b> — 제목 t1 600, 48px. 전체가 눌립니다</li><li><b>Chevron</b> — 오른쪽 끝, 열리면 180° 회전</li><li><b>Panel</b> — 본문 t1, subtle 색</li><li><b>Divider</b> — 항목 사이 1px 선</li></ol>
+  </div>
+  <h2>Properties</h2>
+  <h3>Variant</h3>
+  <div class="demo" style="align-items:flex-start">
+    <div class="acc"><details class="acc__item" open><summary>연차는 언제까지 신청해야 하나요?<svg class="i chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6l6 -6"/></svg></summary><div class="acc__panel">사용일 3일 전까지 상신하면 됩니다.</div></details><details class="acc__item"><summary>외근·출장 경비는 어떻게 청구하나요?<svg class="i chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6l6 -6"/></svg></summary><div class="acc__panel">경비·지출 카드에서 금액·내용·영수증을 첨부해 제출합니다.</div></details><details class="acc__item"><summary>업무일지는 꼭 매일 써야 하나요?<svg class="i chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6l6 -6"/></svg></summary><div class="acc__panel">연동 소스가 있으면 에이전트가 초안을 만들고, 사용자는 확인만 합니다.</div></details></div>
+    <div class="acc boxed"><details class="acc__item" open><summary>알림 설정 <span class="meta">3개 켜짐</span><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6l6 -6"/></svg></summary><div class="acc__panel">결재 알림 · 일정 알림 · 브리핑 알림</div></details><details class="acc__item"><summary>연동 <span class="meta">4개</span><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6l6 -6"/></svg></summary><div class="acc__panel">근태 · 전자결재 · 일정 · 경비</div></details></div>
+  </div>
+  <table><tr><th>Variant</th><th>쓰임</th></tr><tr><td>divider (기본)</td><td>FAQ·규정처럼 글이 많은 묶음</td></tr><tr><td>boxed</td><td>설정 그룹·카드 안. 항목마다 상자</td></tr><tr><td>exclusive</td><td><code>&lt;details name="faq"&gt;</code> — 같은 name 은 하나만 열림. 긴 FAQ 에서 화면이 늘어지지 않게</td></tr></table>
+  <h3>Size — 기본 / compact</h3>
+  <div class="demo" style="align-items:flex-start">
+    <figure class="ex" style="flex:1 1 320px"><div class="acc"><details class="acc__item" open><summary>기본 · 48px<svg class="i chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6l6 -6"/></svg></summary><div class="acc__panel">규정·FAQ 처럼 독립된 페이지에서</div></details><details class="acc__item"><summary>외근·출장 경비는 어떻게 청구하나요?<svg class="i chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6l6 -6"/></svg></summary><div class="acc__panel"></div></details></div><figcaption>기본 — 머리글 48px · t3</figcaption></figure>
+    <figure class="ex" style="flex:1 1 320px"><div class="acc compact"><details class="acc__item" open><summary>compact · 40px<svg class="i chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6l6 -6"/></svg></summary><div class="acc__panel">패널·카드 안에 들어갈 때</div></details><details class="acc__item"><summary>연동 4개<svg class="i chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6l6 -6"/></svg></summary><div class="acc__panel"></div></details></div><figcaption>compact — 머리글 40px · t2</figcaption></figure>
+  </div>
+  <h3>State</h3>
+  <div class="demo" style="align-items:flex-start">
+    <figure class="ex" style="flex:1 1 260px"><div class="acc"><details class="acc__item"><summary>닫힘<svg class="i chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6l6 -6"/></svg></summary><div class="acc__panel"></div></details></div><figcaption>closed</figcaption></figure>
+    <figure class="ex" style="flex:1 1 260px"><div class="acc"><details class="acc__item" open><summary>열림<svg class="i chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6l6 -6"/></svg></summary><div class="acc__panel">본문이 펼쳐지고 chevron 이 180° 돕니다.</div></details></div><figcaption>open</figcaption></figure>
+    <figure class="ex" style="flex:1 1 260px"><div class="acc"><details class="acc__item disabled"><summary>disabled — 권한 없음</summary></details></div><figcaption>disabled — chevron 없음, 눌리지 않음</figcaption></figure>
+  </div>
+  <h2>Guidelines</h2>
+  <div class="dd">
+    <div class="do"><b>Do</b>제목은 질문이나 명사구 한 줄. 본문에 링크·버튼은 되지만 header 안에는 글자와 메타만.</div>
+    <div class="dont"><b>Don&#39;t</b>꼭 읽어야 하는 내용(마감·금액·경고)을 접어 두지 않습니다 — 접힘은 「나중에 봐도 되는 것」의 표시입니다.</div>
+  </div>
+  <div class="dd">
+    <div class="do"><b>Do</b>첫 항목을 열어 두어 무엇이 들어 있는지 보여 줍니다(FAQ). 설정 그룹은 모두 닫힘.</div>
+    <div class="dont"><b>Don&#39;t</b>아코디언 안에 아코디언을 넣지 않습니다. 두 단계가 필요하면 페이지를 나눕니다.</div>
+  </div>
+  <h2>Accordion vs. Collapsible list vs. Tabs</h2>
+  <table><tr><th></th><th>Accordion</th><th>Collapsible list</th><th>Tabs</th></tr><tr><td>안에 든 것</td><td>글·설정</td><td>같은 모양의 행</td><td>서로 다른 화면</td></tr><tr><td>여러 개 열림</td><td>가능(exclusive 옵션)</td><td>가능</td><td>하나</td></tr><tr><td>세로 길이</td><td>변함</td><td>변함</td><td>고정</td></tr></table>
+  <h2>Specification</h2>
+  <table><tr><th>부위</th><th>토큰</th></tr><tr><td>header</td><td>48px · t1 600 · hover <code>--bg-neutral-hover</code></td></tr><tr><td>chevron</td><td>18px <code>--fg-neutral-muted</code> · <code>--duration-normal</code> 회전</td></tr><tr><td>panel</td><td>t1 <code>--fg-neutral-subtle</code> · 아래 여백 <code>--dim-x4</code></td></tr><tr><td>divider / boxed</td><td><code>--stroke-neutral-strong</code> / <code>--radius-md</code></td></tr><tr><td>접근성</td><td><code>&lt;details&gt;/&lt;summary&gt;</code> 가 <code>aria-expanded</code> 를 대신합니다. Space·Enter 로 토글, disabled 는 <code>pointer-events:none</code> + <code>aria-disabled</code></td></tr></table>
+</section>

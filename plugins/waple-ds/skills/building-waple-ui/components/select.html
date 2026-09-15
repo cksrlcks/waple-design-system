@@ -1,0 +1,31 @@
+<section class="page" id="components/select">
+  <h1>Select</h1>
+  <p class="desc">몇 개 안 되는 선택지에서 하나를 고릅니다. 브라우저 기본 <code>&lt;select&gt;</code> 에 시스템 모양만 입혀 키보드·모바일 동작은 브라우저가 맡습니다. 항목이 스무 개를 넘거나 검색이 필요하면 Select 로 담지 않고 표·목록 화면에서 고르게 합니다.</p>
+  <h2>Anatomy</h2>
+  <div class="anatomy">
+    <div class="demo tinted"><div class="field md"><label>테마</label><label class="select"><select><option selected>시스템</option><option>라이트</option><option>다크</option></select><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6l6 -6"/></svg></label><div class="help">시스템 설정을 따르거나 고정합니다</div></div></div>
+    <ol><li><b>Label</b> — Text input 과 같은 <code>.field</code> 라벨</li><li><b>Control</b> — 36px, 1px 선, 라운드 sm</li><li><b>Chevron</b> — 오른쪽 16px chevron-down, muted</li><li><b>Help</b> (선택) — t1 muted</li></ol>
+  </div>
+  <h2>Properties</h2>
+  <h3>Size</h3>
+  <div class="demo tinted"><label class="select sm"><select><option selected>sm · 32px</option><option>짧게</option><option>자세히</option></select><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6l6 -6"/></svg></label><label class="select"><select><option selected>md · 36px</option><option>라이트</option><option>다크</option></select><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6l6 -6"/></svg></label><label class="select lg"><select><option selected>lg · 44px</option><option>English</option></select><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6l6 -6"/></svg></label></div>
+  <table><tr><th>크기</th><th>높이</th><th>쓰임</th></tr><tr><td>sm</td><td>32px</td><td>표 필터·툴바 — 좁은 자리에만</td></tr><tr><td>md</td><td>36px</td><td>기본 — 폼·설정 행. Text input md 와 같은 높이</td></tr><tr><td>lg</td><td>44px</td><td>모바일 폼</td></tr></table>
+  <h3>Variant</h3>
+  <div class="demo tinted"><label class="select"><select><option selected>기본 — 선 있음</option><option>…</option></select><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6l6 -6"/></svg></label><label class="select ghost"><select><option selected>ghost — 선 없음</option><option>…</option></select><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6l6 -6"/></svg></label></div>
+  <table><tr><th>Variant</th><th>쓰임</th></tr><tr><td>기본</td><td>폼·설정 행</td></tr><tr><td>ghost</td><td>표 머리·툴바처럼 선이 시끄러운 자리. hover 에만 배경</td></tr></table>
+  <h3>State</h3>
+  <div class="demo tinted"><label class="select"><select><option selected>기본</option><option>…</option></select><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6l6 -6"/></svg></label><label class="select"><select style="border-color:var(--stroke-accent);box-shadow:0 0 0 3px var(--bg-accent-weak)"><option>focus</option></select><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6l6 -6"/></svg></label><label class="select error"><select><option selected>error</option><option>…</option></select><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6l6 -6"/></svg></label><label class="select"><select disabled><option>disabled</option></select><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6l6 -6"/></svg></label></div>
+  <h2>Guidelines</h2>
+  <div class="dd">
+    <div class="do"><b>Do</b>기본값을 첫 항목으로 두고 <b>선택된 상태</b>로 보여 줍니다. 「선택하세요」 빈 값은 필수 입력일 때만.</div>
+    <div class="dont"><b>Don&#39;t</b>항목이 둘이면 Switch·Segmented, 셋 이하로 한눈에 비교해야 하면 Radio. Select 는 4~20개.</div>
+  </div>
+  <div class="dd">
+    <div class="do"><b>Do</b>설정 행·폼 모두 md(36px) — 같은 행의 Text input·Button 과 높이를 맞춥니다. 한 화면에 select 높이를 섞지 않습니다. sm 은 표 필터·툴바처럼 좁은 자리에만.</div>
+    <div class="dont"><b>Don&#39;t</b>커스텀 드롭다운을 새로 만들지 않습니다 — 검색·다중 선택이 필요하면 표·목록 화면에서 고르게 합니다.</div>
+  </div>
+  <h2>Select vs. Segmented vs. Radio</h2>
+  <table><tr><th></th><th>Select</th><th>Segmented</th><th>Radio</th></tr><tr><td>항목 수</td><td>4~20</td><td>2~4</td><td>2~5</td></tr><tr><td>보이는 것</td><td>선택된 하나</td><td>전부</td><td>전부</td></tr><tr><td>자리</td><td>폼·설정 행</td><td>패널 머리</td><td>폼</td></tr></table>
+  <h2>Specification</h2>
+  <table><tr><th>부위</th><th>토큰</th></tr><tr><td>선 / 배경 / 라운드</td><td><code>--stroke-neutral-strong</code> / <code>--bg-layer-default</code> / <code>--radius-sm</code></td></tr><tr><td>글자</td><td>sm t1 · md t2 · lg t3, <code>--fg-neutral</code></td></tr><tr><td>chevron</td><td>16px <code>--fg-neutral-muted</code>, 오른쪽 <code>--dim-x2_5</code></td></tr><tr><td>focus / error / disabled</td><td>accent 링 / <code>--stroke-critical</code> / <code>--bg-neutral-weak</code>+<code>--fg-disabled</code></td></tr><tr><td>접근성</td><td>기본 <code>&lt;select&gt;</code> — 라벨은 <code>&lt;label for&gt;</code>, 키보드·스크린리더는 브라우저 기본</td></tr></table>
+</section>

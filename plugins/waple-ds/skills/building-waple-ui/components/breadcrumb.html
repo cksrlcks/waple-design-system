@@ -1,0 +1,56 @@
+<section class="page" id="components/breadcrumb">
+  <h1>Breadcrumb</h1>
+  <p class="desc">지금 화면이 어디에 있는지 상위 단계부터 보여 주고, 한 번에 위로 올라가게 합니다. 상단 바의 「에이전트 / 홈」, 설정 창 머리의 「설정 / 알림」, 관리자 콘솔의 「직원 / 윤아린2」가 모두 이 컴포넌트입니다. 상위 단계는 링크, 마지막(현재)은 링크가 아닌 글자입니다.</p>
+  <h2>Anatomy</h2>
+  <div class="anatomy">
+    <div class="demo"><nav class="bcrumb" aria-label="브레드크럼"><ol><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 18a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm0 -12a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm-7 12a6 6 0 0 1 6 -6a6 6 0 0 1 -6 -6a6 6 0 0 1 -6 6a6 6 0 0 1 6 6z"/></svg><a class="bcrumb__link" href="#">에이전트</a></li><li><span class="bcrumb__sep" aria-hidden="true">/</span><a class="bcrumb__link" href="#">대화</a></li><li><span class="bcrumb__sep" aria-hidden="true">/</span><span aria-current="page">연차 신청</span></li></ol></nav></div>
+    <ol><li><b>Leading icon</b> (선택) — 영역 아이콘 16px. 첫 단계에만</li><li><b>Link</b> — 상위 단계, muted. hover 에 진해집니다</li><li><b>Separator</b> — 「/」 placeholder 색, 스크린리더에서 숨김</li><li><b>Current</b> — 지금 화면. ink, 링크 아님(<code>aria-current="page"</code>)</li><li><b>Collapse</b> (넘칠 때) — 가운데 단계를 dots 버튼 하나로 접고 Menu 로 엽니다</li></ol>
+  </div>
+  <h2>Properties</h2>
+  <h3>Variant</h3>
+  <div class="demo col">
+    <figure class="ex"><nav class="bcrumb" aria-label="브레드크럼"><ol><li><a class="bcrumb__link" href="#">설정</a></li><li><span class="bcrumb__sep" aria-hidden="true">/</span><span aria-current="page">알림</span></li></ol></nav><figcaption>slash (기본) — 「/」. 상단 바·설정 창 머리 모두</figcaption></figure>
+    <figure class="ex"><nav class="bcrumb chev" aria-label="브레드크럼"><ol><li><a class="bcrumb__link" href="#">관리자 콘솔</a></li><li><span class="bcrumb__sep" aria-hidden="true"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6l-6 6"/></svg></span><a class="bcrumb__link" href="#">직원</a></li><li><span class="bcrumb__sep" aria-hidden="true"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6l-6 6"/></svg></span><span aria-current="page">윤아린2</span></li></ol></nav><figcaption>chevron — chevron-right 14px. 목록에서 상세로 「들어가는」 콘솔 화면</figcaption></figure>
+    <figure class="ex"><nav class="bcrumb" aria-label="브레드크럼"><ol><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 18a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm0 -12a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm-7 12a6 6 0 0 1 6 -6a6 6 0 0 1 -6 -6a6 6 0 0 1 -6 6a6 6 0 0 1 6 6z"/></svg><a class="bcrumb__link" href="#">에이전트</a></li><li><span class="bcrumb__sep" aria-hidden="true">/</span><span aria-current="page">홈</span></li></ol></nav><figcaption>leading icon — 첫 단계 앞에 영역 아이콘(home.html 상단 바)</figcaption></figure>
+  </div>
+  <table><tr><th>Variant</th><th>구분자</th><th>쓰임</th></tr><tr><td>slash (기본)</td><td>「/」 글자, <code>--fg-neutral-placeholder</code></td><td>직원 앱 상단 바 · 설정 창 머리</td></tr><tr><td>chevron</td><td>chevron-right 14px</td><td>관리자 콘솔 — 목록 → 상세 → 하위 탭처럼 깊이가 셋 이상</td></tr><tr><td>leading icon</td><td>첫 단계 앞 16px 아이콘</td><td>영역(에이전트 · 관리자 콘솔)을 알려야 할 때 한 곳만</td></tr></table>
+  <h3>Size</h3>
+  <div class="demo col">
+    <figure class="ex"><nav class="bcrumb sm" aria-label="브레드크럼"><ol><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 18a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm0 -12a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm-7 12a6 6 0 0 1 6 -6a6 6 0 0 1 -6 -6a6 6 0 0 1 -6 6a6 6 0 0 1 6 6z"/></svg><a class="bcrumb__link" href="#">에이전트</a></li><li><span class="bcrumb__sep" aria-hidden="true">/</span><span aria-current="page">홈</span></li></ol></nav><figcaption>sm — t1 13px, 현재 600. 46px 상단 바</figcaption></figure>
+    <figure class="ex"><nav class="bcrumb" aria-label="브레드크럼"><ol><li><a class="bcrumb__link" href="#">설정</a></li><li><span class="bcrumb__sep" aria-hidden="true">/</span><span aria-current="page">알림</span></li></ol></nav><figcaption>md — t2 14px, 현재 500. 설정 창·콘솔 페이지 머리</figcaption></figure>
+  </div>
+  <table><tr><th>크기</th><th>글자</th><th>현재 단계</th><th>쓰임</th></tr><tr><td>sm</td><td>t1 13px</td><td>600 — 작은 글자에서도 현재가 보이게</td><td>직원 앱 상단 바(home.html <code>.crumb</code>)</td></tr><tr><td>md</td><td>t2 14px</td><td>500</td><td>설정 창 머리(<code>.settings__crumb</code>) · 콘솔 페이지 머리</td></tr></table>
+  <h3>State</h3>
+  <div class="demo">
+    <figure class="ex"><nav class="bcrumb" aria-label="브레드크럼"><ol><li><a class="bcrumb__link" href="#">설정</a></li><li><span class="bcrumb__sep" aria-hidden="true">/</span><span aria-current="page">알림</span></li></ol></nav><figcaption>기본 — 링크 muted</figcaption></figure>
+    <figure class="ex"><nav class="bcrumb" aria-label="브레드크럼"><ol><li><a class="bcrumb__link" href="#" style="color:var(--fg-neutral)">설정</a></li><li><span class="bcrumb__sep" aria-hidden="true">/</span><span aria-current="page">알림</span></li></ol></nav><figcaption>hover — ink</figcaption></figure>
+    <figure class="ex"><nav class="bcrumb" aria-label="브레드크럼"><ol><li><a class="bcrumb__link" href="#" style="box-shadow:0 0 0 3px var(--bg-accent-weak),0 0 0 4px var(--stroke-focus)">설정</a></li><li><span class="bcrumb__sep" aria-hidden="true">/</span><span aria-current="page">알림</span></li></ol></nav><figcaption>focus — 틸 링</figcaption></figure>
+  </div>
+  <h3>Overflow</h3>
+  <div class="demo col">
+    <figure class="ex"><div style="height:132px"><nav class="bcrumb" aria-label="브레드크럼"><ol><li><a class="bcrumb__link" href="#">관리자 콘솔</a></li><li><span class="bcrumb__sep" aria-hidden="true">/</span><div class="bcrumb__pop"><button class="bcrumb__more" aria-label="숨긴 경로 2개" aria-haspopup="menu" aria-expanded="true"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/><path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/><path d="M19 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/></svg></button><div class="menu" role="menu" aria-label="숨긴 경로"><button class="menu__item" role="menuitem"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M21 21v-2a4 4 0 0 0 -3 -3.85"/></svg><span class="menu__text">직원</span></button><button class="menu__item" role="menuitem"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21l18 0"/><path d="M9 8l1 0"/><path d="M9 12l1 0"/><path d="M9 16l1 0"/><path d="M14 8l1 0"/><path d="M14 12l1 0"/><path d="M14 16l1 0"/><path d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16"/></svg><span class="menu__text">디자인1팀1</span></button></div></div></li><li><span class="bcrumb__sep" aria-hidden="true">/</span><a class="bcrumb__link" href="#">윤아린2</a></li><li><span class="bcrumb__sep" aria-hidden="true">/</span><span aria-current="page">연결 상태</span></li></ol></nav></div><figcaption>collapse — 다섯 단계 → 처음 하나 + 끝 둘. 가운데는 dots 버튼, 누르면 Menu</figcaption></figure>
+    <figure class="ex"><nav class="bcrumb" aria-label="브레드크럼"><ol><li><a class="bcrumb__link" href="#" title="전자결재">전자결재</a></li><li><span class="bcrumb__sep" aria-hidden="true">/</span><a class="bcrumb__link" href="#" title="박지웅(기업부설연구소) 결재 요청">박지웅(기업부설연구소) 결재 요청</a></li><li><span class="bcrumb__sep" aria-hidden="true">/</span><span aria-current="page" title="(AI_AGENT) 구매/지출결의서 제출의 건 — 9월 법인카드 영수증">(AI_AGENT) 구매/지출결의서 제출의 건 — 9월 법인카드 영수증</span></li></ol></nav><figcaption>truncate — 링크 160px · 현재 240px 에서 말줄임, 전체 문구는 title</figcaption></figure>
+  </div>
+  <table style="word-break:keep-all"><tr><th>상황</th><th>규칙</th></tr><tr><td>네&nbsp;단계&nbsp;이상</td><td>첫 단계와 마지막 둘만 남기고 가운데를 dots 버튼 하나로 접습니다. 접힌 단계는 Menu 항목 — 위에서 아래로 원래 순서</td></tr><tr><td>긴 이름</td><td>링크 160px · 현재 240px 에서 한 줄 말줄임. <code>title</code> 에 전체 이름. 줄바꿈하지 않습니다</td></tr></table>
+  <h2>Guidelines</h2>
+  <div class="dd">
+    <div class="do"><b>Do</b><div class="demo"><nav class="bcrumb" aria-label="브레드크럼"><ol><li><a class="bcrumb__link" href="#">설정</a></li><li><span class="bcrumb__sep" aria-hidden="true">/</span><span aria-current="page">알림</span></li></ol></nav></div>상위 단계만 링크, 현재는 글자. 단계가 둘 이상일 때만 둡니다.</div>
+    <div class="dont"><b>Don&#39;t</b><div class="demo"><nav class="bcrumb" aria-label="브레드크럼"><ol><li><a class="bcrumb__link" href="#">설정</a></li><li><span class="bcrumb__sep" aria-hidden="true">/</span><a class="bcrumb__link" href="#">알림</a></li></ol></nav></div>현재 화면을 링크로 두지 않습니다 — 눌러도 제자리이고, 어디에 있는지 흐려집니다.</div>
+  </div>
+  <div class="dd">
+    <div class="do"><b>Do</b>브레드크럼은 <b>계층</b>입니다. 방문 순서(뒤로 가기)가 아니므로 어떤 길로 들어와도 같은 경로를 보여 줍니다.</div>
+    <div class="dont"><b>Don&#39;t</b>768px 아래에는 두지 않습니다 — 좁은 화면에서는 화면 머리의 뒤로 버튼과 제목이 이 일을 맡습니다.</div>
+  </div>
+  <h2>Breadcrumb vs. Back link</h2>
+  <table><tr><th></th><th>Breadcrumb</th><th>Back link (뒤로)</th></tr><tr><td>보여 주는 것</td><td>전체 경로(계층)</td><td>한 단계 위</td></tr><tr><td>자리</td><td>데스크톱 상단 바 · 설정 창 · 콘솔 머리</td><td>모바일 화면 머리 · 콘솔 「항목 개요」로 돌아가기</td></tr><tr><td>깊이</td><td>2단계 이상, 4단계부터 접힘</td><td>깊이와 상관없이 하나</td></tr><tr><td>현재 위치</td><td>마지막 단계(링크 아님)</td><td>화면 제목이 맡음</td></tr></table>
+  <h2>Specification</h2>
+  <table><tr><th>부위</th><th>토큰</th></tr>
+    <tr><td>글자</td><td>md t2 · sm t1 · 링크 <code>--fg-neutral-muted</code>, hover <code>--fg-neutral</code></td></tr>
+    <tr><td>Current</td><td><code>--fg-neutral</code> · md 500 · sm 600 · 링크 아님</td></tr>
+    <tr><td>Separator</td><td>「/」 <code>--fg-neutral-placeholder</code> · chevron-right 14px · 양옆 <code>--dim-x2</code> (chevron <code>--dim-x1</code>)</td></tr>
+    <tr><td>Leading icon</td><td>16px, 링크 글자 색(currentColor)</td></tr>
+    <tr><td>말줄임</td><td>링크 최대 160px · 현재 240px · <code>title</code> 에 전체</td></tr>
+    <tr><td>Collapse</td><td>dots 24px 버튼 · <code>--radius-xs</code> · 열리면 <code>--bg-neutral-hover</code> · Menu 는 <code>--dim-x1_5</code> 아래</td></tr>
+    <tr><td>focus</td><td><code>--bg-accent-weak</code> 3px + <code>--stroke-focus</code> 1px</td></tr>
+    <tr><td>접근성</td><td><code>&lt;nav aria-label="브레드크럼"&gt;</code> + <code>&lt;ol&gt;</code> · 현재 <code>aria-current="page"</code> · 구분자 <code>aria-hidden</code> · 접힘 버튼 <code>aria-haspopup="menu" aria-expanded</code> + 「숨긴 경로 2개」 · Tab 으로 링크 순서대로, Menu 안은 ↑ ↓ · Esc 로 닫고 버튼으로 포커스</td></tr></table>
+</section>

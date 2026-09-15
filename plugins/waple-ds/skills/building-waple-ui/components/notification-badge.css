@@ -1,0 +1,7 @@
+/* Notification badge — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Notification badge ── 트리거 모서리의 점(비어 있으면) · 건수 알약. 링 = 놓인 바탕색 */
+  .nbadge{display:inline-flex;align-items:center;justify-content:center;flex:none;min-width:18px;height:18px;padding:0 var(--dim-x1);border-radius:var(--radius-full);background:var(--bg-critical-solid);color:var(--fg-on-critical);font-size:var(--font-size-t1);font-weight:var(--font-weight-semibold);line-height:1;font-variant-numeric:tabular-nums;pointer-events:none}
+  .nbadge:empty{width:8px;height:8px;min-width:0;padding:0}
+  .nbadge.corner{position:absolute;top:calc(-1 * var(--dim-x1));left:calc(100% - 14px);box-shadow:0 0 0 2px var(--bg-layer-default)} .nbadge.corner:empty{top:var(--dim-x1);left:auto;right:var(--dim-x1)}
+  :where(:has(> .nbadge.corner)){position:relative}
+  .sbnav .nbadge.corner{box-shadow:0 0 0 2px var(--bg-layer-basement)} .sbnav.rail .sbnav__item .nbadge{display:inline-flex}

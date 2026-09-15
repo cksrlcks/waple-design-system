@@ -1,0 +1,67 @@
+<section class="page" id="components/tabs">
+  <h1>Tabs</h1>
+  <p class="desc">한 화면 안에서 <b>서로 다른 내용 영역</b>을 오갑니다(결재함의 수신함 · 발신함 · 참조 · 임시 저장). 선택한 탭만 2px 잉크 밑줄로 표시하고, 탭 목록 아래에는 그 탭의 패널 하나만 보입니다. 모양은 <b>밑줄 하나뿐</b>입니다 — 채움 알약은 Segmented control 의 모양이고, 같은 데이터의 보기·범위만 바꾸는 2~4칸도 Segmented control 입니다.</p>
+  <h2>Anatomy</h2>
+  <div class="anatomy">
+    <div class="demo"><div class="tabset"><div class="tabset__list" role="tablist" aria-label="결재함"><button class="tabset__tab" role="tab" id="tab-in" aria-selected="true" aria-controls="panel-in">수신함</button><button class="tabset__tab" role="tab" aria-selected="false" tabindex="-1">발신함</button><button class="tabset__tab" role="tab" aria-selected="false" tabindex="-1">참조</button></div><div class="tabset__panel" role="tabpanel" id="panel-in" aria-labelledby="tab-in" tabindex="0"><a class="lrow" href="#"><span class="lrow__main"><b>(AI_AGENT) 연차 신청의 건</b><span class="lrow__meta">박지웅 · 09-08 11:43</span></span><span class="lrow__side warning">승인 대기</span></a><a class="lrow" href="#"><span class="lrow__main"><b>(AI_AGENT) 구매/지출결의서</b><span class="lrow__meta">윤아린2 · 09-08 10:30</span></span><span class="lrow__side warning">승인 대기</span></a></div></div></div>
+    <ol><li><b>Tab list</b> — 탭을 한 줄로 담는 <code>role="tablist"</code>. 넘치면 줄바꿈 대신 가로 스크롤</li><li><b>Tab</b> — 명사 한두 단어, 44px. 목록 아래에는 1px 선</li><li><b>Selected</b> — 2px 잉크 밑줄 + 600. 선택은 항상 하나</li><li><b>Tab panel</b> — 선택한 탭의 내용. <code>aria-controls</code> ↔ <code>aria-labelledby</code> 로 탭과 묶입니다</li></ol>
+  </div>
+  <h2>Properties</h2>
+  <h3>Size</h3>
+  <div class="demo col">
+    <figure class="ex"><div class="tabset sm"><div class="tabset__list" role="tablist" aria-label="결재함"><button class="tabset__tab" role="tab" aria-selected="true">수신함</button><button class="tabset__tab" role="tab" aria-selected="false" tabindex="-1">발신함</button><button class="tabset__tab" role="tab" aria-selected="false" tabindex="-1">참조</button></div></div><figcaption>sm — 36px · t1. 카드·패널 머리</figcaption></figure>
+    <figure class="ex"><div class="tabset"><div class="tabset__list" role="tablist" aria-label="결재함"><button class="tabset__tab" role="tab" aria-selected="true">수신함</button><button class="tabset__tab" role="tab" aria-selected="false" tabindex="-1">발신함</button><button class="tabset__tab" role="tab" aria-selected="false" tabindex="-1">참조</button></div></div><figcaption>md — 44px · t2. 화면 상단</figcaption></figure>
+  </div>
+  <table><tr><th>크기</th><th>탭 높이</th><th>글자 · 아이콘</th><th>쓰임</th></tr><tr><td>sm</td><td>36px</td><td>t1 · 16px(<code>-filled</code>)</td><td>카드·패널 머리, 다이얼로그 안</td></tr><tr><td>md</td><td>44px</td><td>t2 · 18px</td><td>화면 상단 — 기본</td></tr></table>
+  <h3>Icon</h3>
+  <div class="demo col">
+    <figure class="ex"><div class="tabset"><div class="tabset__list" role="tablist" aria-label="결재함"><button class="tabset__tab" role="tab" aria-selected="true"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"/><path d="M4 13h3l3 3h4l3 -3h3"/></svg>수신함</button><button class="tabset__tab" role="tab" aria-selected="false" tabindex="-1"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14l11 -11"/><path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5"/></svg>발신함</button><button class="tabset__tab" role="tab" aria-selected="false" tabindex="-1"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z"/><path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10"/><path d="M10 12l4 0"/></svg>임시 저장</button></div></div><figcaption>icon + label — 아이콘은 라벨 앞. 라벨은 빼지 않습니다</figcaption></figure>
+  </div>
+  <table><tr><th>덧붙임</th><th>규칙</th></tr><tr><td>icon</td><td>탭마다 모두 달거나 모두 빼거나. 아이콘만 있는 탭은 없습니다</td></tr></table>
+  <h3>State</h3>
+  <div class="demo">
+    <figure class="ex"><div class="tabset"><div class="tabset__list" role="tablist"><button class="tabset__tab" role="tab" aria-selected="false" tabindex="-1">발신함</button></div></div><figcaption>기본</figcaption></figure><figure class="ex"><div class="tabset"><div class="tabset__list" role="tablist"><button class="tabset__tab" role="tab" aria-selected="false" tabindex="-1" style="color:var(--fg-neutral);box-shadow:inset 0 -2px 0 var(--stroke-neutral-stronger)">발신함</button></div></div><figcaption>hover</figcaption></figure><figure class="ex"><div class="tabset"><div class="tabset__list" role="tablist"><button class="tabset__tab" role="tab" aria-selected="true">수신함</button></div></div><figcaption>selected</figcaption></figure><figure class="ex"><div class="tabset"><div class="tabset__list" role="tablist"><button class="tabset__tab" role="tab" aria-selected="false" tabindex="-1" style="border-radius:var(--radius-sm);box-shadow:inset 0 0 0 2px var(--stroke-focus)">참조</button></div></div><figcaption>focus</figcaption></figure><figure class="ex"><div class="tabset"><div class="tabset__list" role="tablist"><button class="tabset__tab" role="tab" aria-selected="false" tabindex="-1" disabled>임시 저장</button></div></div><figcaption>disabled</figcaption></figure>
+  </div>
+  <h3>Overflow</h3>
+  <div class="demo col">
+    <figure class="ex"><div class="tabset scroll" style="max-width:340px"><div class="tabset__list" role="tablist" aria-label="결재 문서"><button class="tabset__tab" role="tab" aria-selected="true">개요</button><button class="tabset__tab" role="tab" aria-selected="false" tabindex="-1">결재선</button><button class="tabset__tab" role="tab" aria-selected="false" tabindex="-1">첨부</button><button class="tabset__tab" role="tab" aria-selected="false" tabindex="-1">의견</button><button class="tabset__tab" role="tab" aria-selected="false" tabindex="-1">이력</button><button class="tabset__tab" role="tab" aria-selected="false" tabindex="-1">관련 문서</button><button class="tabset__tab" role="tab" aria-selected="false" tabindex="-1">참조자</button></div></div><figcaption>overflow — 한 줄을 지키고 가로 스크롤, 오른쪽 40px 페이드</figcaption></figure>
+  </div>
+  <table><tr><th>상황</th><th>동작</th></tr><tr><td>탭이 폭을 넘칠 때</td><td>줄바꿈·말줄임 없이 가로 스크롤. 스크롤바는 숨기고 넘친 쪽 끝을 페이드 — 끝에 닿은 쪽은 페이드를 뗍니다</td></tr><tr><td>선택 탭이 가려질 때</td><td>선택·포커스가 옮겨 가면 그 탭이 보이게 목록을 스크롤합니다(<code>scrollIntoView({inline:'nearest'})</code>)</td></tr></table>
+  <h2>Guidelines</h2>
+  <div class="dd">
+    <div class="do"><b>Do</b><div class="demo"><div class="tabset sm"><div class="tabset__list" role="tablist" aria-label="결재함"><button class="tabset__tab" role="tab" aria-selected="true">수신함</button><button class="tabset__tab" role="tab" aria-selected="false" tabindex="-1">발신함</button><button class="tabset__tab" role="tab" aria-selected="false" tabindex="-1">참조</button></div></div></div>라벨은 명사 한두 단어, 탭은 2~7개. 넘치면 한 줄을 지키고 가로로 스크롤합니다.</div>
+    <div class="dont"><b>Don&#39;t</b><div class="demo"><div class="tabset sm"><div class="tabset__list" role="tablist" style="flex-wrap:wrap;max-width:230px"><button class="tabset__tab" role="tab" aria-selected="true">수신함</button><button class="tabset__tab" role="tab" aria-selected="false" tabindex="-1">발신함</button><button class="tabset__tab" role="tab" aria-selected="false" tabindex="-1">참조</button><button class="tabset__tab" role="tab" aria-selected="false" tabindex="-1">임시 저장</button><button class="tabset__tab" role="tab" aria-selected="false" tabindex="-1">반려 문서</button><button class="tabset__tab" role="tab" aria-selected="false" tabindex="-1">회수 문서</button></div></div></div>탭을 두 줄로 접지 않습니다 — 어느 줄이 선택 줄인지 헷갈리고, 폭이 바뀌면 탭 자리가 뜁니다.</div>
+  </div>
+  <div class="dd">
+    <div class="do"><b>Do</b>탭은 <b>다른 내용</b>을 나눕니다. 같은 목록을 상태로 거르는 것(전체 · 승인 대기 · 반려)은 Chip, 같은 데이터의 보기 전환은 Segmented control 입니다. home.html 결재함 카드 머리의 채움 알약 탭은 밑줄 Tabs 로 옮기거나, 같은 데이터의 보기 전환이면 Segmented control 로 바꿉니다.</div>
+    <div class="dont"><b>Don&#39;t</b><div class="demo"><div class="tabset"><div class="tabset__list" role="tablist"><button class="tabset__tab" role="tab" aria-selected="true" style="border-radius:var(--radius-full);background:var(--bg-brand-solid);color:var(--fg-on-brand);box-shadow:none">수신함</button><button class="tabset__tab" role="tab" aria-selected="false" tabindex="-1">발신함</button></div></div></div>선택 탭을 채워 알약으로 만들지 않습니다 — 채움 알약은 Segmented control 의 모양이고, Tabs 의 선택 표시는 밑줄 하나입니다.</div>
+  </div>
+  <div class="dd">
+    <div class="do"><b>Do</b>탭을 바꿔도 화면은 그대로입니다. 탭마다 스크롤·입력값을 기억하고 주소에 <code>?tab=</code> 로 남겨, 새로 고쳐도 같은 탭이 열립니다.</div>
+    <div class="dont"><b>Don&#39;t</b>탭 안에 탭을 겹치지 않습니다 — 밑줄 두 단이 나란히 놓이면 어느 쪽이 지금 영역인지 알 수 없습니다. 두 단이 필요하면 화면을 나눕니다.</div>
+  </div>
+  <h2>Tabs vs. Segmented control</h2>
+  <p>Tabs(밑줄)는 <b>서로 다른 내용 영역</b>을 가릅니다 — 결재함의 수신함 · 발신함처럼 아래 목록 자체가 다른 것으로 바뀝니다. Segmented control 은 <b>같은 데이터의 보기·범위</b>를 바꿉니다 — 목록은 그대로이고 무엇을 어떻게 보여 줄지만 달라집니다. 화면 상단에서 영역을 가르는 자리라면 Tabs 를 먼저 집고, 카드·패널 안에서 같은 목록의 보기만 고르는 자리라면 Segmented control 을 집습니다.</p>
+  <div class="demo">
+    <figure class="ex"><div class="tabset sm"><div class="tabset__list" role="tablist" aria-label="결재함"><button class="tabset__tab" role="tab" aria-selected="true">수신함</button><button class="tabset__tab" role="tab" aria-selected="false" tabindex="-1">발신함</button><button class="tabset__tab" role="tab" aria-selected="false" tabindex="-1">참조</button></div></div><figcaption>Tabs — 결재함 화면. 아래 패널이 통째로 바뀝니다</figcaption></figure>
+    <figure class="ex"><div class="seg" role="tablist" aria-label="최근 전자결재"><button class="seg__item on" role="tab" aria-selected="true">수신함 <span class="n">47</span></button><button class="seg__item" role="tab" aria-selected="false" tabindex="-1">발신함 <span class="n">50</span></button></div><figcaption>Segmented control — 홈 카드 머리. 같은 목록의 보기만 바뀝니다</figcaption></figure>
+  </div>
+  <table style="word-break:keep-all"><tr><th></th><th>Tabs</th><th>Segmented control</th></tr>
+    <tr><td>뜻</td><td>서로 다른 내용 영역을 가름 — 아래 목록·패널이 통째로 바뀜</td><td>같은 데이터의 보기·범위 전환 — 목록은 그대로</td></tr>
+    <tr><td>항목&nbsp;수</td><td>2~7, 넘치면 가로 스크롤</td><td>2~4, 항상 다 보임</td></tr>
+    <tr><td>모양</td><td>바탕 없는 탭 줄. 선택은 2px 잉크 밑줄 하나</td><td>회색 트랙 안에서 선택 칸만 흰색 + 그림자</td></tr>
+    <tr><td>자리</td><td>화면·패널 상단, 전체 폭</td><td>카드·패널 머리 오른쪽</td></tr>
+    <tr><td>예</td><td>결재함 화면 — 수신함 · 발신함 · 참조 · 임시 저장</td><td>홈 「최근 전자결재」 카드 머리 — 수신함 47 · 발신함 50 (home.html <code>.tabs</code>)</td></tr>
+    <tr><td>aria</td><td><code>tablist</code> + <code>tabpanel</code></td><td><code>tablist</code> — 패널 없이 같은 목록이 바뀜</td></tr></table>
+  <h2>Specification</h2>
+  <table><tr><th>부위</th><th>토큰</th></tr>
+    <tr><td>Tab</td><td>sm 36 · md 44px · 좌우 <code>--dim-x3</code> · t1 / t2 500 <code>--fg-neutral-subtle</code> · 탭 사이 간격 없음</td></tr>
+    <tr><td>Tab&nbsp;list</td><td>아래 1px <code>--stroke-neutral-strong</code> — 목록 전체 폭</td></tr>
+    <tr><td>hover</td><td><code>--fg-neutral</code> + 2px <code>--stroke-neutral-stronger</code> 밑줄</td></tr>
+    <tr><td>selected</td><td><code>--fg-neutral</code> 600 + 2px <code>--stroke-brand</code> 밑줄</td></tr>
+    <tr><td>Icon</td><td>sm 16px(<code>-filled</code>) · md 18px, 간격 <code>--dim-x1_5</code></td></tr>
+    <tr><td>focus / disabled</td><td>안쪽 2px <code>--stroke-focus</code> + <code>--radius-sm</code> / <code>--fg-disabled</code>, 배경·밑줄 없음(Segmented·Menu 항목과 같음)</td></tr>
+    <tr><td>Panel</td><td>목록과 <code>--dim-x3</code> · t2 · <code>tabindex="0"</code></td></tr>
+    <tr><td>Overflow</td><td>가로 스크롤 · 스크롤바 숨김 · 끝 <code>--dim-x10</code> <code>mask-image</code> 페이드</td></tr>
+    <tr><td>접근성</td><td><code>role="tablist"/"tab"/"tabpanel"</code> · <code>aria-selected</code> · 로빙 tabindex(선택 탭만 0) · ← → 이동, Home/End 처음·끝 · 가벼운 패널은 옮기는 즉시 선택, 무거우면 Enter/Space · Tab 은 패널로</td></tr></table>
+</section>

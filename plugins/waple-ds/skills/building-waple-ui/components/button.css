@@ -1,0 +1,14 @@
+/* Button — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--dim-x1_5);border:1px solid transparent;border-radius:var(--radius-md);font-weight:var(--font-weight-medium);font-family:inherit;cursor:pointer;line-height:normal;transition:background var(--duration-fast) var(--easing),box-shadow var(--duration-fast)}
+  .btn.md{height:40px;padding:0 var(--dim-x4);font-size:var(--font-size-t2)} .btn.sm{height:32px;padding:0 var(--dim-x3);font-size:var(--font-size-t1)} .btn.lg{height:48px;padding:0 var(--dim-x5);font-size:var(--font-size-t3)} .btn.xs{height:26px;padding:0 var(--dim-x2);font-size:var(--font-size-t1)}
+  .btn.brand-solid{background:var(--bg-brand-solid);color:var(--fg-on-brand)} .btn.brand-solid:hover{filter:brightness(1.25)}
+  .btn.brand-weak{background:var(--bg-brand-weak);color:var(--fg-brand)}
+  .btn.neutral-solid{background:var(--bg-neutral-solid);color:var(--fg-on-neutral)} .btn.neutral-weak{background:var(--bg-neutral-weak);color:var(--fg-neutral)}
+  .btn.neutral-outline{background:var(--bg-layer-default);border-color:var(--stroke-neutral-strong);color:var(--fg-neutral)} .btn.neutral-outline:hover{background:var(--bg-neutral-hover)}
+  .btn.critical-solid{background:var(--bg-critical-solid);color:var(--fg-on-critical)}
+  .btn.critical-outline{background:var(--bg-layer-default);border-color:var(--stroke-critical);color:var(--fg-critical)} .btn.critical-outline:hover{background:var(--bg-critical-weak)}
+  .btn:focus-visible{outline:none;box-shadow:0 0 0 3px var(--bg-brand-weak),0 0 0 4px var(--stroke-focus)}
+  .btn:disabled,.btn.disabled{background:var(--bg-neutral-weak);color:var(--fg-disabled);border-color:transparent;cursor:not-allowed}
+  .btn.loading .spin{width:14px;height:14px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:spin .8s linear infinite} @keyframes spin{to{transform:rotate(360deg)}}
+  .btn.fill{width:100%}
+  .btn svg{width:18px;height:18px} .btn.xs svg{width:14px;height:14px} .btn.sm svg{width:16px;height:16px} .btn.lg svg{width:20px;height:20px}

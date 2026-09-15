@@ -1,0 +1,11 @@
+/* Collapsible list — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Collapsible list ── */
+  .clist{width:100%;max-width:520px;border:1px solid var(--stroke-neutral-strong);border-radius:var(--radius-lg);background:var(--bg-layer-default);overflow:hidden}
+  .clist__hd{display:flex;align-items:center;gap:var(--dim-x2);height:40px;padding:0 var(--dim-x3);cursor:pointer;list-style:none;font-size:var(--font-size-t1);font-weight:var(--font-weight-medium);color:var(--fg-neutral-muted);background:var(--bg-layer-basement);border-bottom:1px solid var(--stroke-neutral)} .clist__hd::-webkit-details-marker{display:none}
+  .clist__hd .n{margin-left:auto;font-variant-numeric:tabular-nums} .clist__hd .chev{width:16px;height:16px;transition:transform var(--duration-normal) var(--easing)} .clist[open]>.clist__hd .chev{transform:rotate(180deg)}
+  .clist__hd:hover{color:var(--fg-neutral)} .clist__hd:focus-visible{outline:none;box-shadow:inset 0 0 0 2px var(--stroke-focus)}
+  .clist:not([open])>.clist__hd{border-bottom:0}
+  .clist__more{border-top:1px solid var(--stroke-neutral)} .clist__more summary{display:flex;align-items:center;justify-content:center;gap:var(--dim-x1_5);height:40px;cursor:pointer;list-style:none;font-size:var(--font-size-t2);font-weight:var(--font-weight-medium);color:var(--fg-neutral-subtle)} .clist__more summary::-webkit-details-marker{display:none}
+  .clist__more summary:hover{background:var(--bg-neutral-hover)} .clist__more summary .chev{width:16px;height:16px}
+  .clist__more[open] summary{order:1;border-top:1px solid var(--stroke-neutral)} .clist__more[open]{display:flex;flex-direction:column;border-top:0} .clist__more[open] summary .chev{transform:rotate(180deg)} .clist__more summary .o,.clist__more[open] summary .c{display:none} .clist__more[open] summary .o{display:inline}
+  .clist .lrow{border-radius:0}

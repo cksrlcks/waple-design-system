@@ -1,0 +1,18 @@
+/* Popover — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Popover ── 떠 있는 비모달 패널. 면은 .menu 와 같은 층(floating · 1px strong · shadow-2). 패딩 16 안에 input·button 이 들어가 라운드는 카드·Dialog 와 같은 lg */
+  .popover{position:relative;display:flex;flex-direction:column;gap:var(--dim-x3);width:280px;max-width:100%;padding:var(--dim-x4);background:var(--bg-layer-floating);border:1px solid var(--stroke-neutral-strong);border-radius:var(--radius-lg);box-shadow:var(--shadow-2);text-align:left;font-size:var(--font-size-t2);line-height:var(--line-height-t2);color:var(--fg-neutral)}
+  .popover.lg{width:360px}
+  .popover__hd{display:flex;align-items:center;gap:var(--dim-x2);margin:calc(-1 * var(--dim-x1)) calc(-1 * var(--dim-x2)) 0 0} .popover__hd b{flex:1;min-width:0;font-size:var(--font-size-t3);line-height:var(--line-height-t3);font-weight:var(--font-weight-semibold)}
+  .popover__body{margin:0;color:var(--fg-neutral-subtle)}
+  .popover__link{display:inline-flex;align-items:center;gap:var(--dim-x1);align-self:flex-start;border-radius:var(--radius-xs);font-weight:var(--font-weight-medium);color:var(--fg-neutral);text-decoration:underline;text-underline-offset:3px} .popover__link svg{width:16px;height:16px}
+  .popover__sec{display:flex;flex-direction:column;gap:var(--dim-x2)} .popover__sec>b{font-size:var(--font-size-t1);line-height:var(--line-height-t1);font-weight:var(--font-weight-medium);color:var(--fg-neutral-muted)}
+  .popover__chips{display:flex;flex-wrap:wrap;gap:var(--spacing-between-chips)}
+  .popover__ft{display:flex;justify-content:flex-end;gap:var(--dim-x2);margin-top:var(--dim-x1)} .popover__ft.split{justify-content:space-between}
+  /* 화살표(선택) — 트리거가 아이콘 버튼일 때만. 10px 정사각을 45° 돌려 두 변만 선을 남긴다. 모서리에서 8px = 28~32px 버튼의 가운데 */
+  .popover.arrow::before{content:"";position:absolute;top:-6px;left:var(--dim-x2);width:10px;height:10px;background:var(--bg-layer-floating);border:solid var(--stroke-neutral-strong);border-width:1px 0 0 1px;transform:rotate(45deg)}
+  .popover.arrow.end::before{left:auto;right:var(--dim-x2)} .popover.arrow.top::before{top:auto;bottom:-6px;border-width:0 1px 1px 0}
+  /* Hover card — 이름·아바타에 올리면 뜨는 프로필. 면은 Popover 그대로 */
+  .hovercard__who{display:inline-flex;align-items:center;gap:var(--dim-x1_5);padding:2px var(--dim-x2) 2px 2px;border-radius:var(--radius-full);font-weight:var(--font-weight-medium);color:var(--fg-neutral);text-decoration:none} .hovercard__who:hover,.hovercard__who.on{background:var(--bg-neutral-hover)}
+  .popover__link:focus-visible,.hovercard__who:focus-visible{outline:none;box-shadow:0 0 0 3px var(--bg-accent-weak),0 0 0 4px var(--stroke-focus)}
+  .hovercard__hd{display:flex;align-items:center;gap:var(--dim-x3)} .hovercard__hd>div{flex:1;min-width:0} .hovercard__hd b{display:block;font-size:var(--font-size-t3);line-height:var(--line-height-t3);font-weight:var(--font-weight-semibold)} .hovercard__hd small{display:block;font-size:var(--font-size-t1);line-height:var(--line-height-t1);color:var(--fg-neutral-muted)}
+  .hovercard__meta{display:flex;flex-direction:column;gap:var(--dim-x1_5);font-size:var(--font-size-t1);line-height:var(--line-height-t1);color:var(--fg-neutral-subtle)} .hovercard__meta span{display:flex;align-items:center;gap:var(--dim-x2)} .hovercard__meta svg{width:16px;height:16px;color:var(--fg-neutral-muted)}

@@ -1,0 +1,30 @@
+<section class="page" id="components/text-input">
+  <h1>Text input</h1>
+  <p class="desc">라벨 · 입력 상자 · 도움말(또는 오류)이 한 묶음. 포커스는 틸 링, 오류는 빨간 선 + 문구입니다. 한 줄이면 input, 여러 줄이면 textarea.</p>
+  <h2>Anatomy</h2>
+  <div class="anatomy">
+    <div class="demo tinted"><div class="field md"><label>담당자 검색 <em>*</em></label><div class="ctrl"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"/><path d="M21 21l-6 -6"/></svg><input placeholder="이름·팀·시스템"></div><div class="help">프로젝트·AS·시스템 담당자를 찾습니다</div></div></div>
+    <ol><li><b>Label</b> — t1 500, 필수는 <em style="color:var(--fg-critical)">*</em></li><li><b>Control</b> — 1px 선, 라운드 sm</li><li><b>Prefix icon</b> (선택) — 16px muted</li><li><b>Help / Error</b> — t1, 오류면 fg-critical</li></ol>
+  </div>
+  <h2>Properties</h2>
+  <h3>Size</h3>
+  <div class="demo tinted"><div class="field md"><label>md · 36px</label><div class="ctrl"><input placeholder="폼 안 기본"></div></div><div class="field lg"><label>lg · 44px</label><div class="ctrl"><input placeholder="화면 상단 검색"></div></div></div>
+  <table><tr><th>크기</th><th>높이</th><th>글자</th><th>쓰임</th></tr><tr><td>md</td><td>36px</td><td>t2</td><td>폼·다이얼로그 안</td></tr><tr><td>lg</td><td>44px</td><td>t3</td><td>화면 상단 검색, 모바일</td></tr></table>
+  <h3>Variant</h3>
+  <div class="demo tinted"><div class="field md"><label>기본</label><div class="ctrl"><input placeholder="회의 제목"></div></div><div class="field md"><label>아이콘</label><div class="ctrl"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"/><path d="M21 21l-6 -6"/></svg><input placeholder="검색"></div></div><div class="field md"><label>여러 줄</label><div class="ctrl multi"><textarea placeholder="지출 내용"></textarea></div></div></div>
+  <h3>State</h3>
+  <div class="demo tinted"><div class="field md"><label>기본</label><div class="ctrl"><input placeholder="입력"></div></div><div class="field md focus"><label>focus</label><div class="ctrl"><input value="연차"></div></div><div class="field md error"><label>error</label><div class="ctrl"><input value="2026-13-01"></div><div class="help">날짜 형식이 아닙니다 (예: 2026-09-10)</div></div><div class="field md disabled"><label>disabled</label><div class="ctrl"><input value="자동 채움" disabled></div></div></div>
+  <h2>Guidelines</h2>
+  <div class="dd">
+    <div class="do"><b>Do</b><div class="demo tinted"><div class="field md"><label>금액</label><div class="ctrl"><input placeholder="0"></div><div class="help">원 단위, 부가세 포함</div></div></div>라벨은 항상 위에 보이게. 형식 안내는 placeholder 가 아니라 help 에.</div>
+    <div class="dont"><b>Don&#39;t</b><div class="demo tinted"><div class="field md"><div class="ctrl"><input placeholder="금액 (원 단위, 부가세 포함)"></div></div></div>placeholder 를 라벨로 쓰지 않습니다 — 입력하는 순간 사라집니다.</div>
+  </div>
+  <div class="dd">
+    <div class="do"><b>Do</b>오류는 그 필드 바로 아래, 무엇이 왜 틀렸고 어떻게 고치는지 한 줄.</div>
+    <div class="dont"><b>Don&#39;t</b>제출 버튼을 누르기 전에 빨간 선을 먼저 보이지 않습니다 — 떠날 때(blur) 또는 제출 때.</div>
+  </div>
+  <h2>Text input vs. Composer</h2>
+  <table><tr><th></th><th>Text input</th><th>Composer</th></tr><tr><td>용도</td><td>폼의 한 값</td><td>에이전트에게 보내는 문장</td></tr><tr><td>제출</td><td>폼 버튼</td><td>Enter · 글로우 CTA</td></tr><tr><td>라벨</td><td>필수</td><td>없음(placeholder 가 곧 안내)</td></tr></table>
+  <h2>Specification</h2>
+  <table><tr><th>부위</th><th>토큰</th></tr><tr><td>선 / 배경 / 라운드</td><td><code>--stroke-neutral-strong</code> / <code>--bg-layer-default</code> / <code>--radius-sm</code></td></tr><tr><td>포커스</td><td><code>--stroke-accent</code> + <code>--bg-accent-weak</code> 3px 링</td></tr><tr><td>오류</td><td><code>--stroke-critical</code> · help <code>--fg-critical</code></td></tr><tr><td>placeholder</td><td><code>--fg-neutral-placeholder</code></td></tr><tr><td>disabled</td><td><code>--bg-neutral-weak</code> + <code>--fg-disabled</code></td></tr><tr><td>접근성</td><td><code>&lt;label for&gt;</code> 연결, 오류는 <code>aria-describedby</code> + <code>aria-invalid</code></td></tr></table>
+</section>

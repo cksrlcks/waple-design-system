@@ -1,0 +1,8 @@
+/* Badge — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Badge ── */
+  .badge{display:inline-flex;align-items:center;gap:var(--dim-x1);line-height:normal;height:22px;padding:0 var(--dim-x2);border-radius:var(--radius-full);font-size:12px;font-weight:var(--font-weight-semibold);background:var(--bg-neutral-weak);color:var(--fg-neutral-subtle);white-space:nowrap}
+  .badge.success{background:var(--bg-positive-weak);color:var(--fg-positive)} .badge.warning{background:var(--bg-warning-weak);color:var(--fg-warning)}
+  .badge.danger{background:var(--bg-critical-weak);color:var(--fg-critical)} .badge.info{background:var(--bg-info-weak);color:var(--fg-info)}
+  .badge.sample{background:var(--bg-sample-weak);color:var(--fg-sample)} .badge.accent{background:var(--bg-accent-weak);color:var(--fg-accent)}
+  .badge.count{min-width:20px;padding:0 var(--dim-x1_5);justify-content:center;font-variant-numeric:tabular-nums}
+  .badge.lg{height:26px;padding:0 var(--dim-x2_5);font-size:var(--font-size-t1)}

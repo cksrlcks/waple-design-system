@@ -1,0 +1,13 @@
+/* Time picker — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Time picker ── 패널은 .menu 와 같은 떠 있는 면. 칩은 Date picker 의 날짜 칸과 같은 문법(투명 → hover 톤 → 선택 잉크, 지금 = accent 테두리, 못 고름 = disabled 글자) */
+  .timepick{display:flex;flex-direction:column;gap:var(--dim-x3);width:288px;max-width:100%;padding:var(--dim-x3);background:var(--bg-layer-floating);border:1px solid var(--stroke-neutral-strong);border-radius:var(--radius-md);box-shadow:var(--shadow-2);text-align:left;font-size:var(--font-size-t2);color:var(--fg-neutral)}
+  .timepick__hd{display:flex;align-items:center;justify-content:space-between;gap:var(--dim-x2);font-size:var(--font-size-t1);font-weight:var(--font-weight-medium);color:var(--fg-neutral-muted)} .timepick .select{min-width:0}
+  .timepick__lbl{margin-bottom:var(--dim-x1_5);font-size:var(--font-size-t1);line-height:var(--line-height-t1);font-weight:var(--font-weight-medium);color:var(--fg-neutral-muted)}
+  .timepick__grid{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--dim-x1)} .timepick__grid.min,.timepick__grid.slots{grid-template-columns:repeat(4,1fr)}
+  .timepick__c{display:inline-flex;align-items:center;justify-content:center;height:32px;border:1px solid transparent;border-radius:var(--radius-sm);background:transparent;font:inherit;font-size:var(--font-size-t2);line-height:1;color:var(--fg-neutral);cursor:pointer;font-variant-numeric:tabular-nums;transition:background var(--duration-fast)}
+  .timepick__c:hover{background:var(--bg-neutral-hover)} .timepick__c:focus-visible{outline:none;box-shadow:0 0 0 3px var(--bg-accent-weak),0 0 0 4px var(--stroke-focus)}
+  .timepick__c.now{border-color:var(--stroke-accent);color:var(--fg-accent);font-weight:var(--font-weight-semibold)}
+  .timepick__c.sel,.timepick__c[aria-checked="true"]{background:var(--bg-brand-solid);border-color:var(--stroke-brand);color:var(--fg-on-brand);font-weight:var(--font-weight-semibold)}
+  .timepick__c.off{color:var(--fg-disabled);cursor:not-allowed;background:transparent}
+  .timepick__c.taken{border-style:dashed;border-color:var(--stroke-neutral-stronger);color:var(--fg-neutral-muted);cursor:not-allowed;background:transparent}
+  .timepick__ft{display:flex;align-items:center;justify-content:space-between;gap:var(--dim-x2);padding-top:var(--dim-x2);border-top:1px solid var(--stroke-neutral);font-size:var(--font-size-t1);color:var(--fg-neutral-subtle)} .timepick__ft b{color:var(--fg-neutral)}

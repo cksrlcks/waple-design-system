@@ -1,0 +1,20 @@
+/* Resizable — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Resizable ── 두 pane 사이 선을 끌어 나눈다. 선 1px · 누름 영역 8px · hover/끌기 accent */
+  .resizable{display:flex;width:100%;border:1px solid var(--stroke-neutral-strong);border-radius:var(--radius-lg);background:var(--bg-layer-default);overflow:hidden;text-align:left} .resizable.v{flex-direction:column}
+  .resizable__pane{flex:1 1 0;min-width:0;min-height:0;overflow:auto;padding:var(--dim-x4);font-size:var(--font-size-t2);line-height:var(--line-height-t2);color:var(--fg-neutral-subtle)}
+  .resizable__pane.side{background:var(--bg-layer-basement)} .resizable__pane b{display:block;margin-bottom:var(--dim-x1);font-weight:var(--font-weight-semibold);color:var(--fg-neutral)}
+  .resizable__handle{position:relative;z-index:1;flex:none;width:8px;margin:0 -4px;cursor:col-resize;touch-action:none;outline:none}
+  .resizable__handle::after{content:"";position:absolute;top:0;bottom:0;left:3px;width:1px;background:var(--stroke-neutral);transition:background var(--duration-fast)}
+  .resizable__handle:hover::after,.resizable__handle.hover::after,.resizable__handle.dragging::after{width:2px;background:var(--stroke-accent)}
+  .resizable__handle:focus-visible::after,.resizable__handle.focus::after{width:2px;background:var(--stroke-focus)}
+  .resizable__grip{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;justify-content:center;width:12px;height:24px;line-height:1;border:1px solid var(--stroke-neutral-strong);border-radius:var(--radius-xs);background:var(--bg-layer-default);color:var(--fg-neutral-muted)} .resizable__grip svg{width:12px;height:12px}
+  .resizable__handle:hover .resizable__grip,.resizable__handle.hover .resizable__grip,.resizable__handle.dragging .resizable__grip{border-color:var(--stroke-accent);color:var(--fg-neutral)}
+  .resizable__handle:focus-visible .resizable__grip,.resizable__handle.focus .resizable__grip{box-shadow:0 0 0 3px var(--bg-accent-weak),0 0 0 4px var(--stroke-focus)}
+  .resizable.v>.resizable__handle{width:auto;height:8px;margin:-4px 0;cursor:row-resize} .resizable.v>.resizable__handle::after{top:3px;bottom:auto;left:0;right:0;width:auto;height:1px}
+  .resizable.v>.resizable__handle:hover::after,.resizable.v>.resizable__handle.hover::after,.resizable.v>.resizable__handle.dragging::after,.resizable.v>.resizable__handle.focus::after{width:auto;height:2px}
+  .resizable.v .resizable__grip{width:24px;height:12px}
+  .resizable.dragging{cursor:col-resize;user-select:none} .resizable.v.dragging{cursor:row-resize}
+  .resizable.collapsed>.resizable__pane:last-child{display:none} .resizable.collapsed>.resizable__handle{margin:0 0 0 -8px} .resizable.collapsed>.resizable__handle::after{background:transparent} /* 접힘: grip 만 가장자리에 남는다 */
+
+
+

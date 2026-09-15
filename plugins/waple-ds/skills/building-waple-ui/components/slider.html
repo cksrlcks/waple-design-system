@@ -1,0 +1,47 @@
+<section class="page" id="components/slider">
+  <h1>Slider</h1>
+  <p class="desc">정해진 범위 안에서 값을 끌어서 고릅니다. 정확한 숫자보다 「대략 이 정도」가 중요한 설정(브리핑 알림 시각 · 답변 길이 · 회의실 인원 범위)에 씁니다. 브라우저 기본 <code>&lt;input type="range"&gt;</code> 에 옷만 입혀 키보드 조작은 브라우저가 맡습니다.</p>
+  <h2>Anatomy</h2>
+  <div class="anatomy">
+    <div class="demo"><div class="slider"><div class="slider__hd"><span>브리핑 알림 미리 받기</span><output>10분 전</output></div><div class="slider__ctl" style="--b:33.33%"><input type="range" min="0" max="30" step="5" value="10" aria-label="브리핑 알림 미리 받기" aria-valuetext="10분 전"></div><div class="slider__ends"><span>0분</span><span>30분</span></div></div></div>
+    <ol><li><b>Label · Value</b> — 왼쪽 라벨 t1 500, 오른쪽 현재 값 <code>&lt;output&gt;</code> t2 600</li><li><b>Track</b> — 6px 알약, <code>--bg-neutral-weak</code></li><li><b>Fill</b> — 시작부터 thumb 까지 잉크 <code>--bg-brand-solid</code></li><li><b>Thumb</b> — 20px 흰 원 + 선 + 그림자. 포커스 링은 여기에</li><li><b>Min · Max</b> (선택) — 양 끝 값 t1 muted</li></ol>
+  </div>
+  <h2>Properties</h2>
+  <h3>Variant</h3>
+  <div class="demo col">
+    <figure class="ex"><div class="slider"><div class="slider__hd"><span>브리핑 알림 미리 받기</span><output>10분 전</output></div><div class="slider__ctl" style="--b:33.33%"><input type="range" min="0" max="30" step="5" value="10" aria-label="브리핑 알림 미리 받기" aria-valuetext="10분 전"></div><div class="slider__ends"><span>0분</span><span>30분</span></div></div><figcaption>single — 값 하나. 채움은 0 에서 thumb 까지</figcaption></figure>
+    <figure class="ex"><div class="slider"><div class="slider__hd"><span>회의실 수용 인원</span><output>4 – 10명</output></div><div class="slider__ctl range" style="--a:11.11%;--b:44.44%"><input type="range" min="2" max="20" step="1" value="4" aria-label="최소 회의실 수용 인원"><input type="range" min="2" max="20" step="1" value="10" aria-label="최대 회의실 수용 인원"></div><div class="slider__ends"><span>2명</span><span>20명</span></div></div><figcaption>range — thumb 둘. 채움은 두 thumb 사이. 회의실 찾기의 인원 조건</figcaption></figure>
+  </div>
+  <table><tr><th>Variant</th><th>구성</th><th>쓰임</th></tr><tr><td>single</td><td>input 하나</td><td>알림 시각 · 답변 길이처럼 값 하나</td></tr><tr><td>range</td><td>input 둘을 겹침(트랙은 하나)</td><td>인원 · 시간대처럼 「어디부터 어디까지」</td></tr></table>
+  <h3>Labels — 값 · 양 끝 · 눈금</h3>
+  <div class="demo col">
+    <figure class="ex"><div class="slider"><div class="slider__hd"><span>브리핑 알림 미리 받기</span><output>10분 전</output></div><div class="slider__ctl" style="--b:33.33%"><input type="range" min="0" max="30" step="5" value="10" aria-label="브리핑 알림 미리 받기" aria-valuetext="10분 전"></div></div><figcaption>value — 오른쪽 위에 현재 값. 끄는 동안 바로 바뀝니다</figcaption></figure>
+    <figure class="ex"><div class="slider"><div class="slider__hd"><span>브리핑 알림 미리 받기</span><output>10분 전</output></div><div class="slider__ctl" style="--b:33.33%"><input type="range" min="0" max="30" step="5" value="10" aria-label="브리핑 알림 미리 받기" aria-valuetext="10분 전"></div><div class="slider__ends"><span>0분</span><span>30분</span></div></div><figcaption>value + min·max — 범위를 모르면 끝을 적습니다</figcaption></figure>
+    <figure class="ex"><div class="slider"><div class="slider__hd"><span>답변 길이</span><output>보통</output></div><div class="slider__ctl" style="--b:50%"><input type="range" min="0" max="2" step="1" value="1" aria-label="답변 길이" aria-valuetext="보통"></div><div class="slider__ticks" aria-hidden="true"><span>짧게</span><span class="on">보통</span><span>자세히</span></div></div><figcaption>ticks — 단계가 다섯 이하이고 단계마다 이름이 있을 때</figcaption></figure>
+  </div>
+  <h3>Step</h3>
+  <div class="demo col">
+    <figure class="ex"><div class="slider"><div class="slider__hd"><span>브리핑 알림 미리 받기 · step 5</span><output>10분 전</output></div><div class="slider__ctl" style="--b:33.33%"><input type="range" min="0" max="30" step="5" value="10" aria-label="브리핑 알림 미리 받기 · step 5" aria-valuetext="10분 전"></div></div><figcaption>step 5 — 0 · 5 · 10 … 30분. 5분 아래는 뜻이 없어 막습니다</figcaption></figure>
+    <figure class="ex"><div class="slider"><div class="slider__hd"><span>답변 길이 · step 1</span><output>보통</output></div><div class="slider__ctl" style="--b:50%"><input type="range" min="0" max="2" step="1" value="1" aria-label="답변 길이 · step 1" aria-valuetext="보통"></div><div class="slider__ticks" aria-hidden="true"><span>짧게</span><span class="on">보통</span><span>자세히</span></div></div><figcaption>step 1 · 3단계 — 짧게 · 보통 · 자세히</figcaption></figure>
+  </div>
+  <table><tr><th>값 종류</th><th>step</th><th>표시</th></tr><tr><td>분 · 인원 같은 연속 값</td><td>업무 단위(5분 · 1명)</td><td>value + min·max</td></tr><tr><td>이름 있는 단계 3~5개</td><td>1</td><td>ticks, 현재 단계 라벨을 진하게</td></tr></table>
+  <h3>State</h3>
+  <div class="demo col">
+    <figure class="ex"><div class="slider"><div class="slider__hd"><span>브리핑 알림 미리 받기</span><output>10분 전</output></div><div class="slider__ctl" style="--b:33.33%"><input type="range" min="0" max="30" step="5" value="10" aria-label="브리핑 알림 미리 받기" aria-valuetext="10분 전"></div></div><figcaption>기본</figcaption></figure>
+    <figure class="ex"><div class="slider focus"><div class="slider__hd"><span>브리핑 알림 미리 받기</span><output>10분 전</output></div><div class="slider__ctl" style="--b:33.33%"><input type="range" min="0" max="30" step="5" value="10" aria-label="브리핑 알림 미리 받기" aria-valuetext="10분 전"></div></div><figcaption>focus — thumb 에 accent 링. 키보드로 들어왔을 때만</figcaption></figure>
+    <figure class="ex"><div class="slider"><div class="slider__hd"><span>브리핑 알림 미리 받기</span><output>10분 전</output></div><div class="slider__ctl" style="--b:33.33%"><input type="range" min="0" max="30" step="5" value="10" aria-label="브리핑 알림 미리 받기" aria-valuetext="10분 전" disabled></div></div><figcaption>disabled — 채움 <code>--stroke-neutral-stronger</code>, 그림자 없음, 글자 <code>--fg-disabled</code></figcaption></figure>
+  </div>
+  <h2>Guidelines</h2>
+  <div class="dd">
+    <div class="do"><b>Do</b><div class="demo"><div class="slider"><div class="slider__hd"><span>브리핑 알림 미리 받기</span><output>10분 전</output></div><div class="slider__ctl" style="--b:33.33%"><input type="range" min="0" max="30" step="5" value="10" aria-label="브리핑 알림 미리 받기" aria-valuetext="10분 전"></div></div></div>현재 값을 늘 글자로 보여 줍니다 — 「10분 전」. 끌어 놓고 무엇을 골랐는지 몰라서는 안 됩니다.</div>
+    <div class="dont"><b>Don&#39;t</b><div class="demo"><div class="slider"><div class="slider__ctl" style="--b:10%"><input type="range" min="0" max="15" step="0.5" value="1.5" aria-label="연차 일수"></div></div></div>연차 1.5일처럼 정확한 값이 필요한 곳에 쓰지 않습니다 — 0.5 칸을 끌어 맞추기 어렵습니다. Number input 으로.</div>
+  </div>
+  <div class="dd">
+    <div class="do"><b>Do</b>바꾸면 즉시 저장하는 설정 행(설정 · 에이전트)에 둡니다. 저장이 필요하면 놓는 순간(<code>change</code>)에 한 번.</div>
+    <div class="dont"><b>Don&#39;t</b>단계가 둘이면 Switch, 이름 있는 선택지가 여섯 이상이면 Select. 트랙에 틸을 칠하지 않습니다 — 채움은 잉크.</div>
+  </div>
+  <h2>Slider vs. Number input vs. Select</h2>
+  <table><tr><th></th><th>Slider</th><th>Number input</th><th>Select</th></tr><tr><td>값</td><td>범위 안의 대략적인 수</td><td>정확한 수</td><td>이름 있는 선택지</td></tr><tr><td>범위</td><td>좁고 연속(0–30분)</td><td>좁거나 넓음, step 명확</td><td>4~20개</td></tr><tr><td>조작</td><td>끌기 · ← →</td><td>− + · 직접 입력</td><td>펼쳐서 고르기</td></tr><tr><td>예</td><td>브리핑 알림 · 답변 길이</td><td>연차 1.5일 · 참석 인원</td><td>테마 · 브리핑 시각</td></tr></table>
+  <h2>Specification</h2>
+  <table><tr><th>부위</th><th>토큰</th></tr><tr><td>트랙</td><td>6px · <code>--radius-full</code> · <code>--bg-neutral-weak</code> · 좌우 10px 안쪽(thumb 중심과 % 가 일치)</td></tr><tr><td>채움</td><td><code>--bg-brand-solid</code> — <code>--a</code>~<code>--b</code>(%) 를 JS 가 <code>input</code> 이벤트 때 갱신</td></tr><tr><td>thumb</td><td>20px · <code>--bg-layer-default</code> · 선 <code>--stroke-neutral-stronger</code> · <code>--shadow-2</code></td></tr><tr><td>라벨 / 값 / 끝·눈금</td><td>t1 500 <code>--fg-neutral</code> / t2 600 tabular / t1 <code>--fg-neutral-muted</code>, 눈금 1×6px <code>--stroke-neutral-stronger</code></td></tr><tr><td>focus / disabled</td><td>thumb 에 <code>--bg-accent-weak</code> 3px + <code>--stroke-focus</code> 1px / 채움 <code>--stroke-neutral-stronger</code> · 글자 <code>--fg-disabled</code></td></tr><tr><td>접근성</td><td>기본 range — ← → 한 step, PageUp/Down 큰 폭, Home/End 끝. 단위는 <code>aria-valuetext="10분 전"</code>, range 는 input 마다 <code>aria-label="최소 · 최대 …"</code></td></tr></table>
+</section>

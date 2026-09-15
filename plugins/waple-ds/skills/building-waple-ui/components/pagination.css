@@ -1,0 +1,12 @@
+/* Pagination — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Pagination ── 나눠 보는 목록의 이동. compact(‹ 2 / 14 ›) · numbered · load more */
+  .pager{display:inline-flex;align-items:center;gap:var(--dim-x1);font-size:var(--font-size-t2);color:var(--fg-neutral-subtle);font-variant-numeric:tabular-nums}
+  .pager__page{display:inline-flex;align-items:center;justify-content:center;min-width:32px;height:32px;padding:0 var(--dim-x1_5);border:0;border-radius:var(--radius-sm);background:transparent;font:inherit;line-height:1;color:inherit;cursor:pointer;transition:background var(--duration-fast) var(--easing)}
+  .pager__page:hover{background:var(--bg-neutral-hover);color:var(--fg-neutral)}
+  .pager__page[aria-current="page"]{background:var(--bg-brand-solid);color:var(--fg-on-brand);font-weight:var(--font-weight-semibold);cursor:default}
+  .pager__page:focus-visible{outline:none;box-shadow:0 0 0 3px var(--bg-accent-weak),0 0 0 4px var(--stroke-focus)}
+  .pager__gap{display:inline-flex;align-items:center;justify-content:center;width:24px;color:var(--fg-neutral-muted)} .pager__gap svg{width:16px;height:16px}
+  .pager__status{padding:0 var(--dim-x2);font-size:var(--font-size-t1);color:var(--fg-neutral-subtle)} .pager__status b{font-weight:var(--font-weight-semibold);color:var(--fg-neutral)}
+  .pager.sm{font-size:var(--font-size-t1)} .pager.sm .pager__page{min-width:28px;height:28px}
+  .pager.more{display:flex;flex-direction:column;gap:var(--dim-x1_5);width:100%;padding:var(--dim-x3) 0 var(--dim-x2)}
+  .tbl-ft .pager{margin-left:auto}

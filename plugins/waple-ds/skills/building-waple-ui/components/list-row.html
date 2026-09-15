@@ -1,0 +1,59 @@
+<section class="page" id="components/list-row">
+  <h1>List row</h1>
+  <p class="desc">목록의 한 줄. 왼쪽 슬롯(아이콘·아바타) · 본문(한 줄 또는 두 줄) · 오른쪽 슬롯(상태·시간·화살표·버튼)의 조합이고, home.html 처럼 <b>행 사이 구분선 없이</b> hover 배경으로 행을 나눕니다.</p>
+  <h2>Anatomy</h2>
+  <div class="anatomy">
+    <div class="demo tinted"><div class="lrows"><a class="lrow" href="#"><span class="lrow__ico violet"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"/><path d="M9 9l1 0"/><path d="M9 13l6 0"/><path d="M9 17l6 0"/></svg></span><span class="lrow__main"><b>(AI_AGENT) 연차 신청의 건</b><span class="lrow__meta">윤아린2 · 2026-09-08 14:48</span></span><span class="lrow__side warning">승인 대기</span></a></div></div>
+    <ol><li><b>Leading</b> (선택) — 24px 아이콘 칩 또는 아바타</li><li><b>Main</b> — 제목 t2 600 (+ 메타 t1 muted). 넘치면 …</li><li><b>Side</b> (선택) — 상태 글자(12px 600) · 시간·건수(t1)</li><li><b>Container</b> — 40px, 라운드 sm, hover 시 <code>--bg-neutral-hover</code></li></ol>
+  </div>
+  <h2>Properties</h2>
+  <h3>Lines — 한 줄 / 두 줄</h3>
+  <div class="demo tinted col">
+    <figure class="ex"><div class="lrows"><a class="lrow" href="#"><span class="lrow__main">결재 6건이 내 처리를 기다립니다</span></a></div><figcaption>한 줄 — 본문 t2</figcaption></figure>
+    <figure class="ex"><div class="lrows"><a class="lrow" href="#"><span class="lrow__main"><b>(AI_AGENT) 연차 신청의 건</b><span class="lrow__meta">윤아린2 · 2026-09-08 14:48</span></span></a></div><figcaption>두 줄 — 제목 t2 600 + 메타 t1 muted</figcaption></figure>
+  </div>
+  <table><tr><th>형태</th><th>구성</th><th>쓰임</th></tr><tr><td>한 줄</td><td>본문 t2</td><td>브리핑 · 메뉴 · 설정 항목</td></tr><tr><td>두 줄</td><td>제목 t2 600 + 메타 t1 muted</td><td>결재·요청·문서처럼 누가·언제가 필요한 것</td></tr></table>
+  <h3>Leading — 없음 / 아이콘 / 아바타</h3>
+  <div class="demo tinted col">
+    <figure class="ex"><div class="lrows"><a class="lrow" href="#"><span class="lrow__main">잔여 연차 0일</span></a></div><figcaption>없음</figcaption></figure>
+    <figure class="ex"><div class="lrows"><a class="lrow" href="#"><span class="lrow__ico accent"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"/><path d="M12 7v5l3 3"/></svg></span><span class="lrow__main">오늘 업무일지가 아직 비어 있습니다</span></a></div><figcaption>아이콘 칩 24px — 카테고리 틴트</figcaption></figure>
+    <figure class="ex"><div class="lrows"><a class="lrow" href="#"><span class="avatar s24">윤</span><span class="lrow__main">윤아린2 — 디자인1팀1 · 부장</span></a></div><figcaption>아바타 24px — 사람</figcaption></figure>
+  </div>
+  <h3>Trailing — 상태 / 시간·건수 / 화살표 / 버튼</h3>
+  <div class="demo tinted col">
+    <figure class="ex"><div class="lrows"><a class="lrow" href="#"><span class="lrow__main"><b>(AI_AGENT) 연차 신청의 건</b><span class="lrow__meta">윤아린2 · 2026-09-08 14:48</span></span><span class="lrow__side warning">승인 대기</span></a></div><figcaption>상태 글자 — 상태 어휘 색</figcaption></figure>
+    <figure class="ex"><div class="lrows"><a class="lrow" href="#"><span class="lrow__main">이번 주 출퇴근 현황 요약</span><span class="lrow__side">13:07</span></a></div><figcaption>시간·건수 — t1 muted, tabular-nums</figcaption></figure>
+    <figure class="ex"><div class="lrows"><a class="lrow" href="#"><span class="lrow__ico violet"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"/><path d="M9 9l1 0"/><path d="M9 13l6 0"/><path d="M9 17l6 0"/></svg></span><span class="lrow__main">결재 6건이 내 처리를 기다립니다</span><span class="lrow__go"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6l-6 6"/></svg></span></a></div><figcaption>화살표 — 행 전체가 상세로 이동</figcaption></figure>
+    <figure class="ex"><div class="lrows"><a class="lrow" href="#"><span class="lrow__main">근태 시스템 연동</span><button class="iconbtn sm ghost" aria-label="더보기"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/><path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/><path d="M19 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/></svg></button></a></div><figcaption>버튼 — 행 안의 보조 행동 하나</figcaption></figure>
+  </div>
+  <table><tr><th>Trailing</th><th>뜻</th><th>규칙</th></tr><tr><td>상태 글자</td><td>승인 대기 · 반려 · 승인 완료</td><td>상태 어휘 색, 12px 600. 배지 대신 글자 — 행 안에서는 글자가 조용합니다</td></tr><tr><td>시간·건수</td><td>13:07 · 6건</td><td>t1 muted, <code>tabular-nums</code></td></tr><tr><td>화살표</td><td>누르면 상세로</td><td>행 전체가 링크일 때만</td></tr><tr><td>버튼</td><td>더보기·삭제</td><td>iconbtn sm ghost 하나. 둘 이상이면 「더보기」 메뉴</td></tr></table>
+  <h3>Density — 기본 / compact</h3>
+  <div class="demo tinted col">
+    <figure class="ex"><div class="lrows"><a class="lrow" href="#"><span class="lrow__main">연차 잔여 현황 및 사용 내역 확인</span><span class="lrow__side">13:07</span></a></div><figcaption>기본 — 40px · t2</figcaption></figure>
+    <figure class="ex"><div class="lrows"><a class="lrow compact" href="#"><span class="lrow__main">연차 잔여 현황 및 사용 내역 확인</span><span class="lrow__side">13:07</span></a></div><figcaption>compact — 32px · 12px. 사이드바 대화 목록 전용</figcaption></figure>
+  </div>
+  <h3>State</h3>
+  <div class="demo tinted col">
+    <figure class="ex"><div class="lrows"><a class="lrow" href="#"><span class="lrow__main">출근 기록 #3</span><span class="lrow__side">13:06</span></a></div><figcaption>기본</figcaption></figure>
+    <figure class="ex"><div class="lrows"><a class="lrow" href="#" style="background:var(--bg-neutral-hover)"><span class="lrow__main">출근 기록 #3</span><span class="lrow__side">13:06</span></a></div><figcaption>hover — <code>--bg-neutral-hover</code></figcaption></figure>
+    <figure class="ex"><div class="lrows"><a class="lrow selected" href="#"><span class="lrow__main">출근 기록 #3</span><span class="lrow__side">13:06</span></a></div><figcaption>selected — <code>--bg-neutral-selected</code> + 600</figcaption></figure>
+  </div>
+  <h3>Divided — 구분선 있는 목록</h3>
+  <div class="demo tinted col">
+    <figure class="ex"><div class="lrows divided"><a class="lrow" href="#"><span class="lrow__ico violet"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"/><path d="M9 9l1 0"/><path d="M9 13l6 0"/><path d="M9 17l6 0"/></svg></span><span class="lrow__main"><b>(AI_AGENT) 연차 신청의 건</b><span class="lrow__meta">박지웅(기업부설연구소) · 09-08 11:43</span></span><span class="lrow__side warning">승인 대기</span></a><a class="lrow" href="#"><span class="lrow__ico warning"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4"/><path d="M13.5 6.5l4 4"/></svg></span><span class="lrow__main"><b>(AI_AGENT) 구매/지출결의서 제출의 건</b><span class="lrow__meta">윤아린2 · 09-08 10:30</span></span><span class="lrow__side danger">반려</span></a><a class="lrow" href="#"><span class="lrow__ico positive"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"/><path d="M9 9l1 0"/><path d="M9 13l6 0"/><path d="M9 17l6 0"/></svg></span><span class="lrow__main"><b>9월 외근 신청</b><span class="lrow__meta">윤아린2 · 09-07 16:20</span></span><span class="lrow__side success">승인 완료</span></a></div><figcaption>divided — 두 줄 행이 길게 이어질 때만. 선은 <code>--stroke-neutral</code></figcaption></figure>
+  </div>
+  <table><tr><th>구분</th><th>언제</th></tr><tr><td>기본(구분선 없음)</td><td>홈·사이드바·패널. 행이 짧고 hover 로 충분할 때 — home.html 기본</td></tr><tr><td>divided</td><td>두 줄 행이 여덟 개 이상 이어져 경계가 필요할 때(결재함 전체 목록)</td></tr></table>
+  <h2>Guidelines</h2>
+  <div class="dd">
+    <div class="do"><b>Do</b>상태는 오른쪽에 글자로(승인 대기 · 반려). 어휘 색은 상태 어휘 표 그대로.</div>
+    <div class="dont"><b>Don&#39;t</b>행 안에 버튼을 둘 이상 두지 않습니다 — 승인/반려 쌍이 필요하면 상세로 가거나 확인 Dialog.</div>
+  </div>
+  <div class="dd">
+    <div class="do"><b>Do</b>긴 제목은 한 줄에서 자릅니다(…). 전체는 상세나 툴팁.</div>
+    <div class="dont"><b>Don&#39;t</b>행 사이에 강한 선·그림자를 넣지 않습니다. 필요하면 divided 의 옅은 선 하나.</div>
+  </div>
+  <h2>List row vs. Table row</h2>
+  <table><tr><th></th><th>List row</th><th>Table row</th></tr><tr><td>열</td><td>2~3 슬롯</td><td>4열 이상, 정렬</td></tr><tr><td>정렬·비교</td><td>없음</td><td>있음</td></tr><tr><td>쓰임</td><td>직원 앱 전반</td><td>관리자 콘솔</td></tr></table>
+  <h2>Specification</h2>
+  <table><tr><th>부위</th><th>토큰</th></tr><tr><td>높이 / 패딩 / 라운드</td><td>40px · <code>--dim-x2_5 --dim-x3</code> · <code>--radius-sm</code> (compact 32px · 12px)</td></tr><tr><td>hover / selected</td><td><code>--bg-neutral-hover</code> / <code>--bg-neutral-selected</code> + 600</td></tr><tr><td>메타 / 시간</td><td>t1 <code>--fg-neutral-muted</code></td></tr><tr><td>상태 글자</td><td>12px 600 · <code>--fg-warning</code> · <code>--fg-critical</code> · <code>--fg-positive</code></td></tr><tr><td>아이콘 칩</td><td>24px · <code>--radius-xs</code> · <code>--bg-{tint}-weak</code> + <code>--fg-{tint}</code></td></tr><tr><td>divided 선</td><td><code>--stroke-neutral</code></td></tr><tr><td>접근성</td><td>행은 <code>&lt;a&gt;</code> 또는 <code>&lt;button&gt;</code>, 목록은 <code>&lt;ul&gt;</code>. 포커스는 안쪽 2px 링</td></tr></table>
+</section>

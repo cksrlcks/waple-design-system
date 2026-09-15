@@ -1,0 +1,47 @@
+<section class="page" id="components/work-panel">
+  <h1>Work panel</h1>
+  <p class="desc">카드에서 다 담지 못하는 선택을 <b>대화 안에서</b> 이어 받는 패널. 사용자의 말풍선 아래에 붙고, 값을 다 고르면 아래쪽 한 버튼으로 상신합니다 — <a href="#components/dialog">실행 전 확인</a>과 같은 규칙입니다.</p>
+  <h2>Anatomy</h2>
+  <div class="anatomy">
+    <div class="demo tinted" style="flex:1 1 100%;flex-direction:column;align-items:stretch"><div class="wmsg">연차 신청</div><div class="wpanel">
+      <div class="wpanel__hd"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"/><path d="M12 7v5l3 3"/></svg><b>연차 신청</b><span>잔여 12일</span><button class="wpanel__x" aria-label="닫기"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg></button></div>
+      <div class="wstats"><span>총 <b>15</b></span><span>사용 <b>3</b></span><span>잔여 <b>12</b></span><span>소진율 <b>20%</b></span></div>
+      <div class="wsum">9월 10일(목) – 9월 14일(월)<em>3일 · 주말 2일 제외</em></div>
+      <div class="wchips"><button class="wchip">오늘 하루</button><button class="wchip">내일 하루</button><button class="wchip">이번 주 남은 날</button></div>
+      <div class="wcal">
+        <div class="wmonth"><button aria-label="이전 달"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6l6 6"/></svg></button><b>2026년 9월</b><button aria-label="다음 달"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6l-6 6"/></svg></button></div>
+        <div class="wgrid"><span class="wgrid__w we">일</span><span class="wgrid__w">월</span><span class="wgrid__w">화</span><span class="wgrid__w">수</span><span class="wgrid__w">목</span><span class="wgrid__w">금</span><span class="wgrid__w we">토</span><span class="wday blank"></span><span class="wday blank"></span><button class="wday past" data-d="1" data-label="9월 1일(화)" aria-label="9월 1일 화요일"><span>1</span></button><button class="wday past" data-d="2" data-label="9월 2일(수)" aria-label="9월 2일 수요일"><span>2</span></button><button class="wday past" data-d="3" data-label="9월 3일(목)" aria-label="9월 3일 목요일"><span>3</span></button><button class="wday past" data-d="4" data-label="9월 4일(금)" aria-label="9월 4일 금요일"><span>4</span></button><button class="wday past" data-d="5" data-label="9월 5일(토)" aria-label="9월 5일 토요일"><span>5</span></button><button class="wday past" data-d="6" data-label="9월 6일(일)" aria-label="9월 6일 일요일"><span>6</span></button><button class="wday past" data-d="7" data-label="9월 7일(월)" aria-label="9월 7일 월요일"><span>7</span></button><button class="wday past" data-d="8" data-label="9월 8일(화)" aria-label="9월 8일 화요일"><span>8</span></button><button class="wday today" data-d="9" data-label="9월 9일(수)" aria-label="9월 9일 수요일"><span>9</span></button><button class="wday start" data-d="10" data-label="9월 10일(목)" aria-label="9월 10일 목요일"><span>10</span></button><button class="wday in" data-d="11" data-label="9월 11일(금)" aria-label="9월 11일 금요일"><span>11</span></button><button class="wday we in" data-d="12" data-label="9월 12일(토)" aria-label="9월 12일 토요일"><span>12</span></button><button class="wday we in" data-d="13" data-label="9월 13일(일)" aria-label="9월 13일 일요일"><span>13</span></button><button class="wday end" data-d="14" data-label="9월 14일(월)" aria-label="9월 14일 월요일"><span>14</span></button><button class="wday" data-d="15" data-label="9월 15일(화)" aria-label="9월 15일 화요일"><span>15</span></button><button class="wday" data-d="16" data-label="9월 16일(수)" aria-label="9월 16일 수요일"><span>16</span></button><button class="wday" data-d="17" data-label="9월 17일(목)" aria-label="9월 17일 목요일"><span>17</span></button><button class="wday" data-d="18" data-label="9월 18일(금)" aria-label="9월 18일 금요일"><span>18</span></button><button class="wday we" data-d="19" data-label="9월 19일(토)" aria-label="9월 19일 토요일"><span>19</span></button><button class="wday we" data-d="20" data-label="9월 20일(일)" aria-label="9월 20일 일요일"><span>20</span></button><button class="wday" data-d="21" data-label="9월 21일(월)" aria-label="9월 21일 월요일"><span>21</span></button><button class="wday" data-d="22" data-label="9월 22일(화)" aria-label="9월 22일 화요일"><span>22</span></button><button class="wday" data-d="23" data-label="9월 23일(수)" aria-label="9월 23일 수요일"><span>23</span></button><button class="wday" data-d="24" data-label="9월 24일(목)" aria-label="9월 24일 목요일"><span>24</span></button><button class="wday" data-d="25" data-label="9월 25일(금)" aria-label="9월 25일 금요일"><span>25</span></button><button class="wday we" data-d="26" data-label="9월 26일(토)" aria-label="9월 26일 토요일"><span>26</span></button><button class="wday we" data-d="27" data-label="9월 27일(일)" aria-label="9월 27일 일요일"><span>27</span></button><button class="wday" data-d="28" data-label="9월 28일(월)" aria-label="9월 28일 월요일"><span>28</span></button><button class="wday" data-d="29" data-label="9월 29일(화)" aria-label="9월 29일 화요일"><span>29</span></button><button class="wday" data-d="30" data-label="9월 30일(수)" aria-label="9월 30일 수요일"><span>30</span></button></div>
+      </div>
+      <p class="wcal__note">시작일을 누르고 종료일을 한 번 더 누르면 기간이 잡힙니다. 주말·공휴일은 일수에서 빠집니다.</p>
+      <div class="wsec">사유</div>
+      <div class="wchips"><button class="wchip on">개인사유</button><button class="wchip">경조사</button><button class="wchip">병가</button><button class="wchip">직접입력</button></div>
+      <div class="wpanel__ft"><span>신청 <b>3일</b> · 잔여 12일 → <b>9일</b></span><button class="btn sm neutral-weak">지우기</button><button class="btn sm brand-solid">신청하기</button></div>
+    </div></div>
+    <ol><li><b>Message</b> — 무엇을 부탁했는지 한 줄. 오른쪽 정렬</li><li><b>Header / Stats</b> — 이름 + 잔여, 그리고 결정에 필요한 숫자를 알약으로</li><li><b>Summary</b> — 고른 기간을 <b>글로</b> 되돌려 준다. 달력만 보고 셈하지 않게</li><li><b>Preset</b> — 가장 흔한 기간 두세 개. 달력을 열지 않고 끝난다</li><li><b>Calendar</b> — 월 달력. 시작 → 끝 두 번 눌러 기간을 잡는다</li><li><b>Footer</b> — 신청 일수와 <b>남게 될 잔여</b> + 주요 버튼 하나</li></ol>
+  </div>
+  <h2>Properties</h2>
+  <h3>날짜 고르기 — 시작 → 끝</h3>
+  <p>첫 번째 누름이 <b>시작</b>, 두 번째 누름이 <b>끝</b>입니다. 사이는 저절로 채워지고, 세 번째 누름은 다시 시작이 됩니다. 끝을 고르기 전에는 가리키는 날까지 미리 칠해 어디까지 잡히는지 보여 줍니다. 하루만 쓸 때는 <b>Preset</b> 이나 카드의 주간 달력으로 끝납니다.</p>
+  <table><tr><th>칸</th><th>표현</th></tr><tr><td>기본</td><td>38px 칸 · 숫자는 32px 원 안에</td></tr><tr><td>오늘</td><td><code>--stroke-accent</code> 원 테두리 + <code>--fg-accent</code></td></tr><tr><td>시작 · 끝</td><td><code>--bg-brand-solid</code> 원 채움. 사이 띠는 원 가운데에서 시작해 이어진다</td></tr><tr><td>사이</td><td><code>--bg-neutral-weak</code> 띠. 칸 사이 간격이 0 이어야 띠가 끊기지 않는다</td></tr><tr><td>주말</td><td>기간에는 들어가지만 <b>시작·끝이 될 수 없다</b> — 흐리게 + <code>pointer-events:none</code>. 일수에서도 빠진다</td></tr><tr><td>지난 날</td><td><code>--fg-disabled</code> · 누를 수 없음</td></tr></table>
+  <h3>고르는 것</h3>
+  <table><tr><th>형태</th><th>쓰임</th></tr><tr><td>wsum</td><td>고른 기간 + 일수 + 빠진 주말. 아무것도 안 골랐으면 <code>.empty</code> 로 「날짜를 고르세요」</td></tr><tr><td>wchip</td><td>Preset·사유처럼 값이 몇 개 안 될 때. 선택은 검정 채움</td></tr><tr><td>wday</td><td>월 달력 한 칸. 위 표</td></tr><tr><td>wstats</td><td>총·사용·잔여·소진율 — 누르지 않는 읽기 값</td></tr></table>
+  <h3>Footer</h3>
+  <table><tr><th>상태</th><th>표현</th></tr><tr><td>덜 골랐을 때</td><td>무엇을 더 골라야 하는지 한 줄(「날짜를 고르세요」). 주요 버튼 없음</td></tr><tr><td>다 골랐을 때</td><td>「신청 3일 · 잔여 12일 → 9일」처럼 <b>남게 될 값</b>까지 + <code>brand-solid</code> 버튼 하나. 옆에 「지우기」</td></tr><tr><td>보낸 뒤</td><td>요약 자리에 결과 문구, 버튼은 사라짐. 되돌리기는 Toast 로</td></tr></table>
+  <h2>Guidelines</h2>
+  <div class="dd">
+    <div class="do"><b>Do</b>고른 기간을 글로 다시 적고, 신청 뒤 <b>남게 될 잔여</b>까지 보여 줍니다 — 셈은 화면이 합니다.</div>
+    <div class="dont"><b>Don&#39;t</b>「연속 3일」처럼 일수만 고르게 하지 않습니다. 며칠이 아니라 <b>어느 날</b>이 결정입니다.</div>
+  </div>
+  <div class="dd">
+    <div class="do"><b>Do</b>패널 하나에 결정 하나. 연차 신청이면 기간·사유까지만 담습니다.</div>
+    <div class="dont"><b>Don&#39;t</b>카드에서 이미 고른 값을 다시 묻지 않습니다 — 넘어올 때 채워 둡니다.</div>
+  </div>
+  <div class="dd">
+    <div class="do"><b>Do</b>고를 수 없는 값(주말·지난 날·잔여 없음)은 흐리게 두고 왜인지 달력 아래에 적습니다.</div>
+    <div class="dont"><b>Don&#39;t</b>패널 안에 「취소」를 따로 두지 않습니다 — 닫기 ×, 되돌리기는 「지우기」, 상신은 버튼 하나.</div>
+  </div>
+  <h2>Work panel vs. Dialog</h2>
+  <table><tr><th></th><th>Work panel</th><th>Dialog</th></tr><tr><td>자리</td><td>대화 흐름 안</td><td>화면 위에 떠서 멈춤</td></tr><tr><td>목적</td><td>값을 고른다</td><td>이미 정한 것을 확인한다</td></tr><tr><td>남는가</td><td>대화 기록에 남는다</td><td>닫으면 사라진다</td></tr></table>
+  <h2>Specification</h2>
+  <table><tr><th>부위</th><th>토큰</th></tr><tr><td>패널</td><td><code>--stroke-neutral-strong</code> · <code>--radius-xl</code> · <code>--shadow-1</code> · 패딩 <code>--dim-x5 --dim-x6</code></td></tr><tr><td>말풍선</td><td><code>--bg-neutral-weak</code> · 오른쪽 정렬 · 최대 460px</td></tr><tr><td>요약(wsum)</td><td>t3 600 + 12px <code>--fg-neutral-muted</code> 보조</td></tr><tr><td>달력 상자</td><td><code>--stroke-neutral-strong</code> · <code>--radius-lg</code> · 7열 <code>grid</code>, 간격 0</td></tr><tr><td>날짜 칸</td><td>38px 칸 · 32px 원 <code>--radius-full</code> · 오늘 <code>--stroke-accent</code> · 시작·끝 <code>--bg-brand-solid</code> · 사이 <code>--bg-neutral-weak</code></td></tr><tr><td>Footer</td><td>위 선 <code>--stroke-neutral</code> · 요약 12px muted · 버튼 sm <code>neutral-weak</code> + <code>brand-solid</code></td></tr><tr><td>접근성</td><td>날짜는 <code>&lt;button aria-label="9월 11일 금요일"&gt;</code>, 고른 값은 <code>aria-pressed</code>. 패널이 열리면 제목으로 포커스</td></tr></table>
+</section>

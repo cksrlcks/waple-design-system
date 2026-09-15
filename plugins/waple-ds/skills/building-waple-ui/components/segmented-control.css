@@ -1,0 +1,8 @@
+/* Segmented control — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Segmented control ── */
+  .seg{display:inline-flex;padding:3px;border-radius:var(--radius-full);background:var(--bg-neutral-weak);gap:2px}
+  .seg__item{display:inline-flex;align-items:center;gap:var(--dim-x1_5);line-height:normal;height:26px;padding:0 var(--dim-x3);border-radius:var(--radius-full);border:0;background:transparent;font:inherit;font-size:var(--font-size-t1);font-weight:var(--font-weight-medium);color:var(--fg-neutral-subtle);cursor:pointer;white-space:nowrap}
+  .seg__item .n{color:var(--fg-neutral-muted);font-weight:var(--font-weight-regular);font-variant-numeric:tabular-nums}
+  .seg__item:hover{color:var(--fg-neutral)} .seg__item.on{background:var(--bg-layer-default);color:var(--fg-neutral);font-weight:var(--font-weight-semibold);box-shadow:var(--shadow-1)}
+  .seg__item:focus-visible{outline:none;box-shadow:0 0 0 2px var(--stroke-focus)} .seg__item:disabled{color:var(--fg-disabled);cursor:not-allowed}
+  .seg.md .seg__item{height:32px;padding:0 var(--dim-x4);font-size:var(--font-size-t2)}

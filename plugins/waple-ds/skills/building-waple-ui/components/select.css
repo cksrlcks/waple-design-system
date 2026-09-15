@@ -1,0 +1,9 @@
+/* Select — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Select ── 브라우저 기본 <select> 에 시스템 옷만 입힌다. 항목이 많아 검색이 필요하면 Select 가 아니라 표·목록 화면에서 고르게 한다 */
+  .select{position:relative;display:inline-flex;align-items:center;min-width:160px;max-width:100%}
+  .select select{appearance:none;-webkit-appearance:none;width:100%;height:36px;padding:0 var(--dim-x8) 0 var(--dim-x3);border:1px solid var(--stroke-neutral-strong);border-radius:var(--radius-sm);background:var(--bg-layer-default);font:inherit;font-size:var(--font-size-t2);color:var(--fg-neutral);cursor:pointer;transition:border-color var(--duration-fast),box-shadow var(--duration-fast)}
+  .select>svg{position:absolute;right:var(--dim-x2_5);width:16px;height:16px;color:var(--fg-neutral-muted);pointer-events:none}
+  .select select:hover{border-color:var(--stroke-neutral-stronger)} .select select:focus-visible{outline:none;border-color:var(--stroke-accent);box-shadow:0 0 0 3px var(--bg-accent-weak)}
+  .select.sm select{height:32px;font-size:var(--font-size-t1);padding-left:var(--dim-x2_5)} .select.lg select{height:44px;font-size:var(--font-size-t3)}
+  .select.error select{border-color:var(--stroke-critical)} .select select:disabled{background:var(--bg-neutral-weak);color:var(--fg-disabled);border-color:transparent;cursor:not-allowed}
+  .select.ghost select{border-color:transparent;background:transparent;padding-left:var(--dim-x2)} .select.ghost select:hover{background:var(--bg-neutral-hover)}

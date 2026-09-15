@@ -1,0 +1,6 @@
+/* Result section — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Result section ── Empty state(.empty)의 레이아웃·크기를 그대로 입는다. 여기엔 결과 톤·요약·행동 줄만 */
+  .result.positive i{background:var(--bg-positive-weak);color:var(--fg-positive)} /* warning · critical 은 .empty.warning / .empty.critical 그대로 */
+  .result .dialog-sum{width:100%;max-width:320px;margin-top:var(--dim-x2);text-align:left} /* 설명(.empty p)과 같은 폭 */
+  .result__actions{display:flex;flex-wrap:wrap;justify-content:center;gap:var(--dim-x2);margin-top:var(--dim-x3)} .result__actions .btn{margin-top:0}
+  .result.compact .dialog-sum{margin-top:var(--dim-x1)} .result.compact .result__actions{margin-top:var(--dim-x2)}

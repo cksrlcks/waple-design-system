@@ -1,0 +1,9 @@
+/* Skeleton — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Skeleton ── */
+  .skel{position:relative;display:block;overflow:hidden;background:var(--stroke-neutral-strong);border-radius:var(--radius-xs)}
+  .skel::after{content:"";position:absolute;inset:0;transform:translateX(-100%);background:linear-gradient(90deg,var(--bg-neutral-weak) 0%,var(--bg-layer-default) 50%,var(--bg-neutral-weak) 100%);opacity:.7;animation:skel-shimmer 1.4s var(--easing) infinite}
+  @keyframes skel-shimmer{to{transform:translateX(100%)}}
+  @media (prefers-reduced-motion:reduce){.skel::after{animation:none}}
+  .skel.text{height:14px;width:100%} .skel.line{height:8px;width:100%;border-radius:var(--radius-full)} .skel.circle{width:36px;height:36px;flex:none;border-radius:50%} .skel.card{height:120px;width:100%;border-radius:var(--radius-lg)}
+  .skel-qcard{display:flex;flex-direction:column;gap:var(--dim-x2_5);width:280px;padding:var(--dim-x4);background:var(--bg-layer-default);border:1px solid var(--stroke-neutral-strong);border-radius:var(--radius-lg)}
+  .skel-row{display:flex;align-items:center;gap:var(--dim-x2);width:100%}

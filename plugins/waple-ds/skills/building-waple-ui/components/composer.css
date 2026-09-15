@@ -1,0 +1,12 @@
+/* Composer — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Composer ── */
+  .composer{width:100%;max-width:640px;border:1px solid var(--stroke-neutral-strong);border-radius:var(--radius-lg);background:var(--bg-layer-default);padding:var(--dim-x4);display:flex;flex-direction:column;gap:var(--dim-x3);transition:border-color var(--duration-fast),box-shadow var(--duration-fast)}
+  .composer:focus-within,.composer.focus{border-color:var(--stroke-accent);box-shadow:0 0 0 3px var(--bg-accent-weak)}
+  .composer textarea{border:0;background:transparent;font:inherit;font-size:var(--font-size-t3);line-height:var(--line-height-t3);color:var(--fg-neutral);resize:none;min-height:44px;outline:none;padding:0} .composer textarea::placeholder{color:var(--fg-neutral-placeholder)}
+  .composer__bar{display:flex;align-items:center;gap:var(--dim-x2)} .composer__bar .right{margin-left:auto}
+  .composer .cta{display:inline-flex;align-items:center;gap:var(--dim-x1_5);height:36px;padding:0 var(--dim-x4);border:0;border-radius:var(--radius-full);background:var(--gradient-glow);box-shadow:var(--shadow-glow);color:var(--fg-on-brand);font:inherit;font-size:var(--font-size-t3);font-weight:var(--font-weight-semibold);line-height:normal;cursor:pointer;transition:filter var(--duration-fast)}
+  .composer .cta svg{width:18px;height:18px} .composer .cta:hover{filter:brightness(1.05)}
+  .composer .cta:focus-visible{outline:none;box-shadow:var(--shadow-glow),0 0 0 3px var(--bg-layer-default),0 0 0 5px var(--stroke-focus)}
+  .composer .cta:disabled,.composer.disabled .cta{background:var(--bg-neutral-weak);box-shadow:none;color:var(--fg-disabled);cursor:not-allowed}
+  .composer .cta .spin{width:14px;height:14px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:spin .8s linear infinite}
+  .composer.disabled{background:var(--bg-neutral-weak);border-color:transparent} .composer.disabled textarea{color:var(--fg-disabled)}

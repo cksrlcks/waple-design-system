@@ -1,0 +1,10 @@
+/* Switch — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Switch ── */
+  .switch{display:inline-flex;align-items:center;gap:var(--dim-x2);cursor:pointer;font-size:var(--font-size-t2);color:var(--fg-neutral);position:relative}
+  .switch input{position:absolute;opacity:0;width:0;height:0;margin:0}
+  .switch .track{width:40px;height:22px;border-radius:var(--radius-full);background:var(--stroke-neutral-stronger);position:relative;flex:none;transition:background var(--duration-fast) var(--easing)}
+  .switch .track::after{content:"";position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:var(--bg-layer-default);box-shadow:var(--shadow-1);transition:transform var(--duration-fast) var(--easing)}
+  .switch input:checked+.track{background:var(--bg-brand-solid)} .switch input:checked+.track::after{transform:translateX(18px)}
+  .switch.sm .track{width:32px;height:18px} .switch.sm .track::after{width:12px;height:12px} .switch.sm input:checked+.track::after{transform:translateX(14px)}
+  .switch:has(input:disabled){cursor:not-allowed;color:var(--fg-disabled)} .switch input:disabled+.track{background:var(--bg-neutral-weak)} .switch input:disabled:checked+.track{background:var(--stroke-neutral-stronger)}
+  .switch input:focus-visible+.track,.switch.focus .track{box-shadow:0 0 0 3px var(--bg-accent-weak),0 0 0 4px var(--stroke-focus)}

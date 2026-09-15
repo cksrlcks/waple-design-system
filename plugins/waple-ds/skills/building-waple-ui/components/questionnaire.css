@@ -1,0 +1,26 @@
+/* Questionnaire — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Questionnaire ── 실행 전에 묻는 카드: 확인형(요약 + 승인) · 단계형(문항 + 선택지) */
+  .qnr{display:flex;flex-direction:column;width:100%;max-width:560px;border:1px solid var(--stroke-neutral-strong);border-radius:var(--radius-lg);background:var(--bg-layer-default);overflow:hidden;text-align:left;font-size:var(--font-size-t2);line-height:var(--line-height-t2);color:var(--fg-neutral)}
+  .qnr__band{display:flex;align-items:center;gap:var(--dim-x2);padding:var(--dim-x2) var(--dim-x5);background:var(--bg-sample-weak);color:var(--fg-sample);font-size:var(--font-size-t1);line-height:var(--line-height-t1);font-weight:var(--font-weight-medium)} .qnr__band svg{width:16px;height:16px}
+  .qnr__hd{display:flex;flex-direction:column;gap:var(--dim-x1);padding:var(--dim-x5) var(--dim-x5) 0}
+  .qnr__title{font-size:var(--font-size-t4);line-height:var(--line-height-t4);font-weight:var(--font-weight-semibold)}
+  .qnr__lead{margin:0;font-size:var(--font-size-t1);line-height:var(--line-height-t1);color:var(--fg-neutral-muted)}
+  .qnr__body{padding:0 var(--dim-x5)} details.qnr[open] .qnr__body{padding-bottom:var(--dim-x4)}
+  .qnr__ft{display:flex;align-items:center;justify-content:flex-end;gap:var(--dim-x2);padding:var(--dim-x5)} .qnr__back{margin-right:auto}
+  .qnr__sum{display:flex;align-items:center;gap:var(--dim-x2_5);min-height:48px;padding:var(--dim-x2) var(--dim-x4);list-style:none;cursor:pointer;transition:background var(--duration-fast)} .qnr__sum::-webkit-details-marker{display:none}
+  .qnr__sum:hover{background:var(--bg-neutral-hover)} .qnr__sum:focus-visible{outline:none;box-shadow:inset 0 0 0 2px var(--stroke-focus)}
+  .qnr__sum b{flex:none;font-weight:var(--font-weight-semibold)} .qnr__meta{min-width:0;font-size:var(--font-size-t1);color:var(--fg-neutral-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .qnr__sum .badge{margin-left:auto;flex:none} .qnr__sum>svg{width:16px;height:16px;flex:none;color:var(--fg-neutral-muted);transition:transform var(--duration-normal) var(--easing)} details.qnr[open] .qnr__sum>svg{transform:rotate(180deg)}
+  .qnr__prog{display:flex;align-items:center;gap:var(--dim-x3);font-size:var(--font-size-t1);line-height:var(--line-height-t1);color:var(--fg-neutral-muted);font-variant-numeric:tabular-nums}
+  .qnr__segs{flex:1;display:flex;gap:var(--dim-x1)} .qnr__segs i{flex:1;height:4px;border-radius:var(--radius-full);background:var(--bg-neutral-weak)} .qnr__segs i.on{background:var(--bg-brand-solid)}
+  .qnr__q{min-width:0;margin:0;padding:var(--dim-x4) var(--dim-x5) 0;border:0} .qnr__q legend{padding:0;font-size:var(--font-size-t4);line-height:var(--line-height-t4);font-weight:var(--font-weight-semibold)}
+  .qnr__opts{display:flex;flex-direction:column;gap:var(--dim-x2);margin-top:var(--dim-x3)}
+  .qnr__opt{display:flex;align-items:center;gap:var(--dim-x3);min-height:48px;padding:var(--dim-x2) var(--dim-x3_5);border:1px solid var(--stroke-neutral-strong);border-radius:var(--radius-md);background:var(--bg-layer-default);cursor:pointer;transition:background var(--duration-fast),border-color var(--duration-fast)}
+  .qnr__opt:hover{background:var(--bg-neutral-hover)} .qnr__opt:has(>input:checked){border-color:var(--stroke-brand)}
+  .qnr__opt:has(>input:not(.qnr__free):focus-visible){box-shadow:0 0 0 3px var(--bg-accent-weak),0 0 0 4px var(--stroke-focus)}
+  .qnr__opt:has(>input:disabled){background:var(--bg-neutral-weak);border-color:transparent;color:var(--fg-disabled);cursor:not-allowed} .qnr__opt:has(>input:disabled) small{color:var(--fg-disabled)}
+  .qnr__opt>.cbox__box,.qnr__opt>.radio__dot{margin-top:0} .qnr__opt>.qnr__free{position:static;opacity:1;width:auto;height:32px} /* 컨트롤은 Checkbox·Radio 그대로, 카드 행이 감싼다 */
+  .qnr__opt:has(>input:disabled)>.cbox__box,.qnr__opt:has(>input:disabled)>.radio__dot{border-color:var(--stroke-neutral-strong)} /* 비활성 행 바탕과 컨트롤 바탕이 같은 회색 — 선을 남겨야 보인다 */
+  .qnr__txt{flex:1;min-width:0} .qnr__txt small{display:block;font-size:var(--font-size-t1);line-height:var(--line-height-t1);color:var(--fg-neutral-muted)}
+  .qnr__free{display:none;flex:2;min-width:0;height:32px;padding:0 var(--dim-x3);border:1px solid var(--stroke-neutral-strong);border-radius:var(--radius-sm);background:var(--bg-layer-default);font:inherit;font-size:var(--font-size-t2);color:var(--fg-neutral);outline:none} .qnr__free::placeholder{color:var(--fg-neutral-placeholder)}
+  .qnr__opt:has(>input:checked) .qnr__free{display:block} .qnr__free:focus{border-color:var(--stroke-accent);box-shadow:0 0 0 3px var(--bg-accent-weak)}

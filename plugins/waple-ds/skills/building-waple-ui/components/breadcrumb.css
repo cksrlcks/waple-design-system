@@ -1,0 +1,15 @@
+/* Breadcrumb — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Breadcrumb ── 지금 화면의 위치. 상위 단계는 링크, 현재는 글자(aria-current) */
+  .bcrumb{display:flex;min-width:0;max-width:100%;font-size:var(--font-size-t2);line-height:var(--line-height-t2);color:var(--fg-neutral-muted)}
+  .bcrumb ol{display:flex;align-items:center;gap:var(--dim-x2);min-width:0;margin:0;padding:0;list-style:none}
+  .bcrumb li{display:inline-flex;align-items:center;gap:var(--dim-x2);min-width:0;margin:0} .bcrumb li>svg{width:16px;height:16px}
+  .bcrumb__sep{flex:none;display:inline-flex;color:var(--fg-neutral-placeholder)} .bcrumb__sep svg{width:14px;height:14px}
+  .bcrumb.chev ol,.bcrumb.chev li{gap:var(--dim-x1)}
+  .bcrumb__link{display:block;max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;border-radius:var(--radius-xs);color:inherit;transition:color var(--duration-fast)} .bcrumb__link:hover{color:var(--fg-neutral)}
+  .bcrumb [aria-current="page"]{display:block;max-width:240px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--fg-neutral);font-weight:var(--font-weight-medium)}
+  .bcrumb.sm{font-size:var(--font-size-t1);line-height:var(--line-height-t1)} .bcrumb.sm [aria-current="page"]{font-weight:var(--font-weight-semibold)}
+  .bcrumb__more{display:inline-flex;align-items:center;justify-content:center;flex:none;width:24px;height:24px;padding:0;border:0;border-radius:var(--radius-xs);background:transparent;color:var(--fg-neutral-muted);line-height:1;cursor:pointer} .bcrumb__more svg{width:16px;height:16px}
+  .bcrumb__more:hover,.bcrumb__more[aria-expanded="true"]{background:var(--bg-neutral-hover);color:var(--fg-neutral)}
+  .bcrumb__link:focus-visible,.bcrumb__more:focus-visible{outline:none;box-shadow:0 0 0 3px var(--bg-accent-weak),0 0 0 4px var(--stroke-focus)}
+  .bcrumb__pop{position:relative;display:inline-flex} .bcrumb__pop>.menu{position:absolute;top:calc(100% + var(--dim-x1_5));left:0;z-index:20} /* Menu 를 dots 버튼 왼쪽 끝에 맞춘다 */
+

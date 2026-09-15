@@ -1,0 +1,8 @@
+/* Button group — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Button group ── .btn 을 붙인다: 이웃과 선을 공유(-1px), 바깥 모서리만 둥글게. 잉크 둘은 1px 틈으로 가른다 */
+  .btngroup{display:inline-flex;vertical-align:middle}
+  .btngroup>.btn{position:relative;border-radius:0}
+  .btngroup>.btn:first-child{border-top-left-radius:var(--radius-md);border-bottom-left-radius:var(--radius-md)} .btngroup>.btn:last-child{border-top-right-radius:var(--radius-md);border-bottom-right-radius:var(--radius-md)}
+  .btngroup>.btn+.btn{margin-left:-1px} .btngroup>.btn.brand-solid+.btn.brand-solid{margin-left:1px}
+  .btngroup>.btn:hover,.btngroup>.btn:focus-visible{z-index:1} .btngroup>.btn:disabled{border-color:var(--stroke-neutral-strong)}
+  .btngroup>.btngroup__icon{padding:0;aspect-ratio:1}

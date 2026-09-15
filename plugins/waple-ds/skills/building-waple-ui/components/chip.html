@@ -1,0 +1,31 @@
+<section class="page" id="components/chip">
+  <h1>Chip</h1>
+  <p class="desc">목록을 좁히는 필터, 그리고 「이렇게 물어보셔도 됩니다」의 제안 프롬프트. 알약 모양이고, 눌러도 화면을 떠나지 않습니다.</p>
+  <h2>Anatomy</h2>
+  <div class="anatomy">
+    <div class="demo tinted"><span class="chip md suggest"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 18a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm0 -12a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm-7 12a6 6 0 0 1 6 -6a6 6 0 0 1 -6 -6a6 6 0 0 1 -6 6a6 6 0 0 1 6 6z"/></svg>결재가 반려됐는데 누구한테 물어봐야 해?</span></div>
+    <ol><li><b>Container</b> — 알약(radius-full), 1px 선</li><li><b>Leading</b> (선택) — 제안 칩의 sparkles 아이콘 14px (틸)</li><li><b>Label</b> — 한 줄, 줄바꿈 없음</li><li><b>Count</b> (선택) — 필터 결과 수, muted</li></ol>
+  </div>
+  <h2>Properties</h2>
+  <h3>Size</h3>
+  <div class="demo tinted"><span class="chip sm">전체</span><span class="chip md">전체</span></div>
+  <table><tr><th>크기</th><th>높이</th><th>쓰임</th></tr><tr><td>sm</td><td>26px</td><td>카드·행 안의 필터(출근 · 퇴근 · 연속·달력)</td></tr><tr><td>md</td><td>32px</td><td>제안 프롬프트, 화면 상단 필터</td></tr></table>
+  <h3>Variant</h3>
+  <div class="demo tinted"><span class="chip md">전체 <span class="cnt">12</span></span><span class="chip md selected">내 예약</span><span class="chip md suggest"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 18a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm0 -12a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm-7 12a6 6 0 0 1 6 -6a6 6 0 0 1 -6 -6a6 6 0 0 1 -6 6a6 6 0 0 1 6 6z"/></svg>오늘 업무일지 써줘</span></div>
+  <table><tr><th>Variant</th><th>쓰임</th></tr><tr><td>filter</td><td>선택 가능. 선택되면 검정으로 채워집니다 — 틸을 쓰지 않습니다</td></tr><tr><td>suggest</td><td>제안 프롬프트. 누르면 컴포저에 문구가 들어갑니다. 선택 상태 없음</td></tr></table>
+  <h3>State</h3>
+  <div class="demo tinted"><span class="chip md">기본</span><span class="chip md" style="background:var(--bg-neutral-hover)">hover</span><span class="chip md selected">selected</span><span class="chip md disabled">disabled</span></div>
+  <h2>Guidelines</h2>
+  <div class="dd">
+    <div class="do"><b>Do</b><div class="demo tinted"><span class="chip sm selected">전체</span><span class="chip sm">승인 대기</span><span class="chip sm">반려</span></div>필터 칩은 한 줄에 두고, 「전체」를 첫 자리에. 선택은 항상 하나 이상.</div>
+    <div class="dont"><b>Don&#39;t</b><div class="demo tinted"><span class="chip md selected" style="background:var(--bg-accent-solid);border-color:var(--stroke-accent);color:var(--fg-on-accent)">내 예약</span></div>선택 상태에 틸을 칠하지 않습니다 — 틸은 강조 한 곳(글로우·포커스)에만.</div>
+  </div>
+  <div class="dd">
+    <div class="do"><b>Do</b>제안 칩 문구는 사용자가 실제로 칠 문장 그대로(「이번주 근태 어때?」).</div>
+    <div class="dont"><b>Don&#39;t</b>칩으로 페이지를 이동시키지 않습니다 — 이동은 Button·링크.</div>
+  </div>
+  <h2>Chip vs. Button</h2>
+  <table><tr><th></th><th>Chip</th><th>Button</th></tr><tr><td>목적</td><td>필터·선택·제안 삽입</td><td>행동 실행</td></tr><tr><td>모양</td><td>radius-full, 26·32px</td><td>radius-md, 26~48px</td></tr><tr><td>선택 상태</td><td>있음(검정 채움)</td><td>없음</td></tr><tr><td>화면 이동</td><td>없음</td><td>있음</td></tr></table>
+  <h2>Specification</h2>
+  <table><tr><th>부위</th><th>토큰</th></tr><tr><td>배경 / 선 / 글자</td><td><code>--bg-layer-default</code> / <code>--stroke-neutral-strong</code> / <code>--fg-neutral</code></td></tr><tr><td>selected</td><td><code>--bg-brand-solid</code> + <code>--fg-on-brand</code></td></tr><tr><td>제안 아이콘</td><td><code>--fg-accent</code></td></tr><tr><td>글자</td><td>sm t1 500 · md t2 500 (suggest 400)</td></tr><tr><td>사이 간격</td><td><code>--spacing-between-chips</code> 8px</td></tr><tr><td>접근성</td><td>필터는 <code>role="radio"/aria-checked</code>(단일) 또는 <code>aria-pressed</code>(다중). 제안 칩은 <code>&lt;button&gt;</code></td></tr></table>
+</section>

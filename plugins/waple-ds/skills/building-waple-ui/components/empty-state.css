@@ -1,0 +1,9 @@
+/* Empty state — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Empty state ── */
+  .empty{display:flex;flex-direction:column;align-items:center;text-align:center;width:100%;padding:var(--dim-x10) var(--dim-x6);gap:var(--dim-x1_5)}
+  .empty i{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;margin:0 auto var(--dim-x2);border-radius:50%;font-style:normal;background:var(--bg-neutral-weak);color:var(--fg-neutral-subtle)} .empty i svg{width:24px;height:24px}
+  .empty.warning i{background:var(--bg-warning-weak);color:var(--fg-warning)} .empty.critical i{background:var(--bg-critical-weak);color:var(--fg-critical)}
+  .empty h4{margin:0;font-size:var(--font-size-t3);line-height:var(--line-height-t3);font-weight:var(--font-weight-semibold);color:var(--fg-neutral)}
+  .empty p{margin:0;max-width:320px;font-size:var(--font-size-t2);line-height:var(--line-height-t2);color:var(--fg-neutral-subtle)}
+  .empty .btn{margin-top:var(--dim-x3)}
+  .empty.compact{padding:var(--dim-x5) var(--dim-x4);gap:var(--dim-x1)} .empty.compact i{width:32px;height:32px;margin-bottom:var(--dim-x1);font-size:var(--font-size-t3)} .empty.compact h4{font-size:var(--font-size-t3);line-height:var(--line-height-t3)} .empty.compact .btn{margin-top:var(--dim-x2)}

@@ -1,0 +1,9 @@
+/* Menubar — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Menubar ── 편집기 머리의 메뉴 줄(파일·편집·보기·도움말). 항목마다 공유 .menu 를 연다 — roving tabindex */
+  .menubar{display:inline-flex;align-items:center;gap:var(--dim-x0_5)}
+  .menubar__slot{position:relative}
+  .menubar__item{display:inline-flex;align-items:center;justify-content:center;height:28px;padding:0 var(--dim-x2_5);border:0;border-radius:var(--radius-sm);background:transparent;font:inherit;font-size:var(--font-size-t2);line-height:1;color:var(--fg-neutral);white-space:nowrap;cursor:pointer;transition:background var(--duration-fast)}
+  .menubar__item:hover{background:var(--bg-neutral-hover)} .menubar__item[aria-expanded="true"]{background:var(--bg-neutral-selected)}
+  .menubar__item:focus-visible{outline:none;box-shadow:inset 0 0 0 2px var(--stroke-focus)}
+  .menubar__panel{position:absolute;top:calc(100% + var(--dim-x1));left:0;z-index:2;width:220px}
+  .menubar__sub{position:relative} .menubar__sub>.menu{position:absolute;top:calc(-1 * var(--dim-x1_5));left:calc(100% + var(--dim-x1_5));z-index:3;width:200px}

@@ -1,0 +1,31 @@
+<section class="page" id="components/icon-button">
+  <h1>Icon button</h1>
+  <p class="desc">라벨 없이 아이콘만으로 뜻이 통하는 보조 행동(첨부·닫기·더보기·이전/다음)에 씁니다. 화면을 여닫거나 목록을 넘기는 자리에 오고, 주요 행동에는 쓰지 않습니다.</p>
+  <h2>Anatomy</h2>
+  <div class="anatomy">
+    <div class="demo tinted"><button class="iconbtn md outline" aria-label="파일 첨부"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 7l-6.5 6.5a1.5 1.5 0 0 0 3 3l6.5 -6.5a3 3 0 0 0 -6 -6l-6.5 6.5a4.5 4.5 0 0 0 9 9l6.5 -6.5"/></svg></button></div>
+    <ol><li><b>Container</b> — 정사각형, 라운드 sm</li><li><b>Icon</b> — Tabler, 16·18·20px, stroke 1.75, <code>currentColor</code></li><li><b>aria-label</b> — 보이지 않는 이름. 툴팁이 같은 문구를 보여 줍니다</li></ol>
+  </div>
+  <h2>Properties</h2>
+  <h3>Size</h3>
+  <div class="demo tinted"><button class="iconbtn sm outline" aria-label="닫기"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg></button><button class="iconbtn md outline" aria-label="닫기"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg></button><button class="iconbtn lg outline" aria-label="닫기"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg></button></div>
+  <table><tr><th>크기</th><th>상자 / 아이콘</th><th>쓰임</th></tr><tr><td>sm</td><td>28 / 16px</td><td>칩·행 안, 주간 이동 ‹ ›</td></tr><tr><td>md</td><td>32 / 18px</td><td>기본 — 컴포저 첨부, 카드 더보기</td></tr><tr><td>lg</td><td>36 / 20px</td><td>상단 바·사이드바 접기</td></tr></table>
+  <h3>Variant</h3>
+  <div class="demo tinted"><button class="iconbtn md ghost" aria-label="더보기"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/><path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/><path d="M19 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/></svg></button><button class="iconbtn md outline" aria-label="파일 첨부"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 7l-6.5 6.5a1.5 1.5 0 0 0 3 3l6.5 -6.5a3 3 0 0 0 -6 -6l-6.5 6.5a4.5 4.5 0 0 0 9 9l6.5 -6.5"/></svg></button><button class="iconbtn md solid" aria-label="새 대화"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5l0 14"/><path d="M5 12l14 0"/></svg></button><button class="iconbtn md ghost selected" aria-label="검색"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"/><path d="M21 21l-6 -6"/></svg></button></div>
+  <table><tr><th>Variant</th><th>쓰임</th></tr><tr><td>ghost</td><td>기본 — 행·카드 안의 조용한 보조 행동</td></tr><tr><td>outline</td><td>흰 바탕 위에서 눌리는 곳임을 알려야 할 때(컴포저·카드 하단)</td></tr><tr><td>solid</td><td>검정. 「새 대화」처럼 화면에 하나뿐인 만들기 행동</td></tr><tr><td>selected</td><td>토글형(검색 열림·필터 켜짐) — ghost 의 켜진 상태</td></tr></table>
+  <h3>State</h3>
+  <div class="demo tinted"><button class="iconbtn md outline" aria-label="첨부"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 7l-6.5 6.5a1.5 1.5 0 0 0 3 3l6.5 -6.5a3 3 0 0 0 -6 -6l-6.5 6.5a4.5 4.5 0 0 0 9 9l6.5 -6.5"/></svg></button><button class="iconbtn md outline" style="background:var(--bg-neutral-hover)" aria-label="hover"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 7l-6.5 6.5a1.5 1.5 0 0 0 3 3l6.5 -6.5a3 3 0 0 0 -6 -6l-6.5 6.5a4.5 4.5 0 0 0 9 9l6.5 -6.5"/></svg></button><button class="iconbtn md outline" style="box-shadow:0 0 0 3px var(--bg-accent-weak),0 0 0 4px var(--stroke-focus)" aria-label="focus"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 7l-6.5 6.5a1.5 1.5 0 0 0 3 3l6.5 -6.5a3 3 0 0 0 -6 -6l-6.5 6.5a4.5 4.5 0 0 0 9 9l6.5 -6.5"/></svg></button><button class="iconbtn md outline" disabled aria-label="첨부"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 7l-6.5 6.5a1.5 1.5 0 0 0 3 3l6.5 -6.5a3 3 0 0 0 -6 -6l-6.5 6.5a4.5 4.5 0 0 0 9 9l6.5 -6.5"/></svg></button></div>
+  <h2>Guidelines</h2>
+  <div class="dd">
+    <div class="do"><b>Do</b><div class="demo tinted"><button class="iconbtn md ghost" aria-label="더보기"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/><path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/><path d="M19 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/></svg></button><button class="iconbtn md ghost" aria-label="닫기"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg></button></div>뜻이 굳어진 아이콘(닫기·더보기·첨부·검색·이전/다음)에만 씁니다. 항상 <code>aria-label</code> + 툴팁.</div>
+    <div class="dont"><b>Don&#39;t</b><div class="demo tinted"><button class="iconbtn md solid" aria-label="결재 상신"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6l-6 6"/></svg></button></div>「결재 상신」처럼 결과가 있는 행동을 아이콘 하나에 싣지 않습니다 — 라벨 있는 Button 으로.</div>
+  </div>
+  <div class="dd">
+    <div class="do"><b>Do</b>한 줄에 아이콘 버튼은 셋까지. 넷째부터는 「더보기」 메뉴로 접습니다.</div>
+    <div class="dont"><b>Don&#39;t</b>아이콘 크기를 상자에 맞춰 임의로 키우지 않습니다 — 16·18·20 세 값만.</div>
+  </div>
+  <h2>Icon button vs. Button</h2>
+  <table><tr><th></th><th>Icon button</th><th>Button</th></tr><tr><td>라벨</td><td>없음(aria-label)</td><td>있음</td></tr><tr><td>자리</td><td>행·카드·바의 모서리</td><td>폼·카드 하단·다이얼로그 푸터</td></tr><tr><td>주요 행동</td><td>불가</td><td>brand-solid 하나</td></tr></table>
+  <h2>Specification</h2>
+  <table><tr><th>부위</th><th>토큰</th></tr><tr><td>라운드</td><td><code>--radius-sm</code></td></tr><tr><td>ghost 글자 / hover 배경</td><td><code>--fg-neutral-subtle</code> / <code>--bg-neutral-hover</code></td></tr><tr><td>outline 선</td><td><code>--stroke-neutral-strong</code></td></tr><tr><td>solid 배경 / 글자</td><td><code>--bg-brand-solid</code> / <code>--fg-on-brand</code></td></tr><tr><td>selected 배경</td><td><code>--bg-neutral-selected</code></td></tr><tr><td>포커스</td><td><code>--bg-accent-weak</code> 3px + <code>--stroke-focus</code> 1px</td></tr><tr><td>접근성</td><td><code>&lt;button aria-label&gt;</code>, 최소 터치 영역 28px — 모바일은 md 이상</td></tr></table>
+</section>

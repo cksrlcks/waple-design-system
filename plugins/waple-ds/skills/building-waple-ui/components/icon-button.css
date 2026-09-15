@@ -1,0 +1,11 @@
+/* Icon button — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Icon button ── */
+  .iconbtn{display:inline-flex;align-items:center;justify-content:center;border:1px solid transparent;border-radius:var(--radius-sm);background:transparent;color:var(--fg-neutral-subtle);cursor:pointer;line-height:normal;transition:background var(--duration-fast) var(--easing),box-shadow var(--duration-fast)}
+  .iconbtn svg{width:18px;height:18px}
+  .iconbtn.sm{width:28px;height:28px}.iconbtn.sm svg{width:16px;height:16px} .iconbtn.md{width:32px;height:32px} .iconbtn.lg{width:36px;height:36px}.iconbtn.lg svg{width:20px;height:20px}
+  .iconbtn.ghost:hover{background:var(--bg-neutral-hover);color:var(--fg-neutral)}
+  .iconbtn.outline{background:var(--bg-layer-default);border-color:var(--stroke-neutral-strong);color:var(--fg-neutral)} .iconbtn.outline:hover{background:var(--bg-neutral-hover)}
+  .iconbtn.solid{background:var(--bg-brand-solid);color:var(--fg-on-brand)} .iconbtn.solid:hover{filter:brightness(1.25)}
+  .iconbtn.selected{background:var(--bg-neutral-selected);color:var(--fg-neutral)}
+  .iconbtn:focus-visible{outline:none;box-shadow:0 0 0 3px var(--bg-accent-weak),0 0 0 4px var(--stroke-focus)}
+  .iconbtn:disabled,.iconbtn.disabled{background:var(--bg-neutral-weak);color:var(--fg-disabled);border-color:transparent;cursor:not-allowed}

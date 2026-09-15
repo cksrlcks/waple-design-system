@@ -1,0 +1,28 @@
+<section class="page" id="components/segmented-control">
+  <h1>Segmented control</h1>
+  <p class="desc">같은 자리에서 보기를 바꾸는 2~4개의 선택지(수신함 47 / 발신함 50). 알약 컨테이너 안에서 선택된 항목만 흰색으로 떠 있습니다.</p>
+  <h2>Anatomy</h2>
+  <div class="anatomy">
+    <div class="demo"><div class="seg" role="tablist"><button class="seg__item on" role="tab" aria-selected="true">수신함 <span class="n">47</span></button><button class="seg__item" role="tab">발신함 <span class="n">50</span></button></div></div>
+    <ol><li><b>Container</b> — 알약, <code>--bg-neutral-weak</code>, 3px 패딩</li><li><b>Item</b> — 라벨 t1 500 + 건수 muted</li><li><b>Selected</b> — 흰 배경 + shadow-1 + 600</li></ol>
+  </div>
+  <h2>Properties</h2>
+  <h3>Size</h3>
+  <div class="demo"><div class="seg"><button class="seg__item on">일정</button><button class="seg__item">회의</button></div><div class="seg md"><button class="seg__item on">일정</button><button class="seg__item">회의</button></div></div>
+  <table><tr><th>크기</th><th>항목 높이</th><th>쓰임</th></tr><tr><td>sm</td><td>26px</td><td>패널 머리, 카드 안</td></tr><tr><td>md</td><td>32px</td><td>화면 상단, 폼(일정/회의 구분)</td></tr></table>
+  <h3>State</h3>
+  <div class="demo"><figure class="ex"><div class="seg"><button class="seg__item on">수신함 <span class="n">47</span></button><button class="seg__item">발신함 <span class="n">50</span></button></div><figcaption>기본 — 선택 하나 + 나머지</figcaption></figure><figure class="ex"><div class="seg"><button class="seg__item on">수신함</button><button class="seg__item" style="color:var(--fg-neutral)">발신함</button></div><figcaption>hover — 글자만 진해짐</figcaption></figure><figure class="ex"><div class="seg"><button class="seg__item on">수신함</button><button class="seg__item" disabled>발신함</button></div><figcaption>disabled 항목</figcaption></figure></div>
+  <h2>Guidelines</h2>
+  <div class="dd">
+    <div class="do"><b>Do</b>항목은 2~4개, 라벨은 한두 단어. 건수는 라벨 뒤에 muted.</div>
+    <div class="dont"><b>Don&#39;t</b>다섯 개 이상이면 Tabs 나 Select 로. 항목 폭이 서로 크게 다르면 안 됩니다.</div>
+  </div>
+  <div class="dd">
+    <div class="do"><b>Do</b>바꾸면 즉시 아래 내용이 바뀝니다 — 저장·확인 버튼 없음.</div>
+    <div class="dont"><b>Don&#39;t</b>선택 항목에 틸·검정을 칠하지 않습니다 — 흰색 + 그림자가 「눌려 올라옴」을 뜻합니다.</div>
+  </div>
+  <h2>Segmented vs. Tabs vs. Chip</h2>
+  <table><tr><th></th><th>Segmented</th><th>Tabs</th><th>Chip</th></tr><tr><td>항목 수</td><td>2~4</td><td>2~7</td><td>제한 없음</td></tr><tr><td>뜻</td><td>같은 데이터의 보기 전환</td><td>다른 내용 영역</td><td>필터(다중 가능)</td></tr><tr><td>자리</td><td>패널·카드 안</td><td>화면 상단 전체 폭</td><td>목록 위</td></tr></table>
+  <h2>Specification</h2>
+  <table><tr><th>부위</th><th>토큰</th></tr><tr><td>컨테이너</td><td><code>--bg-neutral-weak</code> · <code>--radius-full</code> · 3px</td></tr><tr><td>항목</td><td>t1 500 <code>--fg-neutral-subtle</code> · 건수 <code>--fg-neutral-muted</code></td></tr><tr><td>selected</td><td><code>--bg-layer-default</code> + <code>--shadow-1</code> + 600</td></tr><tr><td>포커스</td><td><code>--stroke-focus</code> 2px</td></tr><tr><td>접근성</td><td><code>role="tablist"/"tab" aria-selected</code>, ← → 로 이동, 선택은 즉시</td></tr></table>
+</section>

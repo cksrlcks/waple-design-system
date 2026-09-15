@@ -1,0 +1,13 @@
+/* Text input — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Text input ── */
+  .field{display:flex;flex-direction:column;gap:var(--dim-x1_5);min-width:260px;text-align:left}
+  .field>label{font-size:var(--font-size-t1);font-weight:var(--font-weight-medium);color:var(--fg-neutral)} .field>label em{font-style:normal;color:var(--fg-critical)}
+  .field .ctrl{display:flex;align-items:center;gap:var(--dim-x2);border:1px solid var(--stroke-neutral-strong);border-radius:var(--radius-sm);background:var(--bg-layer-default);padding:0 var(--dim-x3);color:var(--fg-neutral);transition:border-color var(--duration-fast),box-shadow var(--duration-fast)}
+  .field .ctrl svg{width:16px;height:16px;color:var(--fg-neutral-muted)}
+  .field input,.field textarea{flex:1;border:0;background:transparent;font:inherit;font-size:var(--font-size-t2);color:inherit;outline:none;min-width:0;padding:0}
+  .field input::placeholder,.field textarea::placeholder{color:var(--fg-neutral-placeholder)}
+  .field.md .ctrl{height:36px} .field.lg .ctrl{height:44px} .field.lg input{font-size:var(--font-size-t3)}
+  .field .ctrl:focus-within,.field.focus .ctrl{border-color:var(--stroke-accent);box-shadow:0 0 0 3px var(--bg-accent-weak)}
+  .field.error .ctrl{border-color:var(--stroke-critical)} .field .help{font-size:var(--font-size-t1);color:var(--fg-neutral-muted)} .field.error .help{color:var(--fg-critical)}
+  .field.disabled .ctrl{background:var(--bg-neutral-weak);color:var(--fg-disabled);border-color:transparent} .field.disabled>label{color:var(--fg-disabled)}
+  .field .ctrl.multi{height:auto;align-items:flex-start;padding:var(--dim-x2) var(--dim-x3)} .field textarea{resize:vertical;min-height:64px;line-height:var(--line-height-t2)}

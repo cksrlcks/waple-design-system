@@ -1,0 +1,14 @@
+/* Date picker — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Date picker ── */
+  .datepick{width:312px;padding:var(--dim-x3);border:1px solid var(--stroke-neutral-strong);border-radius:var(--radius-lg);background:var(--bg-layer-floating);box-shadow:var(--shadow-2);font-size:var(--font-size-t2);color:var(--fg-neutral)}
+  .datepick__hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--dim-x2);font-size:var(--font-size-t3);font-weight:var(--font-weight-semibold)} .datepick__hd .nav{display:flex;gap:2px}
+  .datepick__grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
+  .datepick__wd{text-align:center;height:28px;line-height:28px;font-size:var(--font-size-t1);color:var(--fg-neutral-muted)}
+  .datepick__d{height:36px;border:1px solid transparent;border-radius:var(--radius-sm);background:transparent;font:inherit;font-size:var(--font-size-t2);color:var(--fg-neutral);cursor:pointer;font-variant-numeric:tabular-nums;position:relative;line-height:normal}
+  .datepick__d:hover{background:var(--bg-neutral-hover)} .datepick__d:focus-visible{outline:none;box-shadow:0 0 0 3px var(--bg-accent-weak),0 0 0 4px var(--stroke-focus)}
+  .datepick__d.other{color:var(--fg-neutral-placeholder)} .datepick__d.off{color:var(--fg-disabled);cursor:not-allowed;background:transparent}
+  .datepick__d.today{border-color:var(--stroke-accent);color:var(--fg-accent);font-weight:var(--font-weight-semibold)}
+  .datepick__d.sel{background:var(--bg-brand-solid);border-color:var(--stroke-brand);color:var(--fg-on-brand);font-weight:var(--font-weight-semibold)}
+  .datepick__d.in{background:var(--bg-brand-weak);border-radius:0} .datepick__d.sel.start{border-radius:var(--radius-sm) 0 0 var(--radius-sm)} .datepick__d.sel.end{border-radius:0 var(--radius-sm) var(--radius-sm) 0}
+  .datepick__d.mark::after{content:"";position:absolute;left:50%;bottom:4px;width:4px;height:4px;margin-left:-2px;border-radius:50%;background:var(--bg-accent-solid)} .datepick__d.sel.mark::after{background:var(--fg-on-brand)}
+  .datepick__ft{display:flex;justify-content:space-between;align-items:center;margin-top:var(--dim-x2);padding-top:var(--dim-x2);border-top:1px solid var(--stroke-neutral);font-size:var(--font-size-t1);color:var(--fg-neutral-subtle)} .datepick__ft b{color:var(--fg-neutral)}

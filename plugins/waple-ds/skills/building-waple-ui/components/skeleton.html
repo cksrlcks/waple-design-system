@@ -1,0 +1,33 @@
+<section class="page" id="components/skeleton">
+  <h1>Skeleton</h1>
+  <p class="desc">내용이 오기 전에 화면 구조를 먼저 그려 두는 회색 자리표시입니다. 1–3초 구간의 첫 로딩에만 씁니다.</p>
+  <h2>Anatomy</h2>
+  <div class="anatomy">
+    <div class="demo tinted"><div class="skel-qcard"><div class="skel-row"><span class="skel circle"></span><span class="skel text" style="width:120px"></span></div><span class="skel text"></span><span class="skel text" style="width:70%"></span><div class="skel-row" style="margin-top:var(--dim-x1)"><span class="skel card" style="width:64px;height:32px;border-radius:var(--radius-md)"></span><span class="skel card" style="width:64px;height:32px;border-radius:var(--radius-md)"></span></div></div></div>
+    <ol><li><b>Block</b> — <code>--stroke-neutral-strong</code> 바탕의 자리표시, 실제 요소와 같은 크기</li><li><b>Shimmer</b> — 왼쪽에서 오른쪽으로 한 번씩 지나가는 밝은 띠(1.4초)</li><li><b>Layout</b> — 실제 컴포넌트와 같은 컨테이너·간격</li></ol>
+  </div>
+  <h2>Properties</h2>
+  <h3>Shape</h3>
+  <div class="demo tinted col" style="max-width:420px"><span class="skel text"></span><span class="skel line"></span><span class="skel circle"></span><span class="skel card"></span></div>
+  <table><tr><th>Shape</th><th>크기</th><th>흉내내는 것</th></tr><tr><td>text</td><td>높이 14px · 폭 부모 또는 지정</td><td>본문·제목 한 줄(마지막 줄은 60–80%)</td></tr><tr><td>line</td><td>높이 8px · 알약</td><td>캡션·라벨</td></tr><tr><td>circle</td><td>36px</td><td>아이콘 칩·아바타</td></tr><tr><td>card</td><td>높이 120px · radius-lg</td><td>이미지·차트·버튼(크기 지정)</td></tr></table>
+  <h3>Composition</h3>
+  <div class="demo tinted"><div class="skel-qcard"><div class="skel-row"><span class="skel circle"></span><span class="skel text" style="width:96px"></span></div><span class="skel text" style="width:85%"></span><div class="skel-row" style="margin-top:var(--dim-x1)"><span class="skel card" style="width:56px;height:32px;border-radius:var(--radius-md)"></span><span class="skel card" style="width:56px;height:32px;border-radius:var(--radius-md)"></span></div></div><div class="skel-qcard"><div class="skel-row"><span class="skel circle"></span><span class="skel text" style="width:72px"></span></div><span class="skel text" style="width:60%"></span><div class="skel-row" style="margin-top:var(--dim-x1)"><span class="skel card" style="width:56px;height:32px;border-radius:var(--radius-md)"></span></div></div></div>
+  <p>빠른 실행 카드 스켈레톤 — 아이콘 칩 36px · 제목 한 줄 · 설명 한 줄 · 하단 sm 버튼 자리. 실제 카드와 컨테이너(라운드 lg · 선 strong · 패딩)를 같이 씁니다.</p>
+  <h2>Guidelines</h2>
+  <div class="dd">
+    <div class="do"><b>Do</b><div class="demo tinted"><div class="skel-qcard" style="width:220px"><div class="skel-row"><span class="skel circle"></span><span class="skel text" style="width:80px"></span></div><span class="skel text"></span><span class="skel text" style="width:65%"></span></div></div>구조를 흉내냅니다 — 줄 수·아이콘 자리·폭이 실제 내용과 같게.</div>
+    <div class="dont"><b>Don&#39;t</b><div class="demo tinted"><span class="skel card" style="width:220px;height:96px"></span></div>큰 회색 상자 하나로 덮지 않습니다. 실제와 달라 내용이 오면 화면이 튑니다.</div>
+  </div>
+  <div class="dd">
+    <div class="do"><b>Do</b>1–3초 구간에만. 0.3초 안에 오면 아무것도 보이지 않고, 3초를 넘기면 「불러오는 중」 문구, 10초를 넘기면 정형 Progress + 취소(<a href="#foundations/state">Loading</a>).</div>
+    <div class="dont"><b>Don&#39;t</b>새로고침·더 불러오기에 스켈레톤을 쓰지 않습니다 — 기존 내용은 유지하고 Progress circle 을 씁니다. 스켈레톤 위에 글자를 얹지 않습니다.</div>
+  </div>
+  <h2>Skeleton vs. Progress circle</h2>
+  <table><tr><th></th><th>Skeleton</th><th>Progress circle</th></tr><tr><td>알려주는 것</td><td>무엇이 올지(구조)</td><td>진행 중이라는 사실</td></tr><tr><td>언제</td><td>첫 진입, 리스트·카드 1–3초</td><td>버튼 안, 새로고침, 더 불러오기</td></tr><tr><td>내용 교체</td><td>같은 자리에 그대로</td><td>원이 사라지고 내용 추가</td></tr></table>
+  <h2>Specification</h2>
+  <table><tr><th>부위</th><th>토큰</th></tr>
+    <tr><td>Block</td><td><code>--stroke-neutral-strong</code> · <code>--radius-xs</code>(line <code>--radius-full</code>, card <code>--radius-lg</code>)</td></tr>
+    <tr><td>Shimmer</td><td><code>--bg-neutral-weak</code> → <code>--bg-layer-default</code> → <code>--bg-neutral-weak</code> 90° 그라디언트 · 1.4초 <code>--easing</code> 반복</td></tr>
+    <tr><td>Composition</td><td>실제 컴포넌트의 컨테이너 토큰 그대로 — 카드 <code>--radius-lg</code> <code>--stroke-neutral-strong</code> 패딩 <code>--dim-x4</code></td></tr>
+    <tr><td>접근성</td><td>컨테이너에 <code>aria-busy="true"</code> · 블록은 <code>aria-hidden</code> · <code>prefers-reduced-motion</code> 이면 shimmer 정지</td></tr></table>
+</section>

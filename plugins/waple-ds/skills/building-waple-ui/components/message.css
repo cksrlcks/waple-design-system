@@ -1,0 +1,28 @@
+/* Message — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Message ── 한 턴. 사용자 = 오른쪽 말풍선, 에이전트 = 말풍선 없는 본문 · 실행 카드 · 완료 카드 · 후속 칩 */
+  .msg{display:flex;align-items:flex-start;gap:var(--dim-x3);width:100%;text-align:left;color:var(--fg-neutral)}
+  .msg__body{display:flex;flex-direction:column;gap:var(--dim-x2);flex:1;min-width:0;max-width:720px}
+  .msg.user{justify-content:flex-end} .msg.user .msg__body{flex:0 1 auto;max-width:78%;align-items:flex-end}
+  .msg__head{display:flex;align-items:baseline;gap:var(--dim-x2);font-size:var(--font-size-t1);line-height:var(--line-height-t1);color:var(--fg-neutral-muted)} .msg__head b{font-weight:var(--font-weight-semibold);color:var(--fg-neutral)} .msg__head time{font-variant-numeric:tabular-nums}
+  .bubble{padding:var(--dim-x2_5) var(--dim-x4);border-radius:var(--radius-xl) var(--radius-xl) var(--radius-xs) var(--radius-xl);background:var(--bg-neutral-weak);font-size:var(--font-size-t3);line-height:var(--line-height-t3);color:var(--fg-neutral);white-space:pre-wrap;overflow-wrap:anywhere}
+  .msg__md{font-size:var(--font-size-t3);line-height:var(--line-height-t4);color:var(--fg-neutral);text-wrap:pretty;overflow-wrap:anywhere}
+  .msg__md>*{margin:0} .msg__md>*+*{margin-top:var(--dim-x3)} .msg__md ul,.msg__md ol{padding-left:var(--dim-x5)} .msg__md li{margin:0} .msg__md li+li{margin-top:var(--dim-x1)} .msg__md b{font-weight:var(--font-weight-semibold)}
+  .msg__caret{display:inline-block;width:2px;height:1.1em;margin-left:2px;vertical-align:text-bottom;background:var(--fg-neutral);animation:msg-blink 1s steps(2,start) infinite} @keyframes msg-blink{to{visibility:hidden}}
+  .msg__foot{display:flex;align-items:center;gap:var(--dim-x0_5);margin-left:calc(var(--dim-x1_5) * -1);opacity:0;transition:opacity var(--duration-fast)}
+  .msg:hover .msg__foot,.msg:focus-within .msg__foot,.msg.last .msg__foot{opacity:1}
+  .msg__error{display:flex;align-items:center;flex-wrap:wrap;gap:var(--dim-x2);font-size:var(--font-size-t2);line-height:var(--line-height-t2);color:var(--fg-critical)} .msg__error>svg{width:16px;height:16px}
+  /* 실행 카드 — <details>: 도는 동안 펼침, 끝나면 한 줄로 접힘 */
+  .msg__run{border:1px solid var(--stroke-neutral-strong);border-radius:var(--radius-lg);background:var(--bg-layer-default);overflow:hidden}
+  .msg__runhd{display:flex;align-items:center;gap:var(--dim-x2_5);min-height:44px;padding:0 var(--dim-x4);list-style:none;cursor:pointer;font-size:var(--font-size-t2);line-height:var(--line-height-t2);transition:background var(--duration-fast)} .msg__runhd::-webkit-details-marker{display:none}
+  .msg__run[open] .msg__runhd{background:var(--bg-layer-basement)} .msg__runhd:hover{background:var(--bg-neutral-hover)} .msg__runhd:focus-visible{outline:none;box-shadow:inset 0 0 0 2px var(--stroke-focus)}
+  .msg__runhd b{font-weight:var(--font-weight-semibold)} .msg__runhd .n{margin-left:auto;font-size:var(--font-size-t1);color:var(--fg-neutral-muted);font-variant-numeric:tabular-nums}
+  .msg__runhd>svg{width:16px;height:16px;color:var(--fg-neutral-muted);transition:transform var(--duration-normal) var(--easing)} .msg__run[open] .msg__runhd>svg{transform:rotate(180deg)}
+  .msg__dot{width:8px;height:8px;border-radius:50%;flex:none;background:var(--bg-accent-solid)} .msg__dot.live{animation:msg-pulse 1.4s var(--easing) infinite} .msg__dot.done{background:var(--bg-positive-solid)} .msg__dot.fail{background:var(--bg-critical-solid)} @keyframes msg-pulse{50%{opacity:.3}}
+  .msg__steps{list-style:none;margin:0;padding:var(--dim-x2) var(--dim-x4) var(--dim-x3)}
+  .msg__step{display:flex;align-items:flex-start;gap:var(--dim-x2_5);margin:0;padding:var(--dim-x1_5) 0;font-size:var(--font-size-t2);line-height:var(--line-height-t2)}
+  .msg__step>svg{width:16px;height:16px;margin-top:2px;color:var(--fg-positive)} .msg__step small{display:block;font-size:var(--font-size-t1);line-height:var(--line-height-t1);color:var(--fg-neutral-muted)} .msg__step .btn{margin-top:var(--dim-x1_5)}
+  .msg__step.active{font-weight:var(--font-weight-medium)} .msg__step.active>svg{color:var(--fg-accent);animation:spin 1s linear infinite}
+  .msg__step.fail>svg,.msg__step.fail small{color:var(--fg-critical)} .msg__step.todo{color:var(--fg-neutral-muted)} .msg__step.todo>svg{color:var(--fg-neutral-placeholder)}
+  .msg__done{display:flex;align-items:flex-start;gap:var(--dim-x2_5);padding:var(--dim-x4) var(--dim-x5);border-radius:var(--radius-lg);background:var(--bg-neutral-weak)} .msg__done>svg{width:18px;height:18px;margin-top:3px;color:var(--fg-positive)} .msg__done>div{display:flex;flex-direction:column;align-items:flex-start;gap:var(--dim-x3);min-width:0}
+  .msg__follow{display:flex;flex-wrap:wrap;gap:var(--spacing-between-chips)} .msg__follow>button{font-family:inherit}
+  @media (prefers-reduced-motion:reduce){.msg__caret,.msg__dot.live,.msg__step.active>svg{animation:none}}

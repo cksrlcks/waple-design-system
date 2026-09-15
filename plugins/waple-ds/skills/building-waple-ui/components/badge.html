@@ -1,0 +1,31 @@
+<section class="page" id="components/badge">
+  <h1>Badge</h1>
+  <p class="desc">상태 한 단어(승인 대기 · 반려 · 연결됨)나 건수(6)를 붙이는 작은 표식. 눌리지 않고, 여섯 상태 어휘의 색을 그대로 씁니다.</p>
+  <h2>Anatomy</h2>
+  <div class="anatomy">
+    <div class="demo"><span class="badge warning">승인 대기</span></div>
+    <ol><li><b>Container</b> — 알약, 22px, 상태 <code>weak</code> 배경</li><li><b>Label</b> — 12px 600, 두 단어 이하. 뜻은 항상 글자에 (색만으로 전하지 않습니다)</li></ol>
+  </div>
+  <h2>Properties</h2>
+  <h3>Variant — 상태 어휘</h3>
+  <div class="demo"><span class="badge success">승인 완료</span><span class="badge warning">승인 대기</span><span class="badge danger">반려</span><span class="badge info">예정</span><span class="badge">해당 없음</span><span class="badge sample">예시 데이터</span><span class="badge accent">연결 4</span></div>
+  <table><tr><th>어휘</th><th>배경 / 글자</th><th>문구 예</th></tr><tr><td>success</td><td>positive-weak / fg-positive</td><td>승인 완료 · 등록됨 · 근무 중</td></tr><tr><td>warning</td><td>warning-weak / fg-warning</td><td>승인 대기 · 보완 요청 · 부재</td></tr><tr><td>danger</td><td>critical-weak / fg-critical</td><td>반려 · 끊김 · 미출근</td></tr><tr><td>info</td><td>info-weak / fg-info</td><td>예정 · 링크됨</td></tr><tr><td>neutral</td><td>neutral-weak / fg-neutral-subtle</td><td>해당 없음 · 완료(보드)</td></tr><tr><td>sample</td><td>sample-weak / fg-sample</td><td>예시 데이터 · 산식 값</td></tr><tr><td>accent</td><td>accent-weak / fg-accent</td><td>연결 4 — 에이전트 연결 수, 이 한 곳만</td></tr></table>
+  <h3>Count</h3>
+  <div class="demo"><span class="badge count danger">6</span><span class="badge count">50</span><span class="badge count danger lg">6건</span></div>
+  <table><tr><th>형태</th><th>쓰임</th></tr><tr><td>count</td><td>숫자만. 처리해야 할 건수는 danger, 참고용 수는 neutral</td></tr><tr><td>count lg</td><td>카드 우상단(빠른 실행 「전자결재 6건」)</td></tr></table>
+  <h3>Size</h3>
+  <div class="demo"><span class="badge info">예정 22px</span><span class="badge info lg">예정 26px</span></div>
+  <h2>Guidelines</h2>
+  <div class="dd">
+    <div class="do"><b>Do</b><div class="demo"><span class="badge warning">승인 대기</span><span class="badge danger">반려</span></div>상태는 문구로 말합니다. 같은 뜻은 어디서나 같은 어휘·같은 색.</div>
+    <div class="dont"><b>Don&#39;t</b><div class="demo"><span class="badge danger">새 기능</span><span class="badge success">추천</span></div>홍보·강조에 상태색을 빌려 쓰지 않습니다. danger 는 진짜 위험만.</div>
+  </div>
+  <div class="dd">
+    <div class="do"><b>Do</b>행 하나에 배지는 하나. 둘 이상이면 가장 급한 것만 남기고 나머지는 메타 글자로.</div>
+    <div class="dont"><b>Don&#39;t</b>배지를 버튼처럼 누르게 만들지 않습니다 — 필터가 필요하면 Chip.</div>
+  </div>
+  <h2>Badge vs. Chip</h2>
+  <table><tr><th></th><th>Badge</th><th>Chip</th></tr><tr><td>상호작용</td><td>없음</td><td>선택·삽입</td></tr><tr><td>높이</td><td>22·26px</td><td>26·32px</td></tr><tr><td>색</td><td>상태 어휘 weak + fg</td><td>흰 바탕 · 선택 시 검정</td></tr></table>
+  <h2>Specification</h2>
+  <table><tr><th>부위</th><th>토큰</th></tr><tr><td>높이 / 패딩</td><td>22px / <code>--dim-x2</code> (count: <code>--dim-x1_5</code>, min-width 20)</td></tr><tr><td>글자</td><td>12px 600 · lg 13px 600 · 숫자 <code>tabular-nums</code> — 12px 는 시스템 하한(13)의 유일한 예외</td></tr><tr><td>라운드</td><td><code>--radius-full</code></td></tr><tr><td>색</td><td>어휘별 <code>--bg-{role}-weak</code> + <code>--fg-{role}</code></td></tr><tr><td>접근성</td><td>건수 배지는 <code>aria-label="처리 대기 6건"</code> — 숫자만으로는 뜻이 없습니다</td></tr></table>
+</section>

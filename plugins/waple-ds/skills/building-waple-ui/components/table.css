@@ -1,0 +1,14 @@
+/* Table — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Table ── */
+  .tbl-wrap{width:100%;overflow:auto;border:1px solid var(--stroke-neutral-strong);border-radius:var(--radius-lg);background:var(--bg-layer-default)}
+  .tbl{width:100%;border-collapse:separate;border-spacing:0;font-size:var(--font-size-t2);line-height:var(--line-height-t2);color:var(--fg-neutral);margin:0}
+  .tbl th{position:sticky;top:0;background:var(--bg-layer-basement);text-align:left;vertical-align:middle;font-size:var(--font-size-t1);font-weight:var(--font-weight-medium);color:var(--fg-neutral-muted);padding:0 var(--dim-x3);height:40px;border-bottom:1px solid var(--stroke-neutral-strong);white-space:nowrap}
+  .tbl td{padding:0 var(--dim-x3);height:44px;border-bottom:1px solid var(--stroke-neutral);vertical-align:middle;white-space:nowrap}
+  .tbl tr:last-child td{border-bottom:0} .tbl tbody tr:hover td{background:var(--bg-neutral-hover)} .tbl tr.selected td{background:var(--bg-brand-weak)}
+  .tbl .num{text-align:right;font-variant-numeric:tabular-nums} .tbl th.num{text-align:right} .tbl .meta{color:var(--fg-neutral-muted);font-size:var(--font-size-t1)}
+  .tbl th.sort{cursor:pointer} .tbl th.sort:hover{color:var(--fg-neutral)} .tbl th.sorted{color:var(--fg-neutral);font-weight:var(--font-weight-semibold)} .tbl th svg{width:14px;height:14px;vertical-align:-3px;margin-left:2px} .tbl th.sort:not(.sorted) svg{opacity:0} .tbl th.sort:hover svg{opacity:1}
+  .tbl td.act{text-align:right;width:1%} .tbl .primary{font-weight:var(--font-weight-semibold)}
+  .tbl.compact th{height:36px} .tbl.compact td{height:36px}
+  .tbl td.emptycell{height:120px;text-align:center;color:var(--fg-neutral-muted)}
+  .tbl-ft{display:flex;align-items:center;gap:var(--dim-x2);padding:var(--dim-x2) var(--dim-x3);border-top:1px solid var(--stroke-neutral);font-size:var(--font-size-t1);color:var(--fg-neutral-subtle)} .tbl-ft .pages{margin-left:auto;display:flex;align-items:center;gap:var(--dim-x1)} .tbl-ft .pages b{font-variant-numeric:tabular-nums;padding:0 var(--dim-x2)}
+  .tbl.kv th{position:static;background:transparent;width:120px;height:auto;padding:var(--dim-x2_5) var(--dim-x3);border-bottom:1px solid var(--stroke-neutral);font-size:var(--font-size-t2);vertical-align:top} .tbl.kv td{height:auto;padding:var(--dim-x2_5) var(--dim-x3);white-space:normal} .tbl.kv tr:last-child th{border-bottom:0}

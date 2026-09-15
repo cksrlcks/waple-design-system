@@ -1,0 +1,10 @@
+/* Navigation menu — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Navigation menu ── 데스크톱 상단 가로 내비. 펼침 트리거는 공유 .menu(두 줄 항목)를 패널로 연다 */
+  .navmenu>ul{display:flex;align-items:center;gap:var(--dim-x1);margin:0;padding:0;list-style:none}
+  .navmenu li{position:relative;margin:0}
+  .navmenu__link{display:inline-flex;align-items:center;justify-content:center;gap:var(--dim-x1);height:36px;padding:0 var(--dim-x3);border:0;border-radius:var(--radius-sm);background:transparent;font:inherit;font-size:var(--font-size-t2);font-weight:var(--font-weight-medium);line-height:1;color:var(--fg-neutral-subtle);white-space:nowrap;cursor:pointer;transition:background var(--duration-fast),color var(--duration-fast)}
+  .navmenu__link svg{width:16px;height:16px;color:var(--fg-neutral-muted);transition:transform var(--duration-normal) var(--easing)}
+  .navmenu__link:hover,.navmenu__link[aria-expanded="true"]{background:var(--bg-neutral-hover);color:var(--fg-neutral)} .navmenu__link[aria-expanded="true"] svg{transform:rotate(180deg)}
+  .navmenu__link[aria-current="page"],.navmenu__link.current{background:var(--bg-neutral-selected);color:var(--fg-neutral);font-weight:var(--font-weight-semibold)} /* .current = 하위 페이지에 있을 때의 부모 트리거 */
+  .navmenu__link:focus-visible{outline:none;box-shadow:0 0 0 3px var(--bg-accent-weak),0 0 0 4px var(--stroke-focus)}
+  .navmenu__panel{position:absolute;top:calc(100% + var(--dim-x1));left:0;z-index:2;width:300px}

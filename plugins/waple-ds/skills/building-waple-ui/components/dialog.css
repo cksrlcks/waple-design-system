@@ -1,0 +1,10 @@
+/* Dialog — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Dialog ── */
+  .dialog-stage{display:flex;align-items:center;justify-content:center;width:100%;padding:var(--dim-x8) var(--dim-x4);background:var(--bg-overlay);border-radius:var(--radius-md)}
+  .dialog{width:480px;max-width:100%;padding:var(--dim-x6);background:var(--bg-layer-floating);border-radius:var(--radius-lg);box-shadow:var(--shadow-3);text-align:left}
+  .dialog.sm{width:360px}
+  .dialog h4{margin:0 0 var(--dim-x2);font-size:var(--font-size-t4);line-height:var(--line-height-t4);font-weight:var(--font-weight-semibold);color:var(--fg-neutral)}
+  .dialog p{margin:0;font-size:var(--font-size-t2);line-height:var(--line-height-t2);color:var(--fg-neutral-subtle)}
+  .dialog-sum{margin-top:var(--dim-x4);padding:var(--dim-x3) var(--dim-x4);background:var(--bg-layer-basement);border-radius:var(--radius-md);font-size:var(--font-size-t2);line-height:var(--line-height-t2)}
+  .dialog-sum div{display:flex;justify-content:space-between;gap:var(--dim-x4);padding:var(--dim-x1) 0} .dialog-sum span{color:var(--fg-neutral-subtle)} .dialog-sum b{font-weight:var(--font-weight-semibold)}
+  .dialog-foot{display:flex;justify-content:flex-end;gap:var(--dim-x2);margin-top:var(--dim-x5)}

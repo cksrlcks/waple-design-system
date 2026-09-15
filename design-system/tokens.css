@@ -1,0 +1,76 @@
+/* Waple DS 토큰 — 단일 원천. 값만 바꾸고 이름은 유지한다.
+   2층 구조: scale(원시 값) → semantic(의도). 컴포넌트는 semantic 만 쓴다.
+   주색(brand) = 잉크(검정). 틸은 accent — 선택·아이콘·포커스·글로우·틴트에만 쓴다. */
+:root{
+  /* ── scale: palette ── */
+  /* brand = ink. home.html 의 --ink 계열 그대로 */
+  --palette-brand-50:#fafafa; --palette-brand-100:#f4f4f6; --palette-brand-200:#e8e8ec; --palette-brand-300:#dcdce2;
+  --palette-brand-400:#a8a8ad; --palette-brand-500:#8a8a8f; --palette-brand-600:#5a6270; --palette-brand-700:#3a3a40;
+  --palette-brand-800:#2a2a2f; --palette-brand-900:#1d1d1f;
+  /* accent = teal #0ec8b6. ramp.mjs 0ec8b6 (700 은 home.html --brand-ink 로 고정: 흰 바탕 대비 4.9:1) */
+  --palette-accent-50:#f3fcfb; --palette-accent-100:#dbf7f4; --palette-accent-200:#b7efe9; --palette-accent-300:#93e6de;
+  --palette-accent-400:#6eded3; --palette-accent-500:#4ad6c8; --palette-accent-600:#0ec8b6; --palette-accent-700:#0b7f74;
+  --palette-accent-800:#08786d; --palette-accent-900:#065049;
+  /* gray = brand 와 같은 잉크 램프(검정이 주색이므로 하나로 쓴다) */
+  --palette-gray-00:#ffffff; --palette-gray-50:#fafafa; --palette-gray-100:#f4f4f6; --palette-gray-200:#e8e8ec;
+  --palette-gray-300:#dcdce2; --palette-gray-400:#a8a8ad; --palette-gray-500:#8a8a8f; --palette-gray-600:#5a6270;
+  --palette-gray-700:#3a3a40; --palette-gray-800:#2a2a2f; --palette-gray-900:#1d1d1f;
+  /* 상태색 — home.html 값. fg 는 흰 바탕 AA 통과 단계 */
+  --palette-red-100:#fdf0f0; --palette-red-600:#d70015; --palette-red-700:#b42545;
+  --palette-green-100:#eaf7f0; --palette-green-600:#1f7a4d; --palette-green-700:#1f7a4d;
+  --palette-yellow-100:#fdf3e6; --palette-yellow-600:#c2740a; --palette-yellow-700:#8a5a00;
+  --palette-blue-100:#e9f0fb; --palette-blue-600:#2457d6; --palette-blue-700:#2457d6;
+  --palette-violet-100:#f3ecfa; --palette-violet-600:#6b3fa0; --palette-violet-700:#6b3fa0;
+  --palette-amber-100:#fdf6e8; --palette-amber-700:#8a6d3b;
+
+  /* ── scale: dimension (4px 격자) ── */
+  --dim-x0_5:2px; --dim-x1:4px; --dim-x1_5:6px; --dim-x2:8px; --dim-x2_5:10px; --dim-x3:12px; --dim-x3_5:14px;
+  --dim-x4:16px; --dim-x5:20px; --dim-x6:24px; --dim-x7:28px; --dim-x8:32px; --dim-x10:40px; --dim-x12:48px; --dim-x16:64px;
+
+  /* ── scale: typography ── Wanted Sans(home.html). 바닥은 13px(t1, 캡션) · 본문은 14px(t2) 이상. 13 미만 글자는 없다 */
+  --font-family:"Wanted Sans Variable","Wanted Sans",-apple-system,BlinkMacSystemFont,system-ui,"Segoe UI","Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;
+  --font-mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --font-size-t1:13px; --font-size-t2:14px; --font-size-t3:15px; --font-size-t4:16px; --font-size-t5:18px;
+  --font-size-t6:20px; --font-size-t7:22px; --font-size-t8:24px; --font-size-t9:28px; --font-size-t10:32px;
+  --line-height-t1:18px; --line-height-t2:20px; --line-height-t3:22px; --line-height-t4:24px; --line-height-t5:26px;
+  --line-height-t6:28px; --line-height-t7:30px; --line-height-t8:32px; --line-height-t9:36px; --line-height-t10:40px;
+  --font-weight-regular:400; --font-weight-medium:500; --font-weight-semibold:600; --font-weight-bold:700;
+
+  /* ── scale: radius / elevation / motion ── home.html 의 --r-* */
+  --radius-xs:6px; --radius-sm:8px; --radius-md:10px; --radius-lg:14px; --radius-xl:18px; --radius-full:999px;
+  --shadow-1:0 1px 2px rgba(16,17,20,.05); --shadow-2:0 4px 16px -4px rgba(16,17,20,.10),0 1px 2px rgba(16,17,20,.04);
+  --shadow-3:0 12px 32px -8px rgba(16,17,20,.16),0 2px 4px rgba(16,17,20,.06);
+  --shadow-glow:0 9px 22px rgba(14,200,182,.38),0 1px 3px rgba(36,87,214,.26),inset 0 1px 0 rgba(255,255,255,.45);
+  --gradient-glow:linear-gradient(135deg,#0ec8b6 0%,#2457d6 100%);
+  --duration-fast:120ms; --duration-normal:200ms; --easing:cubic-bezier(.2,0,0,1);
+
+  /* ── semantic: background ── */
+  --bg-layer-default:var(--palette-gray-00);    /* 화면 바탕 */
+  --bg-layer-basement:var(--palette-gray-50);   /* 사이드바·데모 상자·한 단 낮은 바탕 */
+  --bg-layer-floating:var(--palette-gray-00);   /* 떠 있는 면(메뉴·다이얼로그·토스트) */
+  --bg-neutral-weak:var(--palette-gray-100); --bg-neutral-hover:#f0f0f3; --bg-neutral-selected:#ececef; --bg-neutral-solid:var(--palette-gray-900);
+  --bg-brand-weak:var(--palette-gray-100);   --bg-brand-solid:var(--palette-gray-900);   /* 주요 버튼 = 검정 */
+  --bg-accent-weak:var(--palette-accent-50); --bg-accent-solid:var(--palette-accent-600); /* 틸 — 선택·아이콘 칩·글로우에만 */
+  --bg-critical-weak:var(--palette-red-100); --bg-critical-solid:var(--palette-red-600);
+  --bg-positive-weak:var(--palette-green-100); --bg-positive-solid:var(--palette-green-600);
+  --bg-warning-weak:var(--palette-yellow-100); --bg-warning-solid:var(--palette-yellow-600);
+  --bg-info-weak:var(--palette-blue-100);    --bg-info-solid:var(--palette-blue-600);
+  --bg-violet-weak:var(--palette-violet-100); --bg-sample-weak:var(--palette-amber-100);
+  --bg-overlay:rgba(16,17,20,.45);
+  /* ── semantic: foreground ── */
+  --fg-neutral:var(--palette-gray-900); --fg-neutral-subtle:var(--palette-gray-600); --fg-neutral-muted:var(--palette-gray-500);
+  --fg-neutral-placeholder:var(--palette-gray-400); --fg-disabled:var(--palette-gray-400);
+  --fg-brand:var(--palette-gray-900); --fg-accent:var(--palette-accent-700);
+  --fg-critical:var(--palette-red-700); --fg-positive:var(--palette-green-700); --fg-warning:var(--palette-yellow-700); --fg-info:var(--palette-blue-700);
+  --fg-violet:var(--palette-violet-700); --fg-sample:var(--palette-amber-700);
+  --fg-on-brand:#fff; --fg-on-neutral:#fff; --fg-on-critical:#fff; --fg-on-accent:var(--palette-gray-900); /* 틸 위 흰 글자는 AA 미달 */
+  /* ── semantic: stroke ── */
+  --stroke-neutral:#f0f0f0; --stroke-neutral-strong:var(--palette-gray-200); --stroke-neutral-stronger:var(--palette-gray-300);
+  --stroke-brand:var(--palette-gray-900); --stroke-accent:var(--palette-accent-600); --stroke-critical:var(--palette-red-600);
+  --stroke-focus:var(--palette-accent-500);
+  /* ── semantic: spacing ── */
+  --spacing-global-gutter:var(--dim-x4); --spacing-between-chips:var(--dim-x2); --spacing-between-text:var(--dim-x1_5);
+  --spacing-component-default:var(--dim-x3); --spacing-section:var(--dim-x8); --spacing-screen-bottom:var(--dim-x12);
+  /* ── semantic: layout (home.html 셸) ── */
+  --layout-sidebar:248px; --layout-context:320px; --layout-topbar:46px;
+}

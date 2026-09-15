@@ -1,0 +1,10 @@
+/* Toggle group — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Toggle · Toggle group ── 눌림 상태(aria-pressed · aria-checked)를 가진 버튼. 눌림 = 잉크 채움(Chip selected 와 같은 뜻) */
+  .tgroup{display:inline-flex;align-items:center;gap:2px;padding:2px;border:1px solid var(--stroke-neutral-strong);border-radius:var(--radius-md);background:var(--bg-layer-default)}
+  .toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--dim-x1_5);height:30px;min-width:30px;padding:0 var(--dim-x2_5);border:0;border-radius:var(--radius-xs);background:transparent;font:inherit;font-size:var(--font-size-t2);font-weight:var(--font-weight-medium);line-height:1;color:var(--fg-neutral-subtle);cursor:pointer;white-space:nowrap;transition:background var(--duration-fast) var(--easing)}
+  .toggle svg{width:18px;height:18px} .toggle[aria-label]{width:30px;padding:0} /* 아이콘만 = aria-label 이 있는 것 — 이름 없는 아이콘 토글은 정사각형이 되지 않는다 */
+  .toggle:hover{background:var(--bg-neutral-hover);color:var(--fg-neutral)}
+  .toggle[aria-pressed="true"],.toggle[aria-checked="true"]{background:var(--bg-brand-solid);color:var(--fg-on-brand)} .toggle[aria-pressed="true"]:hover,.toggle[aria-checked="true"]:hover{filter:brightness(1.25)}
+  .toggle:focus-visible,.toggle.focus{outline:none;box-shadow:0 0 0 3px var(--bg-accent-weak),0 0 0 4px var(--stroke-focus)}
+  .toggle:disabled{background:var(--bg-neutral-weak);color:var(--fg-disabled);cursor:not-allowed;filter:none}
+  .tgroup.sm .toggle{height:26px;min-width:26px;font-size:var(--font-size-t1)} .tgroup.sm .toggle[aria-label]{width:26px} .tgroup.sm .toggle svg{width:16px;height:16px}

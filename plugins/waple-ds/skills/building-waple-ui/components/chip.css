@@ -1,0 +1,10 @@
+/* Chip — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Chip ── */
+  .chip{display:inline-flex;align-items:center;gap:var(--dim-x1_5);line-height:normal;border-radius:var(--radius-full);border:1px solid var(--stroke-neutral-strong);background:var(--bg-layer-default);color:var(--fg-neutral);font-weight:var(--font-weight-medium);cursor:pointer;white-space:nowrap;transition:background var(--duration-fast) var(--easing)}
+  .chip.md{height:32px;padding:0 var(--dim-x3);font-size:var(--font-size-t2)} .chip.sm{height:26px;padding:0 var(--dim-x2_5);font-size:var(--font-size-t1)}
+  .chip:hover{background:var(--bg-neutral-hover)}
+  .chip.selected{background:var(--bg-brand-solid);border-color:var(--stroke-brand);color:var(--fg-on-brand)}
+  .chip.suggest{font-weight:var(--font-weight-regular)} .chip svg{width:14px;height:14px} .chip.suggest svg{color:var(--fg-accent)}
+  .chip .cnt{color:var(--fg-neutral-muted);font-weight:var(--font-weight-regular)} .chip.selected .cnt{color:inherit}
+  .chip:focus-visible{outline:none;box-shadow:0 0 0 3px var(--bg-accent-weak),0 0 0 4px var(--stroke-focus)}
+  .chip.disabled{background:var(--bg-neutral-weak);color:var(--fg-disabled);border-color:transparent;cursor:not-allowed}

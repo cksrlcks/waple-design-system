@@ -1,0 +1,22 @@
+/* Card — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Card ── 한 대상의 정보·행동을 묶는 일반 상자. 여백은 --gp 하나(md 16 · compact 12) — 미디어·raised 머리는 그만큼 음수 여백으로 가장자리까지 붙는다 */
+  .gcard{--gp:var(--dim-x4);display:flex;flex-direction:column;gap:var(--dim-x3);width:100%;min-width:0;padding:var(--gp);border:1px solid var(--stroke-neutral-strong);border-radius:var(--radius-lg);background:var(--bg-layer-default);color:var(--fg-neutral);font-family:inherit;font-size:var(--font-size-t2);line-height:var(--line-height-t2);text-align:left;text-decoration:none;overflow:hidden;transition:border-color var(--duration-fast),box-shadow var(--duration-fast)}
+  .gcard.compact{--gp:var(--dim-x3);gap:var(--dim-x2)}
+  .gcard__media{margin:calc(var(--gp) * -1) calc(var(--gp) * -1) 0} .gcard__media .frame{border-radius:0} .gcard__media .frame::before{box-shadow:inset 0 -1px 0 var(--stroke-neutral-strong)}
+  .gcard__hd{display:flex;align-items:flex-start;gap:var(--dim-x2_5);min-width:0}
+  .gcard__tt{flex:1;min-width:0}
+  .gcard__t{display:block;margin:0;font-size:var(--font-size-t3);line-height:var(--line-height-t3);font-weight:var(--font-weight-semibold);color:var(--fg-neutral);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .gcard.compact .gcard__t{font-size:var(--font-size-t2);line-height:var(--line-height-t2)}
+  .gcard__tt .taggroup{margin-top:var(--dim-x0_5)}
+  .gcard__act{flex:none;display:flex;align-items:center;gap:var(--dim-x1);margin:calc(var(--dim-x1) * -1) calc(var(--dim-x1) * -1) 0 0}
+  .gcard__act>svg{width:20px;height:20px;margin:var(--dim-x1);color:var(--fg-neutral-muted)}
+  .gcard__bd{color:var(--fg-neutral-subtle)}
+  .gcard__ft{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:var(--dim-x2);margin-top:auto;padding-top:var(--dim-x1)}
+  .gcard__ft .taggroup{margin-right:auto}
+  .gcard.raised .gcard__hd{margin:calc(var(--gp) * -1) calc(var(--gp) * -1) 0;padding:var(--dim-x3) var(--gp);background:var(--bg-layer-basement);border-bottom:1px solid var(--stroke-neutral)}
+  .gcard.tinted{background:var(--bg-layer-basement);border-color:transparent}
+  .gcard.clickable{cursor:pointer} .gcard.clickable:hover{border-color:var(--stroke-neutral-stronger);box-shadow:var(--shadow-1)}
+  .gcard:focus-visible{outline:none;box-shadow:0 0 0 3px var(--bg-accent-weak),0 0 0 4px var(--stroke-focus)}
+  /* 선택 = 잉크 2px(1px 선 + 안쪽 1px — 크기가 변하지 않게) + 체크. 틸 선은 포커스 링과 겹쳐 쓰지 않는다 */
+  .gcard.selected,.gcard.selected:hover{border-color:var(--stroke-brand);box-shadow:inset 0 0 0 1px var(--stroke-brand)} .gcard.selected .gcard__act>svg{color:var(--fg-neutral)}
+  .gcard.selected:focus-visible{box-shadow:inset 0 0 0 1px var(--stroke-brand),0 0 0 3px var(--bg-accent-weak),0 0 0 4px var(--stroke-focus)}

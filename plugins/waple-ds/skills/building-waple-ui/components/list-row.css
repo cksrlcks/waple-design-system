@@ -1,0 +1,15 @@
+/* List row — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── List row ── home.html 의 .appr/.row: 구분선 없이 hover 배경(라운드)으로 행을 구분한다 */
+  .lrow{display:flex;align-items:center;gap:var(--dim-x3);padding:var(--dim-x2_5) var(--dim-x3);border-radius:var(--radius-sm);background:var(--bg-layer-default);color:var(--fg-neutral);text-decoration:none;font-size:var(--font-size-t2);line-height:var(--line-height-t2);cursor:pointer;transition:background var(--duration-fast) var(--easing)}
+  .lrow:hover{background:var(--bg-neutral-hover)} .lrow.selected{background:var(--bg-neutral-selected);font-weight:var(--font-weight-semibold)}
+  .lrow:focus-visible{outline:none;box-shadow:inset 0 0 0 2px var(--stroke-focus)}
+  .lrow.compact{padding:var(--dim-x1_5) var(--dim-x3);font-size:12px;line-height:16px} /* 12px: 대화 목록·사이드바 전용, 시스템 하한(13) 예외 */
+  .lrow__ico{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:var(--radius-xs);flex:none;background:var(--bg-neutral-weak);color:var(--fg-neutral-subtle)} .lrow__ico svg{width:14px;height:14px}
+  .lrow__ico.accent{background:var(--bg-accent-weak);color:var(--fg-accent)} .lrow__ico.info{background:var(--bg-info-weak);color:var(--fg-info)} .lrow__ico.violet{background:var(--bg-violet-weak);color:var(--fg-violet)}
+  .lrow__ico.warning{background:var(--bg-warning-weak);color:var(--fg-warning)} .lrow__ico.positive{background:var(--bg-positive-weak);color:var(--fg-positive)}
+  .lrow__main{flex:1;min-width:0} .lrow__main b{display:block;font-weight:var(--font-weight-semibold);white-space:nowrap;overflow:hidden;text-overflow:ellipsis} .lrow__meta{font-size:var(--font-size-t1);color:var(--fg-neutral-muted)}
+  .lrow__side{flex:none;font-size:var(--font-size-t1);color:var(--fg-neutral-muted);font-variant-numeric:tabular-nums} .lrow__side.warning,.lrow__side.danger,.lrow__side.success{font-size:12px;font-weight:var(--font-weight-semibold)} /* 상태 글자: 12px 600 — 하한(13) 예외 */
+  .lrow__side.warning{color:var(--fg-warning)} .lrow__side.danger{color:var(--fg-critical)} .lrow__side.success{color:var(--fg-positive)}
+  .lrow__go{display:inline-flex;color:var(--fg-neutral-muted);flex:none} .lrow__go svg{width:16px;height:16px}
+  .lrows{width:100%;max-width:520px;padding:var(--dim-x1);border:1px solid var(--stroke-neutral-strong);border-radius:var(--radius-lg);background:var(--bg-layer-default)}
+  .lrows.divided{padding:0;overflow:hidden} .lrows.divided .lrow{border-radius:0;border-bottom:1px solid var(--stroke-neutral)} .lrows.divided .lrow:last-child{border-bottom:0}

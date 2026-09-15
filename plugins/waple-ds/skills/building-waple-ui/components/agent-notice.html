@@ -1,0 +1,29 @@
+<section class="page" id="components/agent-notice">
+  <h1>Agent notice</h1>
+  <p class="desc">에이전트가 무엇을 해 주는지, 지금 상태가 어떤지 화면 위쪽에 놓는 사라지지 않는 안내. 틸 틴트 말풍선이며 화면에 하나만 둡니다.</p>
+  <h2>Anatomy</h2>
+  <div class="anatomy">
+    <div class="demo" style="flex:1"><div class="notice "><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 18a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm0 -12a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm-7 12a6 6 0 0 1 6 -6a6 6 0 0 1 -6 -6a6 6 0 0 1 -6 6a6 6 0 0 1 6 6z"/></svg><span><b>근태·연차·결재·업무일지·일정·경비를 대신 처리합니다.</b><br>업무 협조가 필요할 때는 프로젝트·AS·시스템 담당자를 찾아 지금 자리에 있는지 확인하고 바로 메시지까지 보내드립니다.</span></div></div>
+    <ol><li><b>Icon</b> — sparkles 16px, 역할 색</li><li><b>Lead</b> — 첫 문장 600</li><li><b>Body</b> — t2, 두 줄 이내</li></ol>
+  </div>
+  <h2>Properties</h2>
+  <h3>Variant</h3>
+  <div class="demo col"><div class="notice "><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 18a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm0 -12a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm-7 12a6 6 0 0 1 6 -6a6 6 0 0 1 -6 -6a6 6 0 0 1 -6 6a6 6 0 0 1 6 6z"/></svg><span><b>에이전트가 조회와 초안 작성까지 스스로 수행합니다.</b> 상신·승인·기록은 확인 버튼을 받은 뒤에만 실행합니다.</span></div><div class="notice warning"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 18a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm0 -12a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm-7 12a6 6 0 0 1 6 -6a6 6 0 0 1 -6 -6a6 6 0 0 1 -6 6a6 6 0 0 1 6 6z"/></svg><span><b>근태 시스템 연동이 끊겨 있습니다.</b> 출퇴근 기록은 복구될 때까지 저장되지 않습니다.</span></div><div class="notice sample"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 18a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm0 -12a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm-7 12a6 6 0 0 1 6 -6a6 6 0 0 1 -6 -6a6 6 0 0 1 -6 6a6 6 0 0 1 6 6z"/></svg><span><b>예시 데이터입니다.</b> 연동을 켜면 실제 근태·결재 수치로 바뀝니다.</span></div></div>
+  <table><tr><th>Variant</th><th>배경 / 아이콘</th><th>언제</th></tr><tr><td>info(기본)</td><td>accent-weak / fg-accent</td><td>에이전트 소개·할 수 있는 일</td></tr><tr><td>warning</td><td>warning-weak / fg-warning</td><td>연동 끊김·기능 제한 — 사라지면 안 되는 상태</td></tr><tr><td>sample</td><td>sample-weak / fg-sample</td><td>예시 데이터 화면</td></tr></table>
+  <h3>Size</h3>
+  <div class="demo col"><div class="notice compact"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 18a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm0 -12a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm-7 12a6 6 0 0 1 6 -6a6 6 0 0 1 -6 -6a6 6 0 0 1 -6 6a6 6 0 0 1 6 6z"/></svg><span><b>연결 4</b> · 근태·결재·일정·경비 연동 중</span></div></div>
+  <table><tr><th>크기</th><th>쓰임</th></tr><tr><td>default</td><td>홈 상단</td></tr><tr><td>compact</td><td>패널·카드 안 한 줄</td></tr></table>
+  <h2>Guidelines</h2>
+  <div class="dd">
+    <div class="do"><b>Do</b>첫 문장에 결론(무엇을 해 준다 / 무엇이 안 된다), 둘째 문장에 조건. 두 줄이면 끝.</div>
+    <div class="dont"><b>Don&#39;t</b>닫기 × 를 두지 않습니다 — 닫혀야 하는 알림은 Toast, 확인이 필요한 것은 Dialog.</div>
+  </div>
+  <div class="dd">
+    <div class="do"><b>Do</b>화면에 하나. 둘이 필요하면 더 급한 warning 하나만 남깁니다.</div>
+    <div class="dont"><b>Don&#39;t</b>버튼을 넣지 않습니다. 행동이 필요하면 아래 카드·컴포저로 유도하는 문장으로.</div>
+  </div>
+  <h2>Notice vs. Toast vs. Callout</h2>
+  <table><tr><th></th><th>Agent notice</th><th>Toast</th><th>Callout(폼 안)</th></tr><tr><td>수명</td><td>화면에 머무름</td><td>4초</td><td>필드와 함께</td></tr><tr><td>자리</td><td>화면 위</td><td>화면 아래 가운데</td><td>폼 안</td></tr><tr><td>행동</td><td>없음</td><td>되돌리기 링크</td><td>없음</td></tr></table>
+  <h2>Specification</h2>
+  <table><tr><th>부위</th><th>토큰</th></tr><tr><td>배경 / 라운드 / 패딩</td><td><code>--bg-accent-weak</code> / <code>--radius-md</code> / <code>--dim-x3 --dim-x4</code></td></tr><tr><td>아이콘</td><td>16px <code>--fg-accent</code> (warning <code>--fg-warning</code>, sample <code>--fg-sample</code>)</td></tr><tr><td>글자</td><td>t2 <code>--fg-neutral</code>, lead 600</td></tr><tr><td>최대 폭</td><td>640px — 컴포저와 같은 폭</td></tr><tr><td>접근성</td><td><code>role="status"</code>(info·sample) / <code>role="alert"</code>(warning)</td></tr></table>
+</section>

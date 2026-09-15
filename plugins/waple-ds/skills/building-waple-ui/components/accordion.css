@@ -1,0 +1,12 @@
+/* Accordion — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Accordion ── */
+  .acc{width:100%;max-width:560px;border-top:1px solid var(--stroke-neutral-strong)} .acc.boxed{border:0;display:flex;flex-direction:column;gap:var(--dim-x2)}
+  .acc__item{border-bottom:1px solid var(--stroke-neutral-strong)} .acc.boxed .acc__item{border:1px solid var(--stroke-neutral-strong);border-radius:var(--radius-md);background:var(--bg-layer-default)}
+  .acc__item summary{display:flex;align-items:center;gap:var(--dim-x3);min-height:48px;padding:var(--dim-x3) var(--dim-x2);cursor:pointer;list-style:none;font-size:var(--font-size-t3);font-weight:var(--font-weight-semibold);color:var(--fg-neutral)} .acc__item summary::-webkit-details-marker{display:none}
+  .acc.boxed .acc__item summary{padding:var(--dim-x3) var(--dim-x4)}
+  .acc__item summary:hover{background:var(--bg-neutral-hover)} .acc__item summary:focus-visible{outline:none;box-shadow:inset 0 0 0 2px var(--stroke-focus)}
+  .acc__item summary .chev{margin-left:auto;width:18px;height:18px;color:var(--fg-neutral-muted);transition:transform var(--duration-normal) var(--easing)} .acc__item[open] summary .chev{transform:rotate(180deg)}
+  .acc__item summary .meta{font-size:var(--font-size-t1);font-weight:var(--font-weight-regular);color:var(--fg-neutral-muted)}
+  .acc__panel{padding:var(--dim-x1) var(--dim-x2) var(--dim-x4);font-size:var(--font-size-t2);line-height:var(--line-height-t2);color:var(--fg-neutral-subtle)} .acc.boxed .acc__panel{padding:var(--dim-x1) var(--dim-x4) var(--dim-x4)}
+  .acc.compact .acc__item summary{min-height:40px;padding:var(--dim-x2);font-size:var(--font-size-t2)}
+  .acc__item.disabled summary{color:var(--fg-disabled);cursor:not-allowed;pointer-events:none} .acc__item.disabled summary .chev{display:none}

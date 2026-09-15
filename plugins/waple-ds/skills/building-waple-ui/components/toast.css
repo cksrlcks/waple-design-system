@@ -1,0 +1,10 @@
+/* Toast — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Toast ── */
+  .toast{display:inline-flex;align-items:center;gap:var(--dim-x3);min-width:280px;max-width:480px;padding:var(--dim-x3) var(--dim-x4);background:var(--bg-layer-floating);border-radius:var(--radius-lg);box-shadow:var(--shadow-3);font-size:var(--font-size-t2);line-height:var(--line-height-t2);color:var(--fg-neutral)}
+  .toast i{display:inline-flex;align-items:center;justify-content:center;flex:none;width:20px;height:20px;font-style:normal;color:var(--fg-neutral-subtle)} .toast i svg{width:18px;height:18px} .toast-x svg{width:14px;height:14px}
+  .toast.positive i{color:var(--fg-positive)} .toast.critical i{color:var(--fg-critical)} .toast.warning i{color:var(--fg-warning)}
+  .toast span{flex:1} .toast a{flex:none;font-weight:var(--font-weight-semibold);color:var(--fg-neutral);text-decoration:underline;text-underline-offset:2px}
+  .toast-x{display:inline-flex;align-items:center;justify-content:center;flex:none;width:20px;height:20px;border:0;padding:0;background:none;border-radius:var(--radius-xs);color:var(--fg-neutral-muted);font-size:var(--font-size-t3);line-height:normal;cursor:pointer} .toast-x:hover{background:var(--bg-neutral-hover)}
+  .toast-x:focus-visible{outline:none;box-shadow:0 0 0 3px var(--bg-accent-weak),0 0 0 4px var(--stroke-focus)}
+  .toast-stage{position:relative;width:100%;height:150px;border:1px dashed var(--stroke-neutral-stronger);border-radius:var(--radius-md);background:var(--bg-layer-default)}
+  .toast-stage .toast{position:absolute;left:50%;bottom:var(--dim-x4);transform:translateX(-50%)}

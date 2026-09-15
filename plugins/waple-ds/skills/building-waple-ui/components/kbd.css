@@ -1,0 +1,7 @@
+/* Kbd — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Kbd ── 키 캡. 문서 사이트 검색창의 「Ctrl K」(.search kbd)와 같은 모양 */
+  .kbd{display:inline-flex;align-items:center;justify-content:center;gap:var(--dim-x1);min-width:21px;padding:3px 6px;border:1px solid var(--stroke-neutral-strong);border-radius:var(--radius-xs);background:transparent;font:var(--font-size-t1)/1 var(--font-family);color:var(--fg-neutral-muted);white-space:nowrap;vertical-align:middle}
+  .kbd svg.i{width:13px;height:13px} .kbd.sm{min-width:19px;padding:2px 4px}
+  .kbd.combo{min-width:0;padding:0;border:0;border-radius:0} /* 조합: 바깥 kbd 가 캡들을 묶는다 */
+  .kbd.inverse{color:var(--fg-neutral-placeholder);border-color:currentColor} /* 잉크 바탕(Tooltip) 위 */
+

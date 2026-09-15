@@ -1,0 +1,28 @@
+<section class="page" id="components/switch">
+  <h1>Switch</h1>
+  <p class="desc">켜고 끄는 즉시 반영되는 설정(알림 · 자동 초안 · 연동). 저장 버튼이 따로 필요하면 Checkbox 입니다.</p>
+  <h2>Anatomy</h2>
+  <div class="anatomy">
+    <div class="demo"><label class="switch"><input type="checkbox" checked><span class="track"></span>업무일지 자동 초안</label></div>
+    <ol><li><b>Track</b> — 40×22, 알약. 켜짐은 검정</li><li><b>Thumb</b> — 16px 흰 원, shadow-1</li><li><b>Input</b> — 숨긴 <code>&lt;input type="checkbox"&gt;</code>. 상태·키보드·폼 전송을 브라우저가 처리합니다</li><li><b>Label</b> — 오른쪽, t2. 무엇이 켜지는지 명사로</li></ol>
+  </div>
+  <h2>Properties</h2>
+  <h3>Size</h3>
+  <div class="demo"><label class="switch sm"><input type="checkbox" checked><span class="track"></span>sm · 32×18</label><label class="switch"><input type="checkbox" checked><span class="track"></span>md · 40×22</label></div>
+  <table><tr><th>크기</th><th>쓰임</th></tr><tr><td>sm</td><td>행 안(연동 목록의 켜기/끄기)</td></tr><tr><td>md</td><td>설정 화면 기본</td></tr></table>
+  <h3>State</h3>
+  <div class="demo"><label class="switch"><input type="checkbox"><span class="track"></span>꺼짐</label><label class="switch"><input type="checkbox" checked><span class="track"></span>켜짐</label><label class="switch focus"><input type="checkbox" checked><span class="track"></span>focus</label><label class="switch"><input type="checkbox" disabled><span class="track"></span>disabled</label><label class="switch"><input type="checkbox" checked disabled><span class="track"></span>disabled·켜짐</label></div>
+  <h2>Guidelines</h2>
+  <div class="dd">
+    <div class="do"><b>Do</b><div class="demo"><label class="switch"><input type="checkbox" checked><span class="track"></span>결재 알림</label></div>라벨은 켜지는 대상(「결재 알림」). 누르는 즉시 적용되고 토스트로 알립니다.</div>
+    <div class="dont"><b>Don&#39;t</b><div class="demo"><label class="switch"><input type="checkbox"><span class="track"></span>결재 알림을 받지 않기</label></div>부정형 라벨 금지 — 켜짐이 「안 받음」이 되면 헷갈립니다.</div>
+  </div>
+  <div class="dd">
+    <div class="do"><b>Do</b>되돌릴 수 없는 것(연동 해제)은 스위치 뒤에 확인 Dialog 를 둡니다.</div>
+    <div class="dont"><b>Don&#39;t</b>여러 스위치를 바꾼 뒤 「저장」을 누르게 하지 않습니다 — 그 경우는 Checkbox + 버튼.</div>
+  </div>
+  <h2>Switch vs. Checkbox</h2>
+  <table><tr><th></th><th>Switch</th><th>Checkbox</th></tr><tr><td>반영</td><td>즉시</td><td>제출 때</td></tr><tr><td>개수</td><td>독립된 설정 하나</td><td>목록에서 여럿 고름</td></tr><tr><td>라벨</td><td>명사(대상)</td><td>문장·항목</td></tr></table>
+  <h2>Specification</h2>
+  <table><tr><th>부위</th><th>토큰</th></tr><tr><td>track 꺼짐 / 켜짐</td><td><code>--stroke-neutral-stronger</code> / <code>--bg-brand-solid</code></td></tr><tr><td>thumb</td><td><code>--bg-layer-default</code> + <code>--shadow-1</code></td></tr><tr><td>disabled</td><td>track <code>--bg-neutral-weak</code>, 글자 <code>--fg-disabled</code></td></tr><tr><td>포커스</td><td>track 에 <code>--bg-accent-weak</code> 3px + <code>--stroke-focus</code></td></tr><tr><td>전환</td><td><code>--duration-fast</code> <code>--easing</code></td></tr><tr><td>접근성</td><td><code>&lt;input type="checkbox" role="switch"&gt;</code> — Space 로 토글, 라벨 클릭도 토글, 폼과 함께 전송</td></tr></table>
+</section>

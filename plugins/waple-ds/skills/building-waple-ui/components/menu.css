@@ -1,0 +1,21 @@
+/* Menu — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Menu ── 떠 있는 목록. 마크업: .menu > .menu__label | .menu__item(> svg · .menu__text · .menu__end) | hr.menu__sep */
+  .menu{display:flex;flex-direction:column;min-width:200px;max-width:320px;padding:var(--dim-x1_5);background:var(--bg-layer-floating);border:1px solid var(--stroke-neutral-strong);border-radius:var(--radius-md);box-shadow:var(--shadow-2);text-align:left}
+  .menu.scroll{max-height:320px;overflow:auto}
+  .menu__label{padding:var(--dim-x2) var(--dim-x2_5) var(--dim-x1);font-size:var(--font-size-t1);line-height:var(--line-height-t1);font-weight:var(--font-weight-medium);color:var(--fg-neutral-muted)}
+  .menu__item{display:flex;align-items:center;gap:var(--dim-x2_5);width:100%;min-height:36px;padding:0 var(--dim-x2_5);border:0;border-radius:var(--radius-sm);background:transparent;font:inherit;font-size:var(--font-size-t2);line-height:var(--line-height-t2);color:var(--fg-neutral);text-align:left;cursor:pointer;transition:background var(--duration-fast)}
+  .menu__item>svg{width:18px;height:18px;color:var(--fg-neutral-muted)}
+  .menu__item:hover,.menu__item.active{background:var(--bg-neutral-hover)}
+  .menu__item:focus-visible,.menu__item.focus{outline:none;background:var(--bg-neutral-hover);box-shadow:inset 0 0 0 2px var(--stroke-focus)}
+  .menu__text{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .menu__text small{display:block;font-size:var(--font-size-t1);line-height:var(--line-height-t1);color:var(--fg-neutral-muted);white-space:normal}
+  .menu__item.two{min-height:52px;align-items:flex-start;padding-top:var(--dim-x2);padding-bottom:var(--dim-x2)} .menu__item.two>svg{margin-top:1px}
+  .menu__end{margin-left:auto;display:inline-flex;align-items:center;gap:var(--dim-x1);padding-left:var(--dim-x3);font-size:var(--font-size-t1);color:var(--fg-neutral-muted)} .menu__end svg{width:16px;height:16px}
+  .menu__item[aria-checked="true"] .menu__end{color:var(--fg-neutral)}
+  .menu__item.danger,.menu__item.danger>svg{color:var(--fg-critical)} .menu__item.danger:hover,.menu__item.danger.active{background:var(--bg-critical-weak)}
+  .menu__item:disabled,.menu__item.disabled,.menu__item[aria-disabled="true"]{color:var(--fg-disabled);background:transparent;cursor:not-allowed} .menu__item:disabled>svg,.menu__item.disabled>svg,.menu__item[aria-disabled="true"]>svg{color:var(--fg-disabled)}
+  .menu__item:disabled:hover,.menu__item.disabled:hover,.menu__item[aria-disabled="true"]:hover{background:transparent} /* 목록 안 비활성은 글자만 — 회색 면은 선택처럼 읽힌다 */
+  .menu__sep{display:block;height:1px;border:0;margin:var(--dim-x1_5) calc(-1 * var(--dim-x1_5));background:var(--stroke-neutral)}
+  /* 하위 메뉴 — role="none" 래퍼. 부모 항목 오른쪽 4px, 첫 항목 높이를 부모 항목에 맞춘다. 한 단계까지 */
+  .menu__sub{position:relative;display:flex;flex-direction:column}
+  .menu__sub>.menu{position:absolute;left:calc(100% + var(--dim-x1_5) + var(--dim-x1) + 1px);top:calc(-1 * var(--dim-x1_5) - 1px);z-index:1}

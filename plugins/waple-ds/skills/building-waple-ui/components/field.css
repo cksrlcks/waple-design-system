@@ -1,0 +1,21 @@
+/* Field — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Field ── inputs.mjs .field(label · .ctrl · .help) 위에: 선택 표시 · 변경 점 · 오류 줄 · inline 배치. 오류는 aria-invalid 가 켜야만 빨개진다(blur 전에는 아무것도 붉지 않게) */
+  .field__opt{font-weight:var(--font-weight-regular);color:var(--fg-neutral-muted)}
+  .field__mark{display:inline-block;width:6px;height:6px;margin-left:var(--dim-x1);border-radius:50%;background:var(--bg-warning-solid);vertical-align:2px}
+  .field__reset{border:0;padding:0;background:none;font:inherit;color:var(--fg-neutral);text-decoration:underline;text-underline-offset:2px;cursor:pointer;border-radius:var(--radius-xs)} .field__reset:focus-visible{outline:none;box-shadow:0 0 0 3px var(--bg-accent-weak),0 0 0 4px var(--stroke-focus)}
+  .field__err{display:flex;align-items:flex-start;gap:var(--dim-x1);font-size:var(--font-size-t1);line-height:var(--line-height-t1);color:var(--fg-critical)} .field__err svg{width:16px;height:16px;flex:none;margin-top:1px}
+  .field:has([aria-invalid="true"]) .ctrl,.field:has([aria-invalid="true"]) .select select{border-color:var(--stroke-critical)}
+  .field.inline{display:grid;grid-template-columns:96px minmax(0,1fr);column-gap:var(--dim-x3);row-gap:var(--dim-x1_5);align-items:start}
+  .field.inline>label{padding-top:9px;line-height:var(--line-height-t1)} .field.inline>*:not(label){grid-column:2} .field.inline .switch{min-height:36px}
+  /* ── Fieldset ── 같은 질문에 속한 컨트롤 묶음. legend 는 라벨과 같은 t1 500 */
+  .fset{display:flex;flex-direction:column;gap:var(--dim-x2);min-width:0;margin:0;padding:0;border:0;text-align:left}
+  .fset>legend{padding:0;margin-bottom:var(--dim-x1);font-size:var(--font-size-t1);font-weight:var(--font-weight-medium);color:var(--fg-neutral)} .fset>legend em{font-style:normal;color:var(--fg-critical)}
+  .fset.row{flex-direction:row;flex-wrap:wrap;gap:var(--dim-x2) var(--dim-x5)} .fset.row>legend{width:100%}
+  .fset__desc{margin:calc(-1 * var(--dim-x1)) 0 var(--dim-x1);font-size:var(--font-size-t1);line-height:var(--line-height-t1);color:var(--fg-neutral-muted)}
+  .fset:has([aria-invalid="true"])>legend{color:var(--fg-critical)}
+  /* ── Form ── 필드 세로 20 · 섹션 사이 32 · 버튼 줄은 오른쪽 정렬 */
+  .form{display:flex;flex-direction:column;gap:var(--dim-x5);width:100%;max-width:520px;text-align:left} .form .field{min-width:0}
+  .form__sec{display:flex;flex-direction:column;gap:var(--dim-x5)} .form__sec+.form__sec{margin-top:var(--dim-x3)}
+  .form__sec>h4{margin:0 0 calc(-1 * var(--dim-x2));font-size:var(--font-size-t3);line-height:var(--line-height-t3);font-weight:var(--font-weight-semibold)}
+  .form__actions{display:flex;justify-content:flex-end;align-items:center;gap:var(--dim-x2);padding-top:var(--dim-x2)} .form__actions>.form__aside{margin-right:auto}
+  .form__errs{margin:var(--dim-x1_5) 0 0;padding-left:var(--dim-x4)} .form__errs li{margin-bottom:var(--dim-x0_5)} .form__errs a{text-decoration:underline;text-underline-offset:2px;color:var(--fg-neutral)}

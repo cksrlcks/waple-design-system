@@ -1,0 +1,18 @@
+/* Sheet — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Sheet ── 가장자리에 붙는 떠 있는 면. 오른쪽 360·480(상세) · 왼쪽 280(모바일 메뉴) · 아래(모바일 half/full). 닫기·포커스는 Dialog 와 같다 */
+  .sheet__stage{position:relative;width:100%;height:400px;overflow:hidden;background:var(--bg-overlay);border-radius:var(--radius-md)} /* 문서 데모용 화면 */
+  .sheet__stage.phone{width:300px;height:540px;border-radius:var(--radius-xl)}
+  .sheet{position:absolute;display:flex;flex-direction:column;background:var(--bg-layer-floating);box-shadow:var(--shadow-3);text-align:left}
+  .sheet.right{top:0;right:0;bottom:0;width:360px;max-width:100%} .sheet.right.wide{width:480px}
+  .sheet.left{top:0;left:0;bottom:0;width:280px;max-width:calc(100% - 56px)}
+  .sheet.bottom{left:0;right:0;bottom:0;height:50%;border-radius:var(--radius-xl) var(--radius-xl) 0 0} .sheet.bottom.full{height:calc(100% - var(--dim-x12))}
+  .sheet__handle{flex:none;width:36px;height:4px;margin:var(--dim-x2) auto 0;border-radius:var(--radius-full);background:var(--stroke-neutral-stronger)}
+  .sheet__hd{flex:none;display:flex;align-items:flex-start;gap:var(--dim-x3);padding:var(--dim-x5) var(--dim-x4) var(--dim-x4) var(--dim-x6)} .sheet__hd>div{flex:1;min-width:0} .sheet__hd>.iconbtn{margin-top:-4px}
+  .sheet.left .sheet__hd,.sheet.bottom .sheet__hd{padding-left:var(--dim-x5)} .sheet.bottom .sheet__hd{padding-top:var(--dim-x3)}
+  .sheet__title{margin:0;font-size:var(--font-size-t4);line-height:var(--line-height-t4);font-weight:var(--font-weight-semibold);color:var(--fg-neutral)}
+  .sheet__sub{margin:2px 0 0;font-size:var(--font-size-t1);line-height:var(--line-height-t1);color:var(--fg-neutral-muted)}
+  .sheet__body{flex:1;min-height:0;overflow:auto;padding:0 var(--dim-x6) var(--dim-x6);font-size:var(--font-size-t2);line-height:var(--line-height-t2);color:var(--fg-neutral-subtle)}
+  .sheet__body>p{margin:var(--dim-x4) 0 0} .sheet__body>:first-child{margin-top:0}
+  .sheet.left .sheet__body,.sheet.bottom .sheet__body{padding:0 var(--dim-x2) var(--dim-x4)} /* 목록이 주인 몸통: 행이 제 패딩을 가진다 */
+  .sheet__ft{flex:none;display:flex;justify-content:flex-end;gap:var(--dim-x2);padding:var(--dim-x4) var(--dim-x6);border-top:1px solid var(--stroke-neutral)}
+  .sheet.bottom .sheet__ft{padding:var(--dim-x3) var(--dim-x4) var(--dim-x4)} .sheet.bottom .sheet__ft .btn{flex:1}

@@ -1,0 +1,10 @@
+/* Tag group — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Tag group ── 속성을 가운뎃점으로 잇는 한 줄 메타. 인라인 글줄이라 어디서 잘리든 끝에 말줄임이 붙는다. 점은 ::before(대체 텍스트는 쉼표) — 항목의 음수 여백과 점 폭이 서로 지워져 줄머리에 오는 점은 컨테이너 밖으로 밀려 overflow 로 숨는다 */
+  .taggroup{--sep:var(--dim-x3_5);display:block;min-width:0;max-width:100%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size:var(--font-size-t1);line-height:var(--line-height-t1);color:var(--fg-neutral-muted)}
+  .taggroup>*{white-space:nowrap} .taggroup>:not(:last-child){margin-right:var(--sep)} .taggroup>*+*{margin-left:calc(var(--sep) * -1)}
+  .taggroup>*+*::before{content:"·";content:"·" / ", ";display:inline-block;width:var(--sep);text-align:center;font-weight:var(--font-weight-regular);color:var(--fg-neutral-placeholder)}
+  .taggroup svg{width:14px;height:14px;margin-right:var(--dim-x1);vertical-align:-2px}
+  .taggroup.md{--sep:var(--dim-x4);font-size:var(--font-size-t2);line-height:var(--line-height-t2)} .taggroup.md svg{width:16px;height:16px;vertical-align:-3px}
+  .taggroup.subtle{color:var(--fg-neutral-subtle)} .taggroup.accent>:first-child{color:var(--fg-accent);font-weight:var(--font-weight-semibold)}
+  .taggroup.multiline{white-space:normal;text-overflow:clip;line-height:calc(var(--line-height-t1) + var(--dim-x0_5))} .taggroup.multiline.md{line-height:calc(var(--line-height-t2) + var(--dim-x0_5))}
+  .taggroup .positive{color:var(--fg-positive)} .taggroup .warning{color:var(--fg-warning)} .taggroup .critical{color:var(--fg-critical)}

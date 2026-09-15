@@ -1,0 +1,9 @@
+/* Avatar — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Avatar ── */
+  .avatar{display:inline-flex;align-items:center;justify-content:center;border-radius:50%;background:var(--bg-neutral-weak);color:var(--fg-neutral);font-weight:var(--font-weight-semibold);flex:none;position:relative;line-height:normal}
+  .avatar.s24{width:24px;height:24px;font-size:var(--font-size-t1)} .avatar.s28{width:28px;height:28px;font-size:var(--font-size-t1)} .avatar.s32{width:32px;height:32px;font-size:var(--font-size-t1)} .avatar.s40{width:40px;height:40px;font-size:var(--font-size-t3)} .avatar.s48{width:48px;height:48px;font-size:var(--font-size-t5)}
+  .avatar.accent{background:var(--bg-accent-weak);color:var(--fg-accent)}
+  .avatar .dot{position:absolute;right:0;bottom:0;width:8px;height:8px;border-radius:50%;background:var(--bg-positive-solid);box-shadow:0 0 0 2px var(--bg-layer-default)} .avatar.s32 .dot{width:10px;height:10px} .avatar.s40 .dot{width:10px;height:10px;right:1px;bottom:1px} .avatar.s48 .dot{width:10px;height:10px;right:3px;bottom:3px} .avatar .dot.away{background:var(--bg-warning-solid)} .avatar .dot.off{background:var(--stroke-neutral-stronger)}
+  .avatar-lockup{display:inline-flex;align-items:center;gap:var(--dim-x2_5)} .avatar-lockup b{display:block;font-size:var(--font-size-t2);font-weight:var(--font-weight-semibold)} .avatar-lockup small{display:block;font-size:var(--font-size-t1);color:var(--fg-neutral-muted)} .avatar-lockup small em{font-style:normal;color:var(--fg-accent);font-weight:var(--font-weight-semibold)}
+  .avatar-lockup.lg{gap:var(--dim-x3)} .avatar-lockup.lg b{font-size:var(--font-size-t4)} .avatar-lockup.lg small{font-size:var(--font-size-t2)}
+  .avatar-group{display:inline-flex} .avatar-group .avatar{box-shadow:0 0 0 2px var(--bg-layer-default);margin-left:-8px} .avatar-group .avatar:first-child{margin-left:0}

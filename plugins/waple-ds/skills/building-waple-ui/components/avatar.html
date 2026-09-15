@@ -1,0 +1,29 @@
+<section class="page" id="components/avatar">
+  <h1>Avatar</h1>
+  <p class="desc">사람을 나타내는 원. 사진 대신 이름 첫 글자를 쓰고, 접속 상태 점과 이름·소속 묶음(lockup)으로 확장합니다.</p>
+  <h2>Anatomy</h2>
+  <div class="anatomy">
+    <div class="demo"><div class="avatar-lockup lg"><span class="avatar s48">윤<span class="dot"></span></span><span><b>윤아린2</b><small>디자인1팀1 · 부장 · <em>연결 4</em></small></span></div></div>
+    <ol><li><b>Circle</b> — 첫 글자, <code>--bg-neutral-weak</code>. 옆 글자 두 줄 높이에 맞춰 48px</li><li><b>Status dot</b> (선택) — 8~10px, 접속 positive · 자리 비움 warning · 오프라인 neutral</li><li><b>Name / Meta</b> — t4 600 / t2 muted (lockup lg)</li></ol>
+  </div>
+  <h2>Properties</h2>
+  <h3>Size</h3>
+  <div class="demo"><span class="avatar s24">윤</span><span class="avatar s28">박</span><span class="avatar s32">김</span><span class="avatar s40">이</span><span class="avatar s48">최</span></div>
+  <table><tr><th>크기</th><th>쓰임</th></tr><tr><td>24</td><td>행 안, 아바타 그룹</td></tr><tr><td>28</td><td>사이드바 하단 사용자, 대화 말풍선</td></tr><tr><td>32</td><td>담당자 카드, lockup 기본</td></tr><tr><td>40 · 48</td><td>프로필·담당자 상세, lockup lg</td></tr></table>
+  <h3>Variant</h3>
+  <div class="demo"><span class="avatar s32">윤<span class="dot"></span></span><span class="avatar s32">박<span class="dot away"></span></span><span class="avatar s32">김<span class="dot off"></span></span><span class="avatar s32 accent">AI</span><div class="avatar-group"><span class="avatar s24">윤</span><span class="avatar s24">박</span><span class="avatar s24">김</span><span class="avatar s24">+3</span></div><div class="avatar-lockup"><span class="avatar s32">윤</span><span><b>윤아린2</b><small>디자인1팀1 · 부장</small></span></div></div>
+  <table><tr><th>Variant</th><th>쓰임</th></tr><tr><td>status dot</td><td>담당자 찾기 — 지금 자리에 있는지. 색만이 아니라 툴팁 「자리에 있음」</td></tr><tr><td>accent</td><td>에이전트 자신. 사람과 구분되는 유일한 틸 아바타</td></tr><tr><td>group</td><td>참석자 3명 + 「+N」. 겹침 8px</td></tr><tr><td>lockup / lockup lg</td><td>이름 + 소속. 사이드바 하단(32) · 담당자 상세(48)</td></tr></table>
+  <h2>Guidelines</h2>
+  <div class="dd">
+    <div class="do"><b>Do</b>이름 첫 글자 하나. 성이 아니라 사용자가 표시하는 이름의 첫 글자.</div>
+    <div class="dont"><b>Don&#39;t</b>사람마다 다른 배경색을 주지 않습니다 — 회색 하나. 색은 상태 점이 맡습니다.</div>
+  </div>
+  <div class="dd">
+    <div class="do"><b>Do</b>lockup 의 「연결 4」처럼 틸 글자는 에이전트 관련 수치 한 곳.</div>
+    <div class="dont"><b>Don&#39;t</b>아바타를 버튼처럼 쓰려면 <code>&lt;button aria-label="윤아린2 프로필"&gt;</code> 로 감쌉니다 — 원 자체에 onClick 을 두지 않습니다.</div>
+  </div>
+  <h2>Avatar vs. Icon chip</h2>
+  <table><tr><th></th><th>Avatar</th><th>Icon chip(List row 의 leading)</th></tr><tr><td>뜻</td><td>사람·에이전트</td><td>기능 카테고리</td></tr><tr><td>모양</td><td>원</td><td>라운드 사각</td></tr><tr><td>색</td><td>회색(에이전트만 틸)</td><td>카테고리 틴트</td></tr></table>
+  <h2>Specification</h2>
+  <table><tr><th>부위</th><th>토큰</th></tr><tr><td>배경 / 글자</td><td><code>--bg-neutral-weak</code> / <code>--fg-neutral</code> 600 · 24~32 t1 · 40 t3 · 48 t5</td></tr><tr><td>에이전트</td><td><code>--bg-accent-weak</code> / <code>--fg-accent</code></td></tr><tr><td>상태 점</td><td><code>--bg-positive-solid</code> · <code>--bg-warning-solid</code> · <code>--stroke-neutral-stronger</code>, 2px 흰 링</td></tr><tr><td>lockup</td><td>이름 t2 600 · 메타 t1 muted (lg: t4 / t2) · 연결 <code>--fg-accent</code></td></tr><tr><td>접근성</td><td><code>role="img" aria-label="윤아린2"</code>; 상태 점은 <code>title</code> 로 문구</td></tr></table>
+</section>

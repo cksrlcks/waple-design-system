@@ -1,0 +1,34 @@
+<section class="page" id="components/tooltip">
+  <h1>Tooltip</h1>
+  <p class="desc">아이콘 버튼처럼 라벨이 없는 요소에 마우스를 올리거나 포커스하면 이름을 보여 주는 짧은 말풍선입니다.</p>
+  <h2>Anatomy</h2>
+  <div class="anatomy">
+    <div class="demo" style="padding-top:56px"><span class="tip-host"><button class="iconbtn md outline" aria-label="첨부"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 7l-6.5 6.5a1.5 1.5 0 0 0 3 3l6.5 -6.5a3 3 0 0 0 -6 -6l-6.5 6.5a4.5 4.5 0 0 0 9 9l6.5 -6.5"/></svg></button><span class="tip on" role="tooltip">파일 첨부</span></span></div>
+    <ol><li><b>Container</b> — 잉크 배경, 12px Medium, radius-sm</li><li><b>Arrow</b> — 4px, 트리거 가운데를 가리킵니다</li><li><b>Trigger</b> — 아이콘 버튼·잘린 글자·상태 점</li></ol>
+  </div>
+  <h2>Properties</h2>
+  <h3>Position</h3>
+  <div class="demo" style="padding:56px var(--dim-x6);gap:var(--dim-x8)"><span class="tip-host"><button class="iconbtn md outline" aria-label="계획 세우기"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6l16 0"/><path d="M4 12l16 0"/><path d="M4 18l16 0"/></svg></button><span class="tip on" role="tooltip">계획 세우기</span></span><span class="tip-host"><button class="iconbtn md outline" aria-label="새 대화"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5l0 14"/><path d="M5 12l14 0"/></svg></button><span class="tip bottom on" role="tooltip">새 대화</span></span></div>
+  <table><tr><th>위치</th><th>쓰임</th></tr><tr><td>top</td><td>기본 — 컴포저·본문 안 아이콘 버튼</td></tr><tr><td>bottom</td><td>상단 바·사이드바 위쪽처럼 위에 공간이 없을 때</td></tr></table>
+  <h3>State</h3>
+  <div class="demo" style="padding-top:56px;gap:var(--dim-x8)"><span class="tip-host"><button class="iconbtn md outline" aria-label="첨부"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 7l-6.5 6.5a1.5 1.5 0 0 0 3 3l6.5 -6.5a3 3 0 0 0 -6 -6l-6.5 6.5a4.5 4.5 0 0 0 9 9l6.5 -6.5"/></svg></button><span class="tip" role="tooltip">파일 첨부</span></span><span class="tip-host"><button class="iconbtn md outline" aria-label="첨부"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 7l-6.5 6.5a1.5 1.5 0 0 0 3 3l6.5 -6.5a3 3 0 0 0 -6 -6l-6.5 6.5a4.5 4.5 0 0 0 9 9l6.5 -6.5"/></svg></button><span class="tip on" role="tooltip">파일 첨부</span></span></div>
+  <p>숨김(기본) → 마우스 올림·포커스 300ms 뒤 표시 → 벗어나면 즉시 숨김. 왼쪽 버튼에 마우스를 올려 보세요.</p>
+  <h2>Guidelines</h2>
+  <div class="dd">
+    <div class="do"><b>Do</b><div class="demo" style="padding-top:48px"><span class="tip-host"><button class="iconbtn md outline" aria-label="첨부"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 7l-6.5 6.5a1.5 1.5 0 0 0 3 3l6.5 -6.5a3 3 0 0 0 -6 -6l-6.5 6.5a4.5 4.5 0 0 0 9 9l6.5 -6.5"/></svg></button><span class="tip on">파일 첨부</span></span></div>라벨 없는 아이콘 버튼엔 필수. 내용은 <code>aria-label</code> 과 같은 이름.</div>
+    <div class="dont"><b>Don&#39;t</b><div class="demo" style="padding-top:48px"><span class="tip-host"><button class="btn sm brand-solid">신청하기</button><span class="tip on">잔여 연차 3일 · 결재선 김부장</span></span></div>꼭 알아야 할 정보를 툴팁에만 두지 않습니다 — 터치에선 볼 수 없습니다.</div>
+  </div>
+  <div class="dd">
+    <div class="do"><b>Do</b>한두 단어. 300ms 지연으로 스쳐 지나갈 때 깜빡이지 않게 합니다.</div>
+    <div class="dont"><b>Don&#39;t</b>링크·버튼·여러 줄을 넣지 않습니다 — 그건 Popover. 이미 라벨이 보이는 버튼에 같은 말을 반복하지 않습니다.</div>
+  </div>
+  <h2>Tooltip vs. Popover</h2>
+  <table><tr><th></th><th>Tooltip</th><th>Popover</th></tr><tr><td>내용</td><td>이름 한두 단어</td><td>설명·행동·폼</td></tr><tr><td>열기</td><td>hover·focus, 300ms 지연</td><td>클릭·탭</td></tr><tr><td>닫기</td><td>벗어나면 자동</td><td>바깥 클릭·ESC·닫기 버튼</td></tr><tr><td>포커스</td><td>안 옮김</td><td>안으로 옮김</td></tr><tr><td>모양</td><td>잉크 배경 · 흰 글자 · radius-sm</td><td>흰 배경 · shadow-2 · radius-lg</td></tr></table>
+  <h2>Specification</h2>
+  <table><tr><th>부위</th><th>토큰</th></tr>
+    <tr><td>Container</td><td><code>--bg-neutral-solid</code> · <code>--fg-on-neutral</code> · 12px <code>--font-weight-medium</code> · 패딩 <code>--dim-x1_5</code> <code>--dim-x2</code> · <code>--radius-sm</code></td></tr>
+    <tr><td>Arrow</td><td>4px 삼각형 · <code>--bg-neutral-solid</code></td></tr>
+    <tr><td>Offset</td><td>트리거에서 <code>--dim-x2</code></td></tr>
+    <tr><td>Motion</td><td>표시 지연 300ms · 페이드 <code>--duration-fast</code> <code>--easing</code></td></tr>
+    <tr><td>접근성</td><td><code>role="tooltip"</code> · 트리거에 <code>aria-describedby</code>(라벨을 대신하면 <code>aria-label</code>) · 키보드 포커스에도 표시 · ESC 로 닫힘</td></tr></table>
+</section>

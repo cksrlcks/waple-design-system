@@ -1,0 +1,6 @@
+/* Agent notice — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Agent notice ── */
+  .notice{display:flex;gap:var(--dim-x2_5);align-items:flex-start;max-width:640px;padding:var(--dim-x3) var(--dim-x4);border-radius:var(--radius-md);background:var(--bg-accent-weak);color:var(--fg-neutral);font-size:var(--font-size-t2);line-height:var(--line-height-t2)}
+  .notice svg{width:16px;height:16px;margin-top:2px;color:var(--fg-accent)} .notice b{font-weight:var(--font-weight-semibold)}
+  .notice.warning{background:var(--bg-warning-weak)} .notice.warning svg{color:var(--fg-warning)} .notice.sample{background:var(--bg-sample-weak)} .notice.sample svg{color:var(--fg-sample)}
+  .notice.compact{padding:var(--dim-x2) var(--dim-x3);font-size:var(--font-size-t1);border-radius:var(--radius-sm)}

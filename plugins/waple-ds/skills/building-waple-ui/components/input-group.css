@@ -1,0 +1,12 @@
+/* Input group — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Input group ── Text input 의 .field .ctrl 위에 붙는다(선·포커스 링·오류·disabled 는 .field 가 맡음). 가장자리 버튼·셀렉트는 선 하나로 가른다 */
+  .igroup__unit{flex:none;font-size:var(--font-size-t2);color:var(--fg-neutral-muted)}
+  .igroup__btn,.igroup__sel{position:relative;align-self:stretch;flex:none;display:inline-flex;align-items:center;gap:var(--dim-x1_5);padding:0 var(--dim-x3);border:0;background:transparent;font:inherit;font-size:var(--font-size-t2);font-weight:var(--font-weight-medium);line-height:1;color:var(--fg-neutral);cursor:pointer;transition:background var(--duration-fast)}
+  .igroup__btn:first-child,.igroup__sel:first-child{margin-left:calc(var(--dim-x3) * -1);border-right:1px solid var(--stroke-neutral-strong);border-radius:calc(var(--radius-sm) - 1px) 0 0 calc(var(--radius-sm) - 1px)}
+  .igroup__btn:last-child,.igroup__sel:last-child{margin-right:calc(var(--dim-x3) * -1);border-left:1px solid var(--stroke-neutral-strong);border-radius:0 calc(var(--radius-sm) - 1px) calc(var(--radius-sm) - 1px) 0}
+  .igroup__btn:hover,.igroup__sel:hover{background:var(--bg-neutral-hover)} .igroup__btn:focus-visible,.igroup__sel:has(:focus-visible){outline:none;box-shadow:inset 0 0 0 2px var(--stroke-focus)}
+  .igroup__sel{padding:0} .igroup__sel select{-webkit-appearance:none;appearance:none;height:100%;padding:0 var(--dim-x8) 0 var(--dim-x3);border:0;background:transparent;font:inherit;color:inherit;cursor:pointer;outline:none} .igroup__sel svg{position:absolute;right:var(--dim-x2_5);pointer-events:none}
+  .igroup .iconbtn svg{width:18px;height:18px;color:inherit} .igroup>.iconbtn:last-child{margin-right:calc(var(--dim-x1_5) * -1)}
+  .igroup__btn:disabled{background:transparent;color:var(--fg-disabled);cursor:not-allowed}
+  .igroup input:has(+ .igroup__unit){text-align:right} /* 단위가 붙는 값(금액 · 일수 · %)은 오른쪽 정렬 */
+  .igroup__spin{display:inline-flex;flex:none} .igroup__spin svg{animation:spin .8s linear infinite}

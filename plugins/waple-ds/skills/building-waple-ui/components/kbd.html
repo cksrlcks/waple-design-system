@@ -1,0 +1,45 @@
+<section class="page" id="components/kbd">
+  <h1>Kbd</h1>
+  <p class="desc">단축키를 알려 주는 키 캡입니다. 누르는 버튼이 아니라 <b>읽는 표시</b>라서 배경 없이 선만 긋습니다. 문서 사이트 검색창 끝의 「Ctrl K」가 이 모양입니다.</p>
+  <h2>Anatomy</h2>
+  <div class="anatomy">
+    <div class="demo"><kbd class="kbd combo"><kbd class="kbd">Ctrl</kbd><kbd class="kbd">K</kbd></kbd></div>
+    <ol><li><b>Cap</b> — 1px <code>--stroke-neutral-strong</code> 선, <code>--radius-xs</code>, 배경 없음</li><li><b>Label</b> — t1 400 muted. 키보드에 새겨진 이름 그대로</li><li><b>Group</b> (조합) — 캡을 4px 간격으로 나란히 두고 바깥 <code>&lt;kbd&gt;</code> 로 묶습니다</li><li><b>Icon</b> (선택) — 13px. command · 화살표처럼 글자가 없는 키</li></ol>
+  </div>
+  <h2>Properties</h2>
+  <h3>Size</h3>
+  <div class="demo"><figure class="ex"><kbd class="kbd sm">Esc</kbd><figcaption>sm · 19px — 메뉴 항목·툴팁·버튼 안</figcaption></figure><figure class="ex"><kbd class="kbd">Esc</kbd><figcaption>md · 21px — 본문·검색창 끝</figcaption></figure></div>
+  <table><tr><th>크기</th><th>높이</th><th>패딩</th><th>최소 폭</th><th>쓰임</th></tr><tr><td>sm</td><td>19px</td><td>2px 4px</td><td>19px</td><td>메뉴 항목 끝 · 툴팁 · 버튼 안 · 명령 팔레트 푸터</td></tr><tr><td>md</td><td>21px</td><td>3px 6px</td><td>21px</td><td>기본 — 본문 문장 · 검색창 끝(문서 사이트 <code>.search kbd</code> 와 같은 값)</td></tr></table>
+  <h3>Variant</h3>
+  <div class="demo">
+    <figure class="ex"><kbd class="kbd">Esc</kbd><figcaption>single — 키 하나</figcaption></figure>
+    <figure class="ex"><kbd class="kbd combo"><kbd class="kbd">Ctrl</kbd><kbd class="kbd">Shift</kbd><kbd class="kbd">K</kbd></kbd><figcaption>combo — 함께 누르는 키, 캡마다</figcaption></figure>
+    <figure class="ex"><kbd class="kbd">Ctrl K</kbd><figcaption>joined — 한 캡에 합침</figcaption></figure>
+    <figure class="ex"><span><kbd class="kbd" aria-label="위 화살표"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5l0 14"/><path d="M18 11l-6 -6"/><path d="M6 11l6 -6"/></svg></kbd> <kbd class="kbd" aria-label="아래 화살표"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5l0 14"/><path d="M18 13l-6 6"/><path d="M6 13l6 6"/></svg></kbd></span><figcaption>icon — 글자가 없는 키</figcaption></figure>
+  </div>
+  <table><tr><th>Variant</th><th>마크업</th><th>쓰임</th></tr><tr><td>single</td><td><code>&lt;kbd class="kbd"&gt;</code></td><td>Esc · Enter · Tab</td></tr><tr><td>combo</td><td>바깥 <code>.kbd.combo</code> 안에 키마다 <code>.kbd</code>. 사이에 + 를 쓰지 않습니다</td><td>기본 — 본문·메뉴·툴팁</td></tr><tr><td>joined</td><td>한 캡에 「Ctrl K」</td><td>좁은 자리만 — 검색창 끝, 버튼 안</td></tr><tr><td>icon</td><td>캡 안에 아이콘 13px + <code>aria-label</code></td><td>화살표 · macOS command</td></tr></table>
+  <h3>Platform</h3>
+  <div class="demo"><figure class="ex"><kbd class="kbd combo"><kbd class="kbd">Ctrl</kbd><kbd class="kbd">K</kbd></kbd><figcaption>Windows — Ctrl</figcaption></figure><figure class="ex"><kbd class="kbd combo"><kbd class="kbd" aria-label="Command"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 9a2 2 0 1 1 2 -2v10a2 2 0 1 1 -2 -2h10a2 2 0 1 1 -2 2v-10a2 2 0 1 1 2 2h-10"/></svg></kbd><kbd class="kbd">K</kbd></kbd><figcaption>macOS — command 아이콘</figcaption></figure></div>
+  <table><tr><th>역할</th><th>Windows</th><th>macOS</th></tr><tr><td>주 조합 키</td><td><kbd class="kbd">Ctrl</kbd></td><td><kbd class="kbd" aria-label="Command"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 9a2 2 0 1 1 2 -2v10a2 2 0 1 1 -2 -2h10a2 2 0 1 1 -2 2v-10a2 2 0 1 1 2 2h-10"/></svg></kbd></td></tr><tr><td>보조</td><td><kbd class="kbd">Alt</kbd></td><td><kbd class="kbd">Option</kbd></td></tr><tr><td>확장</td><td><kbd class="kbd">Shift</kbd></td><td><kbd class="kbd">Shift</kbd></td></tr><tr><td>실행</td><td><kbd class="kbd">Enter</kbd></td><td><kbd class="kbd">Return</kbd></td></tr></table>
+  <p>운영체제는 처음 한 번 정하고 화면 전체가 같은 표기를 씁니다. 한 화면에 Ctrl 과 command 를 섞지 않습니다.</p>
+  <h3>In context</h3>
+  <div class="demo" style="padding-top:64px;align-items:flex-end">
+    <figure class="ex"><button class="btn sm neutral-outline" aria-keyshortcuts="Control+K"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"/><path d="M21 21l-6 -6"/></svg>검색<kbd class="kbd sm">Ctrl K</kbd></button><figcaption>button — 라벨 뒤, sm joined</figcaption></figure>
+    <figure class="ex"><div class="menu" role="menu"><button class="menu__item" role="menuitem"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 9a2 2 0 1 1 2 -2v10a2 2 0 1 1 -2 -2h10a2 2 0 1 1 -2 2v-10a2 2 0 1 1 2 2h-10"/></svg><span class="menu__text">명령 팔레트</span><span class="menu__end"><kbd class="kbd combo"><kbd class="kbd sm">Ctrl</kbd><kbd class="kbd sm">K</kbd></kbd></span></button><button class="menu__item" role="menuitem"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z"/><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/></svg><span class="menu__text">설정</span><span class="menu__end"><kbd class="kbd combo"><kbd class="kbd sm">Ctrl</kbd><kbd class="kbd sm">,</kbd></kbd></span></button></div><figcaption>menu item — 끝 슬롯에 sm</figcaption></figure>
+    <figure class="ex" style="align-items:center"><span class="tip-host"><button class="iconbtn md outline" aria-label="명령 팔레트" aria-keyshortcuts="Control+K"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 9a2 2 0 1 1 2 -2v10a2 2 0 1 1 -2 -2h10a2 2 0 1 1 -2 2v-10a2 2 0 1 1 2 2h-10"/></svg></button><span class="tip on" role="tooltip">명령 팔레트 <kbd class="kbd sm inverse">Ctrl K</kbd></span></span><figcaption>tooltip — 이름 뒤, inverse</figcaption></figure>
+    <figure class="ex"><span>어느 화면에서든 <kbd class="kbd combo"><kbd class="kbd">Ctrl</kbd><kbd class="kbd">K</kbd></kbd> 로 엽니다.</span><figcaption>text — 문장 안, md</figcaption></figure>
+  </div>
+  <h2>Guidelines</h2>
+  <div class="dd">
+    <div class="do"><b>Do</b>키 이름은 키보드에 새겨진 영어 그대로 — Ctrl · Shift · Enter · Esc. 조합은 캡을 나누고, 좁은 자리에서만 한 캡으로 합칩니다.</div>
+    <div class="dont"><b>Don&#39;t</b>「컨트롤」「엔터」처럼 한글로 풀어 쓰지 않습니다. macOS 기호를 글자로 넣지 않습니다 — 글꼴마다 모양이 달라 command 는 아이콘으로 씁니다.</div>
+  </div>
+  <div class="dd">
+    <div class="do"><b>Do</b>단축키는 찾을 수 있는 자리에 둡니다 — 메뉴 항목 끝, 툴팁, 명령 팔레트 푸터.</div>
+    <div class="dont"><b>Don&#39;t</b>단축키를 유일한 방법으로 두지 않습니다. 브라우저가 쓰는 조합(Ctrl T · W · L · R)과 겹치게 정하지 않습니다.</div>
+  </div>
+  <h2>Kbd vs. Badge</h2>
+  <table><tr><th></th><th>Kbd</th><th>Badge</th></tr><tr><td>뜻</td><td>누를 키</td><td>상태 한 단어·건수</td></tr><tr><td>모양</td><td>선만, <code>--radius-xs</code>, t1 400</td><td>weak 채움, 알약, 12px 600</td></tr><tr><td>색</td><td>muted 한 가지</td><td>상태 어휘 여섯</td></tr><tr><td>요소</td><td><code>&lt;kbd&gt;</code></td><td><code>&lt;span&gt;</code></td></tr></table>
+  <h2>Specification</h2>
+  <table><tr><th>부위</th><th>토큰</th></tr><tr><td>Cap</td><td>선 <code>--stroke-neutral-strong</code> · <code>--radius-xs</code> · 배경 없음</td></tr><tr><td>Label</td><td>t1 / 1 <code>--font-family</code> 400 · <code>--fg-neutral-muted</code> · 줄바꿈 없음</td></tr><tr><td>Size</td><td>md 패딩 3px 6px, 최소 21 · sm 2px 4px, 최소 19</td></tr><tr><td>Icon</td><td>13px · <code>currentColor</code></td></tr><tr><td>Group</td><td>캡 사이 <code>--dim-x1</code></td></tr><tr><td>inverse</td><td>잉크 바탕(Tooltip) 위 — 글자 <code>--fg-neutral-placeholder</code>, 선은 같은 색(<code>currentColor</code>)</td></tr><tr><td>접근성</td><td><code>&lt;kbd&gt;</code> 요소 — 조합은 바깥 <code>&lt;kbd&gt;</code> 안에 키마다 <code>&lt;kbd&gt;</code> · 아이콘 키는 <code>aria-label</code>(「위 화살표」「Command」) · 단축키가 있는 버튼은 <code>aria-keyshortcuts="Control+K"</code></td></tr></table>
+</section>

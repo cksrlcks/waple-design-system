@@ -1,0 +1,42 @@
+<section class="page" id="components/toast">
+  <h1>Toast</h1>
+  <p class="desc">방금 한 행동의 결과를 짧게 알리고 사라지는 떠 있는 알림입니다. 사용자가 시작한 작업의 결과에만 씁니다.</p>
+  <h2>Anatomy</h2>
+  <div class="anatomy">
+    <div class="demo tinted"><div class="toast positive" role="status"><i><svg class="i filled" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 3.34a10 10 0 1 1 -14.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 14.995 -8.336zm-1.293 5.953a1 1 0 0 0 -1.32 -.083l-.094 .083l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.403 1.403l.083 .094l2 2l.094 .083a1 1 0 0 0 1.226 0l.094 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z"/></svg></i><span>연차 신청서를 올렸습니다</span><a href="#components/toast">되돌리기</a><button class="toast-x" aria-label="닫기"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg></button></div></div>
+    <ol><li><b>Icon</b> — filled 18px, 상태색. 뒤 배경 없음</li><li><b>Message</b> — 한 줄, 무엇이 됐는지</li><li><b>Action</b> (선택) — 링크 하나(되돌리기·보기)</li><li><b>Close</b> — sticky 일 때 필수</li></ol>
+  </div>
+  <h2>Properties</h2>
+  <h3>Variant</h3>
+  <div class="demo tinted col" style="align-items:flex-start">
+    <div class="toast"><i><svg class="i filled" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c5.523 0 10 4.477 10 10a10 10 0 0 1 -19.995 .324l-.005 -.324l.004 -.28c.148 -5.393 4.566 -9.72 9.996 -9.72zm0 9h-1l-.117 .007a1 1 0 0 0 0 1.986l.117 .007v3l.007 .117a1 1 0 0 0 .876 .876l.117 .007h1l.117 -.007a1 1 0 0 0 .876 -.876l.007 -.117l-.007 -.117a1 1 0 0 0 -.764 -.857l-.112 -.02l-.117 -.006v-3l-.007 -.117a1 1 0 0 0 -.876 -.876l-.117 -.007zm.01 -3l-.127 .007a1 1 0 0 0 0 1.986l.117 .007l.127 -.007a1 1 0 0 0 0 -1.986l-.117 -.007z"/></svg></i><span>업무일지 초안을 만드는 중입니다</span></div>
+    <div class="toast positive"><i><svg class="i filled" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 3.34a10 10 0 1 1 -14.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 14.995 -8.336zm-1.293 5.953a1 1 0 0 0 -1.32 -.083l-.094 .083l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.403 1.403l.083 .094l2 2l.094 .083a1 1 0 0 0 1.226 0l.094 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z"/></svg></i><span>퇴근 18:02 로 기록했습니다</span><a href="#components/toast">되돌리기</a></div>
+    <div class="toast critical"><i><svg class="i filled" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c5.523 0 10 4.477 10 10a10 10 0 0 1 -19.995 .324l-.005 -.324l.004 -.28c.148 -5.393 4.566 -9.72 9.996 -9.72zm.01 13l-.127 .007a1 1 0 0 0 0 1.986l.117 .007l.127 -.007a1 1 0 0 0 0 -1.986l-.117 -.007zm-.01 -8a1 1 0 0 0 -.993 .883l-.007 .117v4l.007 .117a1 1 0 0 0 1.986 0l.007 -.117v-4l-.007 -.117a1 1 0 0 0 -.993 -.883z"/></svg></i><span>결재 승인에 실패했습니다 — 세션이 만료됐습니다</span><a href="#components/toast">다시 시도</a><button class="toast-x" aria-label="닫기"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg></button></div>
+    <div class="toast warning"><i><svg class="i filled" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.67c.955 0 1.845 .467 2.39 1.247l.105 .16l8.114 13.548a2.914 2.914 0 0 1 -2.307 4.363l-.195 .008h-16.225a2.914 2.914 0 0 1 -2.582 -4.2l.099 -.185l8.11 -13.538a2.914 2.914 0 0 1 2.491 -1.403zm.01 13.33l-.127 .007a1 1 0 0 0 0 1.986l.117 .007l.127 -.007a1 1 0 0 0 0 -1.986l-.117 -.007zm-.01 -7a1 1 0 0 0 -.993 .883l-.007 .117v4l.007 .117a1 1 0 0 0 1.986 0l.007 -.117v-4l-.007 -.117a1 1 0 0 0 -.993 -.883z"/></svg></i><span>근태 시스템 응답이 느립니다. 기록은 저장됐습니다</span></div>
+  </div>
+  <table><tr><th>Variant</th><th>쓰임</th></tr><tr><td>neutral</td><td>진행·안내 — 초안 생성 중, 복사됨</td></tr><tr><td>positive</td><td>완료 — 신청·기록·승인 성공</td></tr><tr><td>critical</td><td>실패 — 원인 + 다시 시도, 스스로 사라지지 않습니다</td></tr><tr><td>warning</td><td>됐지만 주의 — 부분 성공, 지연</td></tr></table>
+  <h3>Duration</h3>
+  <table><tr><th>상황</th><th>지속</th><th>닫기 버튼</th></tr><tr><td>neutral · positive · warning</td><td>4초</td><td>없음</td></tr><tr><td>action 이 있을 때</td><td>8초(되돌릴 시간)</td><td>없음</td></tr><tr><td>critical</td><td>sticky — 사용자가 닫을 때까지</td><td>필수</td></tr></table>
+  <h3>Position</h3>
+  <div class="demo tinted" style="padding:0"><div class="toast-stage"><div class="toast positive"><i><svg class="i filled" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 3.34a10 10 0 1 1 -14.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 14.995 -8.336zm-1.293 5.953a1 1 0 0 0 -1.32 -.083l-.094 .083l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.403 1.403l.083 .094l2 2l.094 .083a1 1 0 0 0 1.226 0l.094 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z"/></svg></i><span>회의실 A 를 14:00 에 예약했습니다</span><a href="#components/toast">보기</a></div></div></div>
+  <p>화면 아래 가운데, 바닥에서 <code>--dim-x4</code>. 컴포저가 있는 대화 화면에서는 컴포저 위에 뜹니다. 여러 개가 쌓이면 최신이 아래, 최대 3개.</p>
+  <h2>Guidelines</h2>
+  <div class="dd">
+    <div class="do"><b>Do</b><div class="demo tinted"><div class="toast positive"><i><svg class="i filled" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 3.34a10 10 0 1 1 -14.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 14.995 -8.336zm-1.293 5.953a1 1 0 0 0 -1.32 -.083l-.094 .083l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.403 1.403l.083 .094l2 2l.094 .083a1 1 0 0 0 1.226 0l.094 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z"/></svg></i><span>대화를 삭제했습니다</span><a href="#components/toast">되돌리기</a></div></div>되돌릴 수 있는 행동엔 「되돌리기」를 붙이고 8초를 줍니다.</div>
+    <div class="dont"><b>Don&#39;t</b><div class="demo tinted"><div class="toast"><i><svg class="i filled" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c5.523 0 10 4.477 10 10a10 10 0 0 1 -19.995 .324l-.005 -.324l.004 -.28c.148 -5.393 4.566 -9.72 9.996 -9.72zm0 9h-1l-.117 .007a1 1 0 0 0 0 1.986l.117 .007v3l.007 .117a1 1 0 0 0 .876 .876l.117 .007h1l.117 -.007a1 1 0 0 0 .876 -.876l.007 -.117l-.007 -.117a1 1 0 0 0 -.764 -.857l-.112 -.02l-.117 -.006v-3l-.007 -.117a1 1 0 0 0 -.876 -.876l-.117 -.007zm.01 -3l-.127 .007a1 1 0 0 0 0 1.986l.117 .007l.127 -.007a1 1 0 0 0 0 -1.986l-.117 -.007z"/></svg></i><span>삭제하시겠습니까?</span><a href="#components/toast">삭제</a><a href="#components/toast">취소</a></div></div>토스트로 묻지 않습니다 — 답을 받아야 하면 <a href="#components/dialog">Dialog</a>.</div>
+  </div>
+  <div class="dd">
+    <div class="do"><b>Do</b>한 줄, 결과 중심으로: <b>퇴근 18:02 로 기록했습니다</b>. 실패는 원인을 한 구절로.</div>
+    <div class="dont"><b>Don&#39;t</b>사용자가 시작하지 않은 시스템 소식(정기 동기화 완료 등)을 토스트로 띄우지 않습니다. 화면에 남아야 할 정보도 안 됩니다.</div>
+  </div>
+  <h2>Toast vs. Notice(inline)</h2>
+  <table><tr><th></th><th>Toast</th><th>Notice</th></tr><tr><td>위치</td><td>화면 위에 떠서, 하단 가운데</td><td>내용 흐름 안, 관련 요소 바로 옆</td></tr><tr><td>지속</td><td>4초 뒤 사라짐(오류는 sticky)</td><td>상태가 풀릴 때까지 남음</td></tr><tr><td>내용</td><td>방금 한 행동의 결과</td><td>지금 화면의 상태·조건(연동 안 됨, 결재 대기)</td></tr><tr><td>행동</td><td>링크 하나까지</td><td>버튼 가능</td></tr></table>
+  <h2>Specification</h2>
+  <table><tr><th>부위</th><th>토큰</th></tr>
+    <tr><td>Container</td><td><code>--bg-layer-floating</code> · <code>--radius-lg</code> · <code>--shadow-3</code> · 패딩 <code>--dim-x3</code> <code>--dim-x4</code> · 폭 280–480</td></tr>
+    <tr><td>Message</td><td>t2 <code>--fg-neutral</code></td></tr>
+    <tr><td>Icon</td><td>18px filled · neutral <code>--fg-neutral-subtle</code> · positive <code>--fg-positive</code> · critical <code>--fg-critical</code> · warning <code>--fg-warning</code></td></tr>
+    <tr><td>Action</td><td>t2 <code>--font-weight-semibold</code> <code>--fg-neutral</code> 밑줄</td></tr>
+    <tr><td>Close</td><td>20px · <code>--fg-neutral-muted</code> · hover <code>--bg-neutral-hover</code></td></tr>
+    <tr><td>접근성</td><td><code>role="status"</code>(critical 은 <code>role="alert"</code>) · 닫기 버튼 <code>aria-label="닫기"</code> · 마우스 올리면 타이머 정지</td></tr></table>
+</section>

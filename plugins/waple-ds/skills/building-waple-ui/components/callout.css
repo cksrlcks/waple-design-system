@@ -1,0 +1,14 @@
+/* Callout — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Callout ── 페이지·폼·패널 안에 머무는 안내. 여섯 상태 어휘 + 페이지 배너 */
+  .callout{display:flex;align-items:flex-start;gap:var(--dim-x2_5);width:100%;max-width:640px;padding:var(--dim-x3) var(--dim-x4);border-radius:var(--radius-md);background:var(--bg-neutral-weak);color:var(--fg-neutral);font-size:var(--font-size-t2);line-height:var(--line-height-t2);text-align:left}
+  .callout>svg{width:16px;height:16px;margin-top:var(--dim-x0_5);color:var(--fg-neutral-subtle)}
+  .callout__body{flex:1;min-width:0} .callout__title{display:block;font-weight:var(--font-weight-semibold)} .callout__text{display:block;color:var(--fg-neutral-subtle)}
+  .callout__actions{display:flex;flex-wrap:wrap;align-items:center;gap:var(--dim-x2);margin-top:var(--dim-x2_5)}
+  .callout__link{font-weight:var(--font-weight-semibold);color:var(--fg-neutral);text-decoration:underline;text-underline-offset:2px;border-radius:var(--radius-xs)}
+  .callout__link:focus-visible{outline:none;box-shadow:0 0 0 3px var(--bg-accent-weak),0 0 0 4px var(--stroke-focus)}
+  .callout__x{margin:calc(-1 * var(--dim-x1)) calc(-1 * var(--dim-x2)) calc(-1 * var(--dim-x1)) 0}
+  .callout.info{background:var(--bg-info-weak)} .callout.info>svg{color:var(--fg-info)} .callout.success{background:var(--bg-positive-weak)} .callout.success>svg{color:var(--fg-positive)}
+  .callout.warning{background:var(--bg-warning-weak)} .callout.warning>svg{color:var(--fg-warning)} .callout.danger{background:var(--bg-critical-weak)} .callout.danger>svg{color:var(--fg-critical)}
+  .callout.sample{background:var(--bg-sample-weak)} .callout.sample>svg{color:var(--fg-sample)}
+  .callout.banner{max-width:none;align-items:center;padding:var(--dim-x2) var(--dim-x4);border-radius:0} .callout.banner>svg{margin-top:0}
+  .callout.banner .callout__title,.callout.banner .callout__text{display:inline} .callout.banner>.callout__actions{flex:none;margin:0} .callout.banner .callout__x{margin:calc(-1 * var(--dim-x1)) calc(-1 * var(--dim-x2))}

@@ -1,0 +1,12 @@
+/* Number input — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Number input ── − 값 단위 + 가 한 상자. 기본 <input type="number"> — ↑↓·min·max·step 은 브라우저가 */
+  .numin{display:inline-flex;align-items:center;width:132px;height:36px;padding:0 3px;border:1px solid var(--stroke-neutral-strong);border-radius:var(--radius-sm);background:var(--bg-layer-default);color:var(--fg-neutral);transition:border-color var(--duration-fast),box-shadow var(--duration-fast)}
+  .numin .iconbtn{width:28px;height:28px;flex:none} .numin .iconbtn svg{width:16px;height:16px}
+  .numin__val{flex:1;min-width:0;display:flex;align-items:baseline;justify-content:center;gap:2px;font-size:var(--font-size-t2);cursor:text}
+  .numin input{flex:none;width:calc(var(--numin-ch,3) * 1ch);padding:0;border:0;background:transparent;font:inherit;font-weight:var(--font-weight-semibold);color:inherit;text-align:right;font-variant-numeric:tabular-nums;outline:none;-moz-appearance:textfield;appearance:textfield}
+  .numin input::-webkit-inner-spin-button,.numin input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+  .numin__unit{color:var(--fg-neutral-muted)}
+  .numin:focus-within,.numin.focus{border-color:var(--stroke-accent);box-shadow:0 0 0 3px var(--bg-accent-weak)}
+  .numin:has([aria-invalid="true"]){border-color:var(--stroke-critical)}
+  .numin:has(input:disabled){background:var(--bg-neutral-weak);border-color:transparent;color:var(--fg-disabled)} .numin:has(input:disabled) .numin__unit{color:var(--fg-disabled)}
+  .numin.sm{width:112px;height:32px;padding:0 3px} .numin.sm .iconbtn{width:24px;height:24px} .numin.sm .numin__val{font-size:var(--font-size-t1)}

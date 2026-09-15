@@ -1,0 +1,51 @@
+<section class="page" id="components/button">
+  <h1>Button</h1>
+  <p class="desc">사용자가 행동을 실행하게 하는 가장 기본적인 요소. 화면의 주요 행동은 <code>brand-solid</code>(검정) 하나만 씁니다. 틸 채움 버튼은 없습니다 — 틸은 글로우 CTA(Composer)와 선택 상태에만.</p>
+
+  <h2>Anatomy</h2>
+  <div class="anatomy">
+    <div class="demo"><button class="btn lg brand-solid"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5l0 14"/><path d="M5 12l14 0"/></svg>예약하기<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6l-6 6"/></svg></button></div>
+    <ol><li><b>Container</b> — 크기·라운드·배경을 가진 상자(버튼 전체)</li><li><b>Prefix icon</b> (선택) — 라벨 앞 아이콘. xs 14 · sm 16 · md 18 · lg 20px</li><li><b>Label</b> — 동사로 끝나는 짧은 문구</li><li><b>Suffix icon</b> (선택) — 방향·펼침을 뜻할 때만</li></ol>
+  </div>
+
+  <h2>Properties</h2>
+  <h3>Size</h3>
+  <div class="demo"><button class="btn xs brand-solid">XSmall</button><button class="btn sm brand-solid">Small</button><button class="btn md brand-solid">Medium</button><button class="btn lg brand-solid">Large</button></div>
+  <table><tr><th>크기</th><th>높이</th><th>쓰임</th></tr><tr><td>xs</td><td>26px</td><td>표 안·칩 옆</td></tr><tr><td>sm</td><td>32px</td><td>카드·리스트 안 보조 행동</td></tr><tr><td>md</td><td>40px</td><td>기본</td></tr><tr><td>lg</td><td>48px</td><td>화면 하단 고정 CTA</td></tr></table>
+  <h3>Variant</h3>
+  <div class="demo"><button class="btn md brand-solid">Brand solid</button><button class="btn md brand-weak">Brand weak</button><button class="btn md neutral-solid">Neutral solid</button><button class="btn md neutral-weak">Neutral weak</button><button class="btn md neutral-outline">Neutral outline</button><button class="btn md critical-solid">Critical solid</button><button class="btn md critical-outline">Critical outline</button></div>
+  <table><tr><th>강조</th><th>Variant</th><th>쓰임</th></tr><tr><td>High</td><td>brand-solid (= neutral-solid, 검정)</td><td>화면당 하나, 주요 행동</td></tr><tr><td>Medium</td><td>brand-weak · neutral-outline</td><td>주요 행동 옆의 대안</td></tr><tr><td>Low</td><td>neutral-weak</td><td>취소·닫기·더보기</td></tr><tr><td>Critical</td><td>critical-solid · critical-outline</td><td>삭제처럼 되돌릴 수 없는 행동 — solid 는 확인 Dialog 의 주요 버튼, outline 은 설정 행의 「접속 끊기」처럼 확인 앞 단계</td></tr></table>
+  <h3>With icon</h3>
+  <div class="demo"><button class="btn sm neutral-outline"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5l0 14"/><path d="M5 12l14 0"/></svg>새 대화</button><button class="btn md brand-solid"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14l11 -11"/><path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5"/></svg>상신</button><button class="btn md neutral-outline">필터<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6l6 -6"/></svg></button><button class="btn lg brand-solid"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z"/><path d="M16 3v4"/><path d="M8 3v4"/><path d="M4 11h16"/><path d="M11 15h1"/><path d="M12 15v3"/></svg>연차 신청</button></div>
+  <h3>State</h3>
+  <div class="demo"><button class="btn md brand-solid">Enabled</button><button class="btn md brand-solid" style="filter:brightness(.88)">Pressed</button><button class="btn md brand-solid loading"><span class="spin"></span> 저장 중</button><button class="btn md brand-solid" disabled>Disabled</button></div>
+  <h3>Width</h3>
+  <div class="demo col"><button class="btn md brand-solid" style="align-self:flex-start">Hug — 내용 폭</button><button class="btn md brand-solid fill">Fill — 부모 폭 (모바일 하단 CTA)</button></div>
+
+  <h2>Guidelines</h2>
+  <div class="dd">
+    <div class="do"><b>Do</b><div class="demo"><button class="btn md neutral-outline">취소</button><button class="btn md brand-solid">예약하기</button></div>주요 행동은 오른쪽(또는 아래), 취소는 낮은 강조로.</div>
+    <div class="dont"><b>Don't</b><div class="demo"><button class="btn md brand-solid">취소</button><button class="btn md brand-solid">예약하기</button></div>solid 두 개를 나란히 두지 않는다 — 무엇이 주요 행동인지 알 수 없다.</div>
+  </div>
+  <div class="dd">
+    <div class="do"><b>Do</b>라벨은 동사로 끝낸다: <b>예약하기 · 저장 · 삭제</b>.</div>
+    <div class="dont"><b>Don't</b>「확인」「OK」「예」처럼 무엇이 일어나는지 모르는 라벨.</div>
+  </div>
+
+  <h2>Button vs. Chip</h2>
+  <table><tr><th></th><th>Button</th><th>Chip</th></tr><tr><td>목적</td><td>행동 실행</td><td>필터·선택 상태 토글</td></tr><tr><td>모양</td><td>radius-md, 높이 고정</td><td>radius-full, 작음</td></tr><tr><td>선택 상태</td><td>없음</td><td>있음(selected)</td></tr></table>
+
+  <h2>Specification</h2>
+  <table><tr><th>Variant</th><th>배경</th><th>글자</th><th>선</th></tr>
+    <tr><td>brand-solid</td><td><code>--bg-brand-solid</code></td><td><code>--fg-on-brand</code></td><td>—</td></tr>
+    <tr><td>brand-weak</td><td><code>--bg-brand-weak</code></td><td><code>--fg-brand</code></td><td>—</td></tr>
+    <tr><td>neutral-solid</td><td><code>--bg-neutral-solid</code></td><td><code>--fg-on-neutral</code></td><td>—</td></tr>
+    <tr><td>neutral-weak</td><td><code>--bg-neutral-weak</code></td><td><code>--fg-neutral</code></td><td>—</td></tr>
+    <tr><td>neutral-outline</td><td><code>--bg-layer-default</code></td><td><code>--fg-neutral</code></td><td><code>--stroke-neutral-strong</code></td></tr>
+    <tr><td>critical-solid</td><td><code>--bg-critical-solid</code></td><td><code>--fg-on-critical</code></td><td>—</td></tr>
+    <tr><td>critical-outline</td><td><code>--bg-layer-default</code></td><td><code>--fg-critical</code></td><td><code>--stroke-critical</code></td></tr>
+    <tr><td>disabled</td><td><code>--bg-neutral-weak</code></td><td><code>--fg-disabled</code></td><td>—</td></tr></table>
+  <table><tr><th>Size</th><th>높이</th><th>좌우 패딩</th><th>글자</th><th>아이콘</th><th>라운드</th></tr>
+    <tr><td>xs</td><td>26px</td><td><code>--dim-x2</code></td><td>t1 Medium</td><td>14px</td><td rowspan="4"><code>--radius-md</code></td></tr><tr><td>sm</td><td>32px</td><td><code>--dim-x3</code></td><td>t1 Medium</td><td>16px</td></tr>
+    <tr><td>md</td><td>40px</td><td><code>--dim-x4</code></td><td>t2 Medium</td><td>18px</td></tr><tr><td>lg</td><td>48px</td><td><code>--dim-x5</code></td><td>t3 Medium</td><td>20px</td></tr></table>
+</section>

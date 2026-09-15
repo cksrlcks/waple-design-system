@@ -1,0 +1,13 @@
+/* Marker — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Marker ── 대화 사이의 한 줄 표식: 진행 · 시스템 메모 · 날짜 구분 · 링크 */
+  .marker{display:flex;align-items:center;gap:var(--dim-x2);min-height:28px;font-size:var(--font-size-t1);line-height:var(--line-height-t1);color:var(--fg-neutral-subtle);text-align:left;text-decoration:none}
+  .marker>svg{width:16px;height:16px;flex:none;color:var(--fg-neutral-muted)} .marker__text{min-width:0} .marker__text b{font-weight:var(--font-weight-semibold);color:var(--fg-neutral)} .marker__time{color:var(--fg-neutral-muted);font-variant-numeric:tabular-nums} .marker .btn{margin-left:var(--dim-x1)}
+  .marker__dot{width:6px;height:6px;border-radius:50%;flex:none;background:var(--bg-accent-solid);animation:marker-pulse 1.4s var(--easing) infinite} @keyframes marker-pulse{50%{opacity:.3}}
+  .marker__dots{display:inline-flex;gap:var(--dim-x1)} .marker__dots i{width:6px;height:6px;border-radius:50%;background:var(--stroke-neutral-stronger);animation:marker-blink 1s infinite} .marker__dots i:nth-child(2){animation-delay:.15s} .marker__dots i:nth-child(3){animation-delay:.3s} @keyframes marker-blink{50%{background:var(--fg-neutral-muted)}}
+  .marker.note{justify-content:center;color:var(--fg-neutral-muted)}
+  .marker.sep{width:100%;gap:var(--dim-x3);font-weight:var(--font-weight-medium);color:var(--fg-neutral-muted)} .marker.sep::before,.marker.sep::after{content:"";flex:1;height:1px;background:var(--stroke-neutral-strong)}
+  .marker.border{width:fit-content;max-width:100%;min-height:36px;padding:0 var(--dim-x3);border:1px solid var(--stroke-neutral-strong);border-radius:var(--radius-md);background:var(--bg-layer-default);font:inherit;font-size:var(--font-size-t1);cursor:pointer;transition:background var(--duration-fast)} .marker.border:hover{background:var(--bg-neutral-hover)}
+  .marker.link{width:fit-content;font-weight:var(--font-weight-medium);color:var(--fg-neutral);cursor:pointer} .marker.link:hover{text-decoration:underline;text-underline-offset:3px}
+  .marker.border:focus-visible,.marker.link:focus-visible{outline:none;border-radius:var(--radius-sm);box-shadow:0 0 0 3px var(--bg-accent-weak),0 0 0 4px var(--stroke-focus)}
+  .marker.shimmer .marker__text{background:linear-gradient(90deg,var(--fg-neutral-muted) 35%,var(--fg-neutral) 50%,var(--fg-neutral-muted) 65%) 0 0/250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:marker-shimmer 2s linear infinite} @keyframes marker-shimmer{from{background-position:100% 0}to{background-position:0 0}}
+  @media (prefers-reduced-motion:reduce){.marker__dot,.marker__dots i,.marker.shimmer .marker__text{animation:none} .marker.shimmer .marker__text{background:none;color:var(--fg-neutral-subtle)}}

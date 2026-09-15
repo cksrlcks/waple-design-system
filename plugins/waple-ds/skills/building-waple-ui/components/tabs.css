@@ -1,0 +1,15 @@
+/* Tabs — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Tabs ── 한 화면 안의 서로 다른 내용 영역. 밑줄 하나뿐 — 채움 알약은 Segmented control 의 몫 */
+  .tabset{display:flex;flex-direction:column;gap:var(--dim-x3);width:100%;min-width:0}
+  .tabset__list{display:flex;align-items:center;min-width:0;box-shadow:inset 0 -1px 0 var(--stroke-neutral-strong)}
+  .tabset__tab{display:inline-flex;align-items:center;justify-content:center;gap:var(--dim-x1_5);flex:none;height:44px;padding:0 var(--dim-x3);border:0;background:transparent;font:inherit;font-size:var(--font-size-t2);font-weight:var(--font-weight-medium);line-height:1;color:var(--fg-neutral-subtle);white-space:nowrap;cursor:pointer;box-shadow:inset 0 -2px 0 transparent;transition:color var(--duration-fast) var(--easing),box-shadow var(--duration-fast)}
+  .tabset__tab svg{width:18px;height:18px}
+  .tabset__tab:hover{color:var(--fg-neutral);box-shadow:inset 0 -2px 0 var(--stroke-neutral-stronger)}
+  .tabset__tab[aria-selected="true"]{color:var(--fg-neutral);font-weight:var(--font-weight-semibold);box-shadow:inset 0 -2px 0 var(--stroke-brand);cursor:default}
+  .tabset__tab:focus-visible{outline:none;border-radius:var(--radius-sm);box-shadow:inset 0 0 0 2px var(--stroke-focus)}
+  .tabset__tab:disabled{color:var(--fg-disabled);box-shadow:inset 0 -2px 0 transparent;cursor:not-allowed}
+  .tabset.sm .tabset__tab{height:36px;font-size:var(--font-size-t1)} .tabset.sm .tabset__tab svg{width:16px;height:16px}
+  .tabset.scroll .tabset__list{overflow-x:auto;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,black calc(100% - var(--dim-x10)),transparent);mask-image:linear-gradient(90deg,black calc(100% - var(--dim-x10)),transparent)}
+  .tabset.scroll .tabset__list::-webkit-scrollbar{display:none}
+  .tabset__panel{min-width:0;font-size:var(--font-size-t2);line-height:var(--line-height-t2);color:var(--fg-neutral)}
+  .tabset__panel:focus-visible{outline:none;border-radius:var(--radius-sm);box-shadow:0 0 0 3px var(--bg-accent-weak),0 0 0 4px var(--stroke-focus)}

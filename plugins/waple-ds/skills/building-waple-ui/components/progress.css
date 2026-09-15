@@ -1,0 +1,19 @@
+/* Progress — Waple DS 스냅숏. foundation/tokens.css · base.css 다음에 싣는다 */
+  /* ── Progress ── 막대(.prog) · 원(.pring) · 스피너(.spinner). 톤은 color 로 주고 막대·원은 currentColor 를 칠한다 */
+  .prog{display:flex;flex-direction:column;gap:var(--dim-x1_5);width:100%;max-width:360px;color:var(--bg-brand-solid)}
+  .prog__head{display:flex;justify-content:space-between;align-items:baseline;gap:var(--dim-x3);font-size:var(--font-size-t1);line-height:var(--line-height-t1);color:var(--fg-neutral-subtle)} .prog__head b{font-weight:var(--font-weight-semibold);color:var(--fg-neutral);font-variant-numeric:tabular-nums}
+  .prog__track{position:relative;height:var(--dim-x1_5);border-radius:var(--radius-full);background:var(--bg-neutral-weak);overflow:hidden}
+  .prog__bar{display:block;height:100%;min-width:var(--dim-x1_5);border-radius:inherit;background:currentColor;transition:width var(--duration-normal) var(--easing)}
+  .prog.sm .prog__track{height:var(--dim-x1)} .prog.lg .prog__track{height:var(--dim-x2)}
+  .prog.indeterminate .prog__bar{width:40%;animation:prog-slide 1.4s var(--easing) infinite} @keyframes prog-slide{from{transform:translateX(-100%)}to{transform:translateX(250%)}}
+  .pring{position:relative;display:inline-flex;align-items:center;justify-content:center;flex:none;width:48px;height:48px;line-height:1;color:var(--bg-brand-solid)}
+  .pring__svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
+  .pring__track,.pring__bar{fill:none;stroke-width:3} .pring__track{stroke:var(--bg-neutral-weak)} .pring__bar{stroke:currentColor;stroke-linecap:round;transition:stroke-dasharray var(--duration-normal) var(--easing)}
+  .pring__val{font-size:var(--font-size-t1);font-weight:var(--font-weight-semibold);color:var(--fg-neutral);font-variant-numeric:tabular-nums}
+  .pring.sm{width:24px;height:24px} .pring.sm .pring__track,.pring.sm .pring__bar{stroke-width:4}
+  .pring.indeterminate .pring__svg{transform:none;animation:spin .8s linear infinite}
+  .prog.accent,.pring.accent{color:var(--bg-accent-solid)} .prog.positive,.pring.positive{color:var(--bg-positive-solid)} .prog.warning,.pring.warning{color:var(--bg-warning-solid)} .prog.critical,.pring.critical{color:var(--bg-critical-solid)}
+  .spinner{display:inline-block;flex:none;width:20px;height:20px;border:var(--dim-x0_5) solid currentColor;border-right-color:transparent;border-radius:50%;animation:spin .8s linear infinite} /* .btn.loading .spin 과 같은 모양 */
+  .spinner.sm{width:16px;height:16px} .spinner.lg{width:24px;height:24px}
+  .spinner__label{display:inline-flex;align-items:center;gap:var(--dim-x2);font-size:var(--font-size-t2);line-height:var(--line-height-t2);color:var(--fg-neutral-muted)}
+  @media (prefers-reduced-motion:reduce){.prog.indeterminate .prog__bar{animation:none;transform:none;margin-left:30%} .pring.indeterminate .pring__svg,.spinner{animation:none}}
