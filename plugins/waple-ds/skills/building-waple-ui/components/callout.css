@@ -2,7 +2,7 @@
   /* ── Callout ── 페이지·폼·패널 안에 머무는 안내. 여섯 상태 어휘 + 페이지 배너 */
   .callout{display:flex;align-items:flex-start;gap:var(--dim-x2_5);width:100%;max-width:640px;padding:var(--dim-x3) var(--dim-x4);border-radius:var(--radius-md);background:var(--bg-neutral-weak);color:var(--fg-neutral);font-size:var(--font-size-t2);line-height:var(--line-height-t2);text-align:left}
   .callout>svg{width:16px;height:16px;margin-top:var(--dim-x0_5);color:var(--fg-neutral-subtle)}
-  .callout__body{flex:1;min-width:0} .callout__title{display:block;font-weight:var(--font-weight-semibold)} .callout__text{display:block;color:var(--fg-neutral-subtle)}
+  .callout__body{flex:1;min-width:0} .callout__title{display:block;font-weight:var(--font-weight-semibold)} .callout__text{display:block;color:var(--fg-neutral-subtle)} .callout__title+.callout__text{margin-top:var(--dim-x1)}
   .callout__actions{display:flex;flex-wrap:wrap;align-items:center;gap:var(--dim-x2);margin-top:var(--dim-x2_5)}
   .callout__link{font-weight:var(--font-weight-semibold);color:var(--fg-neutral);text-decoration:underline;text-underline-offset:2px;border-radius:var(--radius-xs)}
   .callout__link:focus-visible{outline:none;box-shadow:0 0 0 3px var(--bg-accent-weak),0 0 0 4px var(--stroke-focus)}
